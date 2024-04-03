@@ -1,0 +1,12 @@
+import { Login } from '@mui/icons-material'
+import React from 'react'
+
+function Home() {
+  return (
+    <div >
+        <h1>TEST</h1>
+    </div>
+  )
+}
+
+export default Home
