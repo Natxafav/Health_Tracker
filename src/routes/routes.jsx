@@ -1,5 +1,5 @@
 
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 
 import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
@@ -20,11 +20,19 @@ export const router = createBrowserRouter([
         {
             path: 'home',
             element: <Home/>,
+            lodear: () => {
+                if(localStorage.getItem('Authorization')){
+                    return null
+                } else {
+                    return redirect('/')
+                }
+            }
         }]
     },
     {
         path: "login",
         element: <Login/>,
+        
     }, 
     {
         path: 'signup',
