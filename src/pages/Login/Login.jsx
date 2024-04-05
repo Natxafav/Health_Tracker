@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './Login.css'
 import { login } from '../../services/auth'
 import "@fontsource/poppins"
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { LockOutlined, MailOutline } from "@mui/icons-material";
 
 function Login() {
