@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { signup } from '../../services/auth'
 import { Button, Card, CardActions, CardContent, CardHeader, TextField } from '@mui/material'
-
+import './SignUp.css'
 const SignUp = () => {
 
     const [name, setName] = useState('')
@@ -19,77 +19,114 @@ const SignUp = () => {
             name, lastname, nss, date_birth, dni, email, password, phone 
 
         })
+        localStorage.setItem('Authorization', res.data.token)
+        localStorage.setItem('user',res.data.user)
     }
 
   return (
-    <>
-    <Card sx={{ width: "40%" }}>
-        <CardHeader title="Sign Up" />
-        <CardContent
-          sx={{ display: "flex", flexDirection: "column", garp: "10px" }}
+    <div className='signup' sx={{color:'white'}}>
+    <Card className='mainContainer' sx={{ borderRadius: "20px", gap: "15px",}}>
+        <CardHeader  title="Sign Up" />
+        <CardContent className='fields'
+          sx={{ display: "flex", flexDirection: "column", gap:'15px', }}          
         >
-          <TextField
+          <TextField className='field'
+           sx={{ textAlign:'center', fontFamily: "poppins", }}
+          
             type="text"
             variant="outlined"
-            label="Name"
+            label="Name"         
             onChange={(e) => setName(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
-          <TextField
+          <TextField className='field'
+           sx={{  fontFamily: "poppins" }}
             type="text"
             variant="outlined"
             label="Lastname"
             onChange={(e) => setLastname(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
-            <TextField
+            <TextField className='field'
+             sx={{  fontFamily: "poppins" }}
             type="text"
             variant="outlined"
             label="NSS"
             onChange={(e) => setNss(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
-            <TextField
+            <TextField className='field'
+             sx={{  fontFamily: "poppins" , align:'center'}}
             type="date"
             variant="outlined"
             label="Birthday"
             onChange={(e) => setDate_birth(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
-           <TextField
+           <TextField className='field'
+            sx={{  fontFamily: "poppins" }}
             type="text"
             variant="outlined"
             label="DNI"
             onChange={(e) => setDni(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
-          <TextField
+          <TextField className='field'
+           sx={{  fontFamily: "poppins" }}
             type="email"
             variant="outlined"
             label="Email"
             onChange={(e) => setEmail(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
           
-          <TextField
+          <TextField className='field'
+           sx={{  fontFamily: "poppins" }}
             type="password"
             variant="outlined"
             label="Password"
             onChange={(e) => setPassword(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
-          <TextField
+          <TextField className='field'
+           sx={{  fontFamily: "poppins" }}
             type="text"
             variant="outlined"
             label="Phone"
             onChange={(e) => setPhone(e.target.value)}
+             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
         </CardContent>
-        <CardActions sx={{ display: "flex", justifyContent: "end" }}>
-          <Button variant=" outlined" onClick={()=>handleSignUp()}>
+        <CardActions className='btncontainer' sx={{ display: "flex", justifyContent: "end" }}>
+          <Button variant=" outlined" onClick={()=>handleSignUp()} sx={{
+              color: "white",
+              backgroundColor: "black",
+              fontFamily: "poppins",
+              ":hover": {
+                backgroundColor: "Aqua",
+                color: "black",
+                boxShadow: "15px -5px 10px",
+              },
+            }}>
             Sign Up
           </Button>
-          <Button variant="outlined">Cancel</Button>
+          <Button variant="outlined" sx={{
+              color: "white",
+              backgroundColor: "black",
+              fontFamily: "poppins",
+              ":hover": {
+                backgroundColor: "Aqua",
+                color: "black",
+                boxShadow: "15px -5px 10px",
+              },
+            }}>Cancel</Button>
         </CardActions>
       </Card>
     
     
     
     
-    </>  )
+    </div>  )
 }
 
 export default SignUp
