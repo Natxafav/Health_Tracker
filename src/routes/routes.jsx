@@ -20,11 +20,11 @@ export const router = createBrowserRouter([
         {
             path: 'home',
             element: <Home/>,
-            lodear: () => {
-                if(localStorage.getItem('Authorization')){
-                    return null
+            loader: () => {
+                if(!localStorage.getItem('Authorization')){
+                    return redirect('/login')
                 } else {
-                    return redirect('/')
+                    return null
                 }
             }
         }]

@@ -1,10 +1,10 @@
-import { Button, Card, CardContent, InputAdornment, TextField, Typography } from '@mui/material'
+import { Button, Card, CardContent, FormControl, FormHelperText, Input, InputAdornment, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 import './Login.css'
 import { login } from '../../services/auth'
 import "@fontsource/poppins"
 import { useNavigate } from 'react-router-dom'
-import { LockOutlined, MailOutline } from "@mui/icons-material";
+import { InfoOutlined, LockOutlined, MailOutline } from "@mui/icons-material";
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -19,7 +19,9 @@ function Login() {
             localStorage.setItem('email', res.data.email)
             navigate('/home')
         } catch (error) {
-          console.log(error)
+
+            console.log(error)
+
         }
     }
 
@@ -31,7 +33,6 @@ function Login() {
                         sx={{ margin: "10px", fontFamily: "poppins" }}
                         className="field"
                         placeholder="Email"
-                        onError={'test'}
                         onChange={(e) => setEmail(e.target.value)}
                         InputProps={{
                             startAdornment: (
@@ -78,22 +79,22 @@ function Login() {
                     >
                         Login
                     </Button>
-                        <Button
-                            onClick={() => {navigate('/signup')}}
-                            className="btn"
-                            sx={{
-                                color: "white",
-                                backgroundColor: "black",
-                                fontFamily: "poppins",
-                                ":hover": {
-                                    backgroundColor: "Aqua",
-                                    color: "black",
-                                    boxShadow: "15px -5px 10px",
-                                },
-                            }}
-                        >
-                            Register
-                        </Button>
+                    <Button
+                        onClick={() => { navigate('/signup') }}
+                        className="btn"
+                        sx={{
+                            color: "white",
+                            backgroundColor: "black",
+                            fontFamily: "poppins",
+                            ":hover": {
+                                backgroundColor: "Aqua",
+                                color: "black",
+                                boxShadow: "15px -5px 10px",
+                            },
+                        }}
+                    >
+                        Register
+                    </Button>
                 </div>
             </Card>
         </div>
