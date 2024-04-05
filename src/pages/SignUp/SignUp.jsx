@@ -21,8 +21,11 @@ const SignUp = () => {
       name, lastname, nss, date_birth, dni, email, password, phone
 
     })
+    console.log(res.data)
     localStorage.setItem('Authorization', res.data.token)
-    localStorage.setItem('user', res.data.user)
+    localStorage.setItem('role', res.data.role)
+    localStorage.setItem('email', res.data.email)
+    navigate('/home')
   }
 
   return (
@@ -35,7 +38,7 @@ const SignUp = () => {
           <TextField className='field'
             sx={{ textAlign: 'center', fontFamily: "poppins", }}
 
-            type="text"
+            type="text"www
             variant="outlined"
             label="Name"
             onChange={(e) => setName(e.target.value)}
