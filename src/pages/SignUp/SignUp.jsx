@@ -1,8 +1,12 @@
 import  { useState } from 'react'
 import { signup } from '../../services/auth'
-import { Button, Card, CardActions, CardContent, CardHeader, TextField } from '@mui/material'
-import './SignUp.css'
+import { Button, Card, CardActions, CardContent, CardHeader, TextField,Checkbox, FormControlLabel } from '@mui/material'
+
+
+import './signUp.css'
 import { useNavigate } from 'react-router-dom'
+
+
 const SignUp = () => {
 
   const [name, setName] = useState('')
@@ -39,7 +43,7 @@ const SignUp = () => {
           <TextField className='field'
             sx={{ textAlign: 'center', fontFamily: "poppins", }}
 
-            type="text"www
+            type="text"
             variant="outlined"
             label="Name"
             onChange={(e) => setName(e.target.value)}
@@ -105,7 +109,7 @@ const SignUp = () => {
         </CardContent>
         <CardActions className='btncontainer' sx={{ display: "flex", justifyContent: "end" }}>
         <FormControlLabel
-            control={<Checkbox checked={showAddFamily} onChange={() => setShowAddFamily(!showAddFamily)} />}
+            control={<Chec checked={showAddFamily} onChange={() => setShowAddFamily(!showAddFamily)} />}
             label="Agregar familia"
           />
 

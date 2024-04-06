@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, InputAdornment, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import './Login.css'
+import './login.css'
 import { login } from '../../services/auth'
 import "@fontsource/poppins"
 import { Link, useNavigate } from 'react-router-dom'
