@@ -27,7 +27,13 @@ export const router = createBrowserRouter([
                     return redirect('/')
                 }
             }
-        }]
+        },
+    {
+
+        
+    }
+    
+    ]
     },
     {
         path: "login",
