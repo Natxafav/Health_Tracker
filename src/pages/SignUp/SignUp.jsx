@@ -13,6 +13,7 @@ const SignUp = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [phone, setPhone] = useState('')
+  const [showAddFamily, setShowAddFamily] = useState(false); 
   const navigate = useNavigate()
 
 
@@ -103,6 +104,11 @@ const SignUp = () => {
           ></TextField>
         </CardContent>
         <CardActions className='btncontainer' sx={{ display: "flex", justifyContent: "end" }}>
+        <FormControlLabel
+            control={<Checkbox checked={showAddFamily} onChange={() => setShowAddFamily(!showAddFamily)} />}
+            label="Agregar familia"
+          />
+
           <Button variant=" outlined" onClick={() => handleSignUp()} sx={{
             color: "white",
             backgroundColor: "black",
@@ -127,11 +133,16 @@ const SignUp = () => {
           }}>Cancel</Button>
         </CardActions>
       </Card>
+      {showAddFamily && <AddFamilyComponent />}
 
 
 
+    </div>
+  
+  
 
-    </div>)
+
+  )
 }
 
 export default SignUp
