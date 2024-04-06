@@ -4,7 +4,7 @@ import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
 import MainLayout from "../layouts/MainLayout";
-import SignUp from "../pages/SignUp/SignUp";
+import SignUp from "../pages/SignUp/SignUp.jsx";
 import Landing from "../pages/Landing/Landing";
 
 

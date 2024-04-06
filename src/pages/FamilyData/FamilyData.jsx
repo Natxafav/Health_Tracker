@@ -1,22 +1,30 @@
 
 import { Button, Card, CardContent, InputAdornment, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import './Login.css'
-
 import "@fontsource/poppins"
-import { Link, useNavigate } from 'react-router-dom'
-import { LockOutlined, MailOutline } from "@mui/icons-material";
+import {  useNavigate } from 'react-router-dom'
+import {createFamily} from '../../services/family'
+
+
+
 
 const FamilyData = () => {
-
-
-
-
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [familyName, setFamilyName] = useState('') 
     const navigate = useNavigate();
 
-  
+    const handleSubmit = async () => {
+       
+        try {
+          const newFamily = await createFamily(familyName);
+          console.log('New family created:', newFamily);
+          navigate("/home");
+        
+        } catch (error) {
+          console.error('Error creating family:', error);
+        }
+      };
+
+
 
     return (
         <div className="family">
@@ -25,40 +33,19 @@ const FamilyData = () => {
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
                         className="field"
-                        placeholder="Family Name"
-                        
-                        onChange={(e) => setEmail(e.target.value)}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <MailOutline />
-                                </InputAdornment>
-                            )
-                        }}
+                        placeholder="Family Name"                        
+                        onChange={(e) => setFamilyName(e.target.value)}
+                       
                     >
-                        <Typography sx={{ fontFamily: "poppins" }}>Email</Typography>
+                        <Typography sx={{ fontFamily: "poppins" }}>Family Name</Typography>
                     </TextField>
-                    <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins" }}
-                        className="field"
-                        placeholder="Password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <LockOutlined />
-                                </InputAdornment>
-                            )
-                        }}
-                    >
-                        <Typography sx={{ fontFamily: "poppins" }}>Password</Typography>
-                    </TextField>
+                   
                 </CardContent>
                 <div className="btncontainer">
                     <Button
                         className="btn"
                         onClick={() => {
-                            userPost();
+                            handleSubmit();
                         }}
                         sx={{
                             color: "white",
@@ -71,7 +58,7 @@ const FamilyData = () => {
                             },
                         }}
                     >
-                        Login
+                        Register
                     </Button>
                         <Button
                             onClick={() => {navigate('/signup')}}
@@ -87,7 +74,7 @@ const FamilyData = () => {
                                 },
                             }}
                         >
-                            Register
+                            Cancel
                         </Button>
                 </div>
             </Card>
