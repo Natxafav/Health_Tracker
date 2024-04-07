@@ -6,6 +6,8 @@ import Home from "../pages/Home/Home";
 import MainLayout from "../layouts/MainLayout";
 import SignUp from "../pages/SignUp/SignUp";
 import Landing from "../pages/Landing/Landing";
+import FamilyChoice from "../components/FamilyChoice/FamilyChoice";
+import FamilyData from "../pages/FamilyData/FamilyData";
 
 
 export const router = createBrowserRouter([
@@ -20,7 +22,7 @@ export const router = createBrowserRouter([
         {
             path: 'home',
             element: <Home/>,
-            lodear: () => {
+            loader: () => {
                 if(localStorage.getItem('Authorization')){
                     return null
                 } else {
@@ -37,5 +39,12 @@ export const router = createBrowserRouter([
     {
         path: 'signup',
         element: <SignUp/>
+    }, {
+        path:'family/create',
+        element:<FamilyData/>
+    },{
+        path: 'family-choice',
+        element: <FamilyChoice/>
     }
+    
 ]);
