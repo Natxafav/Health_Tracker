@@ -1,11 +1,11 @@
 import  { useState } from 'react'
 import { signup } from '../../services/auth'
 import { Button, Card, CardActions, CardContent, CardHeader, TextField,Checkbox, FormControlLabel } from '@mui/material'
-import { createFamily } from '../../services/family'
-import { Axios } from 'axios'
+
+
 import './signUp.css'
 import { useNavigate } from 'react-router-dom'
-import { api } from "../../services/config";
+
 
 
 
@@ -24,13 +24,9 @@ import { api } from "../../services/config";
     
       const handleSignUp = async () => {
         try {
+       
           const res = await signup({ name, lastname, nss, date_birth, dni, email, password, phone });
-    
-          if (res.data.message === 'El usuario ya está registrado') {    
-            console.log('El usuario ya está registrado');
-            return;
-          }
-    
+             
           const token = res.data.token;   
          
           localStorage.setItem('Authorization', token);
@@ -42,6 +38,7 @@ import { api } from "../../services/config";
           } else {
             navigate('/home'); 
           }
+        
         } catch (error) {
           console.log(error);
         }

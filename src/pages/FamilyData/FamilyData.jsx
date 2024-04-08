@@ -4,18 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { createFamily } from '../../services/family';
 
 
+
 const FamilyData = () => {
     const [familyName, setFamilyName] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const roleId = localStorage.getItem('roleId'); 
-            console.log('reoleId', roleId);
-           
+        try {                   
              
-            const newFamily = await createFamily({name:familyName}); 
+            const newFamily = await createFamily(familyName); 
+            console.log('newfamilyId: ',newFamily.id)
+            const updateUserFamily=await updateUserFamilyGroup(newFamily.id)
+            console.log(updateUserFamily)
             console.log('New family created:', newFamily);
             navigate('/home');
         } catch (error) {

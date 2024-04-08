@@ -10,13 +10,12 @@ function FamilyChoice() {
         try {
             const email = localStorage.getItem('email');
             let roleId = localStorage.getItem('roleId');
-         console.log(email, roleId);
-            if (!roleId) {
-                
+
+            if (!roleId || roleId ==null) {                
                 await updateUserRoleId(2, email);
                 localStorage.setItem('roleId', '2');
             }
-            console.log('roleIdffdsd', roleId)
+           
     
             navigate('/family/create');
         } catch (error) {
