@@ -17,3 +17,20 @@ export const createNewMed = async (data) => {
     console.log(error);
   }
 };
+
+export const getAllMeds = async () => {
+  try {
+    const meds = await api.get(
+      "/meds/getAll",
+      {
+        headers: {
+          Authorization: localStorage.getItem("Authorization"),
+        },
+      }
+    );
+
+    return meds.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
