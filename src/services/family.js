@@ -17,6 +17,3 @@ export const createFamily = async (familyData) => {
 };
 
 
-export const getFamilyUser = async ()=>{
-    
-}

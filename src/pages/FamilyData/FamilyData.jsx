@@ -13,12 +13,13 @@ const FamilyData = () => {
         e.preventDefault();
         try {                   
              
-            const newFamily = await createFamily(familyName); 
-            console.log('newfamilyId: ',newFamily.id)
-            const updateUserFamily=await updateUserFamilyGroup(newFamily.id)
-            console.log(updateUserFamily)
-            console.log('New family created:', newFamily);
+            const newFamily = await createFamily(familyName);                      
+        if(newFamily){
             navigate('/home');
+
+        }else {
+            alert('Opss ha habido un fallo')
+        }
         } catch (error) {
             console.error('Error creating family:', error);
         }
