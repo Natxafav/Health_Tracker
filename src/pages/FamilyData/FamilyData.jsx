@@ -1,30 +1,29 @@
-
-import { Button, Card, CardContent, InputAdornment, TextField, Typography } from '@mui/material'
-import { useState } from 'react'
-import "@fontsource/poppins"
-import {  useNavigate } from 'react-router-dom'
-import {createFamily} from '../../services/family'
-
+import React, { useState } from 'react';
+import { Button, Card, CardContent, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { createFamily } from '../../services/family';
 
 
 
 const FamilyData = () => {
-    const [familyName, setFamilyName] = useState('') 
+    const [familyName, setFamilyName] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = async () => {
-       
-        try {
-          const newFamily = await createFamily(familyName);
-          console.log('New family created:', newFamily);
-          navigate("/home");
-        
-        } catch (error) {
-          console.error('Error creating family:', error);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {                   
+             
+            const newFamily = await createFamily(familyName);                      
+        if(newFamily){
+            navigate('/home');
+
+        }else {
+            alert('Opss ha habido un fallo')
         }
-      };
-
-
+        } catch (error) {
+            console.error('Error creating family:', error);
+        }
+    };
 
     return (
         <div className="family">
@@ -33,19 +32,16 @@ const FamilyData = () => {
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
                         className="field"
-                        placeholder="Family Name"                        
+                        placeholder="Family Name"
+                        value={familyName}
                         onChange={(e) => setFamilyName(e.target.value)}
-                       
-                    >
-                        <Typography sx={{ fontFamily: "poppins" }}>Family Name</Typography>
-                    </TextField>
-                   
+                    />
                 </CardContent>
                 <div className="btncontainer">
                     <Button
                         className="btn"
-                        onClick={() => {
-                            handleSubmit();
+                        onClick={(e) => {
+                            handleSubmit(e);
                         }}
                         sx={{
                             color: "white",
@@ -58,31 +54,28 @@ const FamilyData = () => {
                             },
                         }}
                     >
-                        Register
+                        Create
                     </Button>
-                        <Button
-                            onClick={() => {navigate('/signup')}}
-                            className="btn"
-                            sx={{
-                                color: "white",
-                                backgroundColor: "black",
-                                fontFamily: "poppins",
-                                ":hover": {
-                                    backgroundColor: "Aqua",
-                                    color: "black",
-                                    boxShadow: "15px -5px 10px",
-                                },
-                            }}
-                        >
-                            Cancel
-                        </Button>
+                    <Button
+                        onClick={() => navigate('/signup')}
+                        className="btn"
+                        sx={{
+                            color: "white",
+                            backgroundColor: "black",
+                            fontFamily: "poppins",
+                            ":hover": {
+                                backgroundColor: "Aqua",
+                                color: "black",
+                                boxShadow: "15px -5px 10px",
+                            },
+                        }}
+                    >
+                        Cancel
+                    </Button>
                 </div>
             </Card>
         </div>
     );
-}
+};
 
-
-
-
-export default FamilyData
+export default FamilyData;

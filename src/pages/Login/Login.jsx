@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, InputAdornment, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import './Login.css'
+import './login.css'
 import { login } from '../../services/auth'
 import "@fontsource/poppins"
 import { Link, useNavigate } from 'react-router-dom'
@@ -15,9 +15,16 @@ function Login() {
         try {
             const res = await login({ email, password })
             localStorage.setItem('Authorization', res.data.token)
-            localStorage.setItem('role', res.data.role)
+            localStorage.setItem('roleId', res.data.roleId)          
             localStorage.setItem('email', res.data.email)
-            navigate('/home')
+            console.log(localStorage.getItem('roleId'))
+
+if(localStorage.getItem('roleId')=== 'null'||localStorage.getItem('roleId')=== undefined){
+    navigate('/family-choice')
+}else{
+    navigate('/home')
+}
+
         } catch (error) {
           console.log(error)
         }
@@ -31,7 +38,7 @@ function Login() {
                         sx={{ margin: "10px", fontFamily: "poppins" }}
                         className="field"
                         placeholder="Email"
-                        onError={'test'}
+                      type='email'
                         onChange={(e) => setEmail(e.target.value)}
                         InputProps={{
                             startAdornment: (
@@ -47,6 +54,7 @@ function Login() {
                         sx={{ margin: "10px", fontFamily: "poppins" }}
                         className="field"
                         placeholder="Password"
+                        typeof='password'
                         onChange={(e) => setPassword(e.target.value)}
                         InputProps={{
                             startAdornment: (

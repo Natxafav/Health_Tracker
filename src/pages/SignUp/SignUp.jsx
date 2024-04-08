@@ -7,15 +7,12 @@ import {
   CardContent,
   CardHeader,
   TextField,
-  FormControlLabel, Checkbox
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 
-
-
-import "./SignUp.css";
+import "./signUp.css";
 import { useNavigate } from "react-router-dom";
-import FamilyData from "../FamilyData/FamilyData";
-
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -27,32 +24,33 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [showAddFamily, setShowAddFamily] = useState(false);
-  const [registered, setRegistered] = useState(false)
+  console.log(showAddFamily);
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
-    const res = await signup({
-      name,
-      lastname,
-      nss,
-      date_birth,
-      dni,
-      email,
-      password,
-      phone,
-    });
-    console.log(res.data);
-    localStorage.setItem("Authorization", res.data.token);
-    localStorage.setItem("role", res.data.role);
-    localStorage.setItem("email", res.data.email);
-    setRegistered(true);
+    try {
+      const res = await signup({
+        name,
+        lastname,
+        nss,
+        date_birth,
+        dni,
+        email,
+        password,
+        phone,
+      });
+      const token = res.data.token;
+      console.log("token ", token);
+      localStorage.setItem("Authorization", token);
+      localStorage.setItem("email", email);
 
-     // Si la casilla de verificación está marcada, mostrar FamilyData
-     if (showAddFamily) {
-      setShowAddFamily(true);
-    } else {
-      // Si no se agrega una familia, redirige al usuario a la página de inicio
-      navigate("/home");
+      if (!showAddFamily) {
+        navigate("/family-choice");
+      } else {
+        navigate("/home");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -62,7 +60,7 @@ const SignUp = () => {
         className="mainContainer"
         sx={{ borderRadius: "20px", gap: "15px" }}
       >
-        <CardHeader title="Sign Up" />
+        <CardHeader title="Sign Up" sx={{ color: "white" }} />
         <CardContent
           className="fields"
           sx={{ display: "flex", flexDirection: "column", gap: "15px" }}
@@ -158,7 +156,7 @@ const SignUp = () => {
           />
 
           <Button
-            variant=" outlined"
+            variant="outlined"
             onClick={() => handleSignUp()}
             sx={{
               color: "white",
@@ -192,7 +190,6 @@ const SignUp = () => {
         </CardActions>
         
       </Card>
-      {registered && showAddFamily && <FamilyData />}
     </div>
   );
 };

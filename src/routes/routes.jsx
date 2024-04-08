@@ -4,8 +4,12 @@ import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
 import MainLayout from "../layouts/MainLayout";
+
 import SignUp from "../pages/SignUp/SignUp.jsx";
 import Landing from "../pages/Landing/Landing";
+import FamilyChoice from "../components/FamilyChoice/FamilyChoice";
+import FamilyData from "../pages/FamilyData/FamilyData";
+import SignUp from "../pages/SignUp/SignUp";
 
 
 export const router = createBrowserRouter([
@@ -20,7 +24,7 @@ export const router = createBrowserRouter([
         {
             path: 'home',
             element: <Home/>,
-            lodear: () => {
+            loader: () => {
                 if(localStorage.getItem('Authorization')){
                     return null
                 } else {
@@ -37,5 +41,12 @@ export const router = createBrowserRouter([
     {
         path: 'signup',
         element: <SignUp/>
+    }, {
+        path:'family/create',
+        element:<FamilyData/>
+    },{
+        path: 'family-choice',
+        element: <FamilyChoice/>
     }
+    
 ]);
