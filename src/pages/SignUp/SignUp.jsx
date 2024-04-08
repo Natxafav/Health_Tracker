@@ -1,38 +1,58 @@
 import  { useState } from 'react'
 import { signup } from '../../services/auth'
-import { Button, Card, CardActions, CardContent, CardHeader, TextField } from '@mui/material'
-import './SignUp.css'
+import { Button, Card, CardActions, CardContent, CardHeader, TextField,Checkbox, FormControlLabel } from '@mui/material'
+import { createFamily } from '../../services/family'
+import { Axios } from 'axios'
+import './signUp.css'
 import { useNavigate } from 'react-router-dom'
-const SignUp = () => {
-
-  const [name, setName] = useState('')
-  const [lastname, setLastname] = useState('')
-  const [nss, setNss] = useState('')
-  const [date_birth, setDate_birth] = useState('')
-  const [dni, setDni] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [phone, setPhone] = useState('')
-  const navigate = useNavigate()
+import { api } from "../../services/config";
 
 
-  const handleSignUp = async () => {
-    const res = await signup({
-      name, lastname, nss, date_birth, dni, email, password, phone
 
-    })
-    localStorage.setItem('Authorization', res.data.token)
-    localStorage.setItem('user', res.data.user)
-  }
 
-  return (
-    <div className='signup'>
-      <Card className='mainContainer' sx={{ borderRadius: "20px", gap: "15px", }}>
-        <CardHeader title="Sign Up" />
-        <CardContent className='fields'
-          sx={{ display: "flex", flexDirection: "column", gap: '15px', }}
-        >
-          <TextField className='field'
+    const SignUp = () => {
+      const [name, setName] = useState('');
+      const [lastname, setLastname] = useState('');
+      const [nss, setNss] = useState('');
+      const [date_birth, setDate_birth] = useState('');
+      const [dni, setDni] = useState('');
+      const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
+      const [phone, setPhone] = useState('');
+      const [showAddFamily, setShowAddFamily] = useState(false); 
+      const navigate = useNavigate();
+    
+      const handleSignUp = async () => {
+        try {
+          const res = await signup({ name, lastname, nss, date_birth, dni, email, password, phone });
+    
+          if (res.data.message === 'El usuario ya está registrado') {    
+            console.log('El usuario ya está registrado');
+            return;
+          }
+    
+          const token = res.data.token;   
+         
+          localStorage.setItem('Authorization', token);
+          localStorage.setItem('email', email);
+       
+    
+          if (showAddFamily) {
+            navigate('/family-choice'); 
+          } else {
+            navigate('/home'); 
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    
+      return (
+        <div className='signup'>
+          <Card className='mainContainer' sx={{ borderRadius: "20px", gap: "15px", }}>
+            <CardHeader title="Sign Up" />
+            <CardContent className='fields' sx={{ display: "flex", flexDirection: "column", gap: '15px', }}>
+              <TextField className='field'
             sx={{ textAlign: 'center', fontFamily: "poppins", }}
 
             type="text"
@@ -98,9 +118,12 @@ const SignUp = () => {
             onChange={(e) => setPhone(e.target.value)}
             inputProps={{ style: { textAlign: 'center' } }}
           ></TextField>
+        
         </CardContent>
         <CardActions className='btncontainer' sx={{ display: "flex", justifyContent: "end" }}>
-          <Button variant=" outlined" onClick={() => handleSignUp()} sx={{
+        <FormControlLabel control={<Checkbox checked={showAddFamily} onChange={() => setShowAddFamily(!showAddFamily)} />} label="Agregar familia" />
+
+          <Button variant="outlined" onClick={() => handleSignUp()} sx={{
             color: "white",
             backgroundColor: "black",
             fontFamily: "poppins",
@@ -124,11 +147,16 @@ const SignUp = () => {
           }}>Cancel</Button>
         </CardActions>
       </Card>
+     
 
 
 
+    </div>
+  
+  
 
-    </div>)
+
+  )
 }
 
 export default SignUp
