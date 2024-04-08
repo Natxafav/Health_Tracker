@@ -4,10 +4,11 @@ import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
 import MainLayout from "../layouts/MainLayout";
-import SignUp from "../pages/SignUp/SignUp";
+
 import Landing from "../pages/Landing/Landing";
 import FamilyChoice from "../components/FamilyChoice/FamilyChoice";
 import FamilyData from "../pages/FamilyData/FamilyData";
+import SignUp from "../pages/SignUp/SignUp";
 
 
 export const router = createBrowserRouter([
