@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MedicationCreate from '../../components/Medication/MedicationCreate';
 
 function Home() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function Home() {
   return (
     <div>
       <h1>TEST</h1>
-      {/* Aquí iría el contenido normal de la página de inicio */}
+      <MedicationCreate/>
     </div>
   );
 }

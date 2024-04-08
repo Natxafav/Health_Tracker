@@ -11,7 +11,7 @@ function FamilyChoice() {
             const email = localStorage.getItem('email');
             let roleId = localStorage.getItem('roleId');
 
-            if (!roleId || roleId ==null) {                
+            if (!roleId || roleId ==='null') {                
                 await updateUserRoleId(2, email);
                 localStorage.setItem('roleId', '2');
             }

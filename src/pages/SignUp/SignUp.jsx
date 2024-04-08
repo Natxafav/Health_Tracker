@@ -47,7 +47,7 @@ import { useNavigate } from 'react-router-dom'
       return (
         <div className='signup'>
           <Card className='mainContainer' sx={{ borderRadius: "20px", gap: "15px", }}>
-            <CardHeader title="Sign Up" />
+            <CardHeader title="Sign Up" sx={{color:'white'}}/>
             <CardContent className='fields' sx={{ display: "flex", flexDirection: "column", gap: '15px', }}>
               <TextField className='field'
             sx={{ textAlign: 'center', fontFamily: "poppins", }}
