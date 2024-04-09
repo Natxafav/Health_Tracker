@@ -1,0 +1,14 @@
+.medicationContainer{
+ min-height: fit-content;
+    height: auto;
+    width: 50%;
+    margin:0 auto;
+    margin-top: 50px;
+}
+.medMain{
+    background-color:#58f0e7 ;
+    min-width: 150px;
+    min-height: 400px;
+    background: linear-gradient(170deg, #020e0f 40%,#022d31 50%,#0643be 70% ,#58f0e7 90%);
+    filter: drop-shadow(0px 0px 30px)
+}
