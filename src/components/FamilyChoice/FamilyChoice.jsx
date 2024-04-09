@@ -8,15 +8,12 @@ function FamilyChoice() {
 
     const handleCreateFamily = async () => {
         try {
-            const email = localStorage.getItem('email');
-            let roleId = localStorage.getItem('roleId');
 
-            if (!roleId || roleId ==='null') {                
-                await updateUserRoleId(2, email);
+            if (!localStorage.getItem('roleId') || localStorage.getItem('roleId') ==='null') {   
+                console.log('ESTOY AQUI')             
                 localStorage.setItem('roleId', '2');
+                await updateUserRoleId(localStorage.getItem('roleId'));
             }
-           
-    
             navigate('/family/create');
         } catch (error) {
             console.error('Error:', error);
@@ -33,7 +30,7 @@ function FamilyChoice() {
             <Typography variant="h4" align="center" gutterBottom>
                 Elige una opción
             </Typography>
-            <Button variant="contained" color="primary" onClick={handleCreateFamily} fullWidth>
+            <Button variant="contained" color="primary" onClick={() => handleCreateFamily()} fullWidth>
                 Crear una nueva familia
             </Button>
             <Button variant="contained" color="primary" onClick={()=>handleRequestAccess()} fullWidth>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./header.css";
+import { useNavigate } from "react-router-dom";
 
 import { Menu as MenuIcon } from '@mui/icons-material'
 import {
@@ -17,7 +18,16 @@ function Header() {
 
     const [anchorEl, setAnchorEl] = useState(null)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-  
+    const navigate = useNavigate()
+    
+
+    const handlelogout = () => {
+      localStorage.removeItem('Authorization')
+      localStorage.removeItem('roleId')
+      localStorage.removeItem('email')
+      navigate('/')
+    }
+
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget)
       setIsMenuOpen(true)
@@ -44,7 +54,7 @@ function Header() {
           <CardMenu open={isMenuOpen} anchorEl={anchorEl} onClose={handleClose}>
             <MenuItem>CONTACT</MenuItem>
             <MenuItem>ABOUT</MenuItem>
-            {localStorage.getItem('Authorization') && <MenuItem>LOGOUT</MenuItem>}
+            {localStorage.getItem('Authorization') && <MenuItem onClick={() => {handlelogout()}}>LOGOUT</MenuItem>}
           </CardMenu>
           <Typography variant="h6" color="inherit" component="div">
             
