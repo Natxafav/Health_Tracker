@@ -8,7 +8,7 @@ export const updateUserRoleId = async (roleId) => {
                
         const response = await api.put(`/user/mod/${userId}`, {roleId}, {
             headers: {
-                Authorization: localStorage.getItem('Authorization')
+                'Authorization': localStorage.getItem('Authorization')
             }
         });
         return response.data;
@@ -21,7 +21,7 @@ export const getUserByEmail = async () => {
     try { 
       const response = await api.get('user/getByEmail', { 
         headers: {
-            Authorization: localStorage.getItem('Authorization')
+            'Authorization': localStorage.getItem('Authorization')
         }
        });
        console.log(response.data.id)

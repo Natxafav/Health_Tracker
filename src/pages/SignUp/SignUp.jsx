@@ -44,7 +44,7 @@ const SignUp = () => {
       localStorage.setItem("Authorization", token);
       localStorage.setItem("email", email);
 
-      if (!showAddFamily) {
+      if (showAddFamily) {
         navigate("/family-choice");
       } else {
         navigate("/home");

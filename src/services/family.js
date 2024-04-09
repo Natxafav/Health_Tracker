@@ -3,8 +3,13 @@ import { api } from "./config";
 
 export const createFamily = async (familyData) => {
   try {
-    const response = await api.post('/family/create', familyData);
-    console.log(response)
+    console.log(familyData)
+    const response = await api.post('/family/create', {name:familyData},{
+      headers: {
+          'Authorization': localStorage.getItem('Authorization')
+      }
+  });
+    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error('Error creating family:', error);
@@ -32,3 +37,4 @@ export const getAllFamiliesAdmin = async () => {
     throw error;
   }
 };
+

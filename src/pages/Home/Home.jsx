@@ -12,7 +12,7 @@ function Home() {
   return (
     <div>
       <h1>TEST</h1>
-      <CardContainer/>
+     
     </div>
   );
 }
