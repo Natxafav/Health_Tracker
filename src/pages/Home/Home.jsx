@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MedicationCreate from '../../components/Medication/MedicationCreate';
-import CardContainer from '../../components/cardContainer/CardContainer';
+import CardContainer from '../../components/CardContainer/CardContainer';
 
 
 function Home() {

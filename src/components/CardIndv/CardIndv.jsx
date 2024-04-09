@@ -4,8 +4,8 @@ import "./cardIndv.css";
 
 const CardIndv = ({ item }) => {
   return (
-    <div className="cardIndvContainer">
-      <Card className="medMain" sx={{ borderRadius: "20px" }}>
+    
+      <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
         <CardHeader title="data" sx={{ color: "white" }} />
 
         <CardContent className="fields" sx={{ backgroundColor: 'blue', color: "white" }}>
@@ -20,7 +20,7 @@ const CardIndv = ({ item }) => {
           {item.description && <p>{item.description}</p>}
         </CardContent>
       </Card>
-    </div>
+   
   );
 };
 

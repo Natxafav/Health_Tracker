@@ -1,5 +1,5 @@
 import React from "react";
-import {  Card, CardContent, CardHeader, TextField, Typography } from '@mui/material';
+import { Grid, Card, CardContent, CardHeader, TextField, Typography } from '@mui/material';
 
 import CardIndv from "../CardIndv/CardIndv";
 import "./cardContainer.css";
@@ -17,21 +17,17 @@ const CardContainer = () => {
     ];
   
     return (
-      <div className="cardContainerMain">
+      <Grid  className="cardContainerMain">
         <Card className="cardContainer" sx={{ borderRadius: "20px" }}>
-          <CardHeader title="Medication" sx={{ color: 'white' }} />
-  
-          <CardContent className="cardContainerFields" sx={{ color: 'white' }}>
-  
-            <h1>Estas en cardContainer</h1>
           
   
+          <CardContent className="cardContainerFields" sx={{ color: 'white' }}>  
             {data.map((item, idx) => (
               <CardIndv key={idx} item={item} />
             ))}
           </CardContent>
         </Card>
-      </div>
+      </Grid>
     );
   };
   

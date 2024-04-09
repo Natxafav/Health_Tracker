@@ -21,6 +21,19 @@ export const router = createBrowserRouter([
         element: <Landing />,
       },
       {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
+      },
+      
+      {
+        path: "family-choice",
+        element: <FamilyChoice />,
+      },
+      {
         path: "home",
         element: <Home />,
         loader: () => {
@@ -72,17 +85,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "signup",
-    element: <SignUp />,
-  },
   
-  {
-    path: "family-choice",
-    element: <FamilyChoice />,
-  },
 ]);

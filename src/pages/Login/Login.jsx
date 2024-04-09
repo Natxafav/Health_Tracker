@@ -5,6 +5,7 @@ import {
   InputAdornment,
   TextField,
   Typography,
+  CardHeader,
 } from "@mui/material";
 import { useState } from "react";
 import "./login.css";
@@ -47,6 +48,7 @@ function Login() {
   return (
     <div className="login">
       <Card className="main" sx={{ borderRadius: "20px" }}>
+      <CardHeader title="Login" sx={{color:'white'}}/>
         <CardContent className="fields">
           <TextField
             sx={{ margin: "10px", fontFamily: "poppins" }}
@@ -65,7 +67,7 @@ function Login() {
             <Typography sx={{ fontFamily: "poppins" }}>Email</Typography>
           </TextField>
           <TextField
-            sx={{ margin: "10px", fontFamily: "poppins" }}
+            sx={{ margin: "10px", fontFamily: "poppins" , color:'black'}}
             className="field"
             placeholder="Password"
             type="password"
