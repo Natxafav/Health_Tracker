@@ -6,7 +6,7 @@ import { Box, Grid, Container, Typography, Button } from "@mui/material";
 import AboutUs from "../../components/AboutUs/AboutUs";
 const Landing = () => {
   return (
-    <Grid container xs={12} md={12} lg={12} sx={{ width: "100vw" }} className="landingContainer">   
+    <Grid container xs={12} md={12}  sx={{ width: "100vw" }} className="landingContainer">   
      
       <Grid item xs={12} md={6}  lg={5} className="loginContainer">        
           <Login />        

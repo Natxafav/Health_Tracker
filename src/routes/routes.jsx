@@ -83,6 +83,44 @@ export const router = createBrowserRouter([
             element:<MedicationCreate/>
         }],
       },
+      {
+        path: "meet",
+        
+        loader: () => {
+          if (localStorage.getItem("Authorization")) {
+            return null;
+          } else {
+            return redirect("/");
+          }
+        },
+        children: [
+          {
+            path: "",
+            element: <Meds />,
+          },{
+            path: 'create',
+            element:<MedicationCreate/>
+        }],
+      },
+      {
+        path: "reminder",
+        
+        loader: () => {
+          if (localStorage.getItem("Authorization")) {
+            return null;
+          } else {
+            return redirect("/");
+          }
+        },
+        children: [
+          {
+            path: "",
+            element: <Meds />,
+          },{
+            path: 'create',
+            element:<MedicationCreate/>
+        }],
+      },
     ],
   },
   

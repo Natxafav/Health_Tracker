@@ -10,7 +10,7 @@ function FamilyChoice() {
         try {
 
             if (!localStorage.getItem('roleId') || localStorage.getItem('roleId') ==='null') {   
-                console.log('ESTOY AQUI')             
+                         
                 localStorage.setItem('roleId', '2');
                 await updateUserRoleId(localStorage.getItem('roleId'));
             }
