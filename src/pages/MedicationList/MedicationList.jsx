@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 
 function MedicationList() {
+
+
   const [familyMeds, setFamilyMeds] = useState([]);
 
   const retrieveFamilyMeds = async () => {
@@ -20,9 +22,9 @@ function MedicationList() {
     setFamilyMeds(res);
   };
 
-  // Esta funcion devuelve un div, la idea seria que devolviese el componente tarjeta con las medicaciones
 
   const displayUserMeds = () => {
+
     const display =
       familyMeds .length>0? ( familyMeds &&
       familyMeds.map((elem, idx) => {
@@ -30,8 +32,8 @@ function MedicationList() {
           <Card key={idx}>
             <CardHeader title={elem.name} />
             <CardContent>
-              {elem.medications.map((elem, idx) => {
-                return <OneMed item={elem} key={idx} />;
+              {elem.medications.map((elem, id) => {
+                return <OneMed item={elem} key={id} />;
               })}
             </CardContent>
           </Card>
@@ -40,27 +42,27 @@ function MedicationList() {
     return display;
   };
 
+
   useEffect(() => {
     retrieveFamilyMeds();
-  }, []);
+  }, [familyMeds]);
 
   return (
-    <div
-      style={{
-        width: "50%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "space-evenly",
-        justifyContent: "start",
-        flexWrap: "wrap",
-        position: "absolute",
-        top: "100px",
-        zIndex: "-1",
-        paddingBottom: "200px",
-      }}
-    >
+
+    <Card sx={{width: "50%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "space-evenly",
+    justifyContent: "start",
+    flexWrap: "wrap",
+    position: "absolute",
+    top: "100px",
+    zIndex: "-1",
+    paddingBottom: "200px",}}>
+    
       {displayUserMeds()}
-    </div>
+    
+    </Card>
   );
 }
 

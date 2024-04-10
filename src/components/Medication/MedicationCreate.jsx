@@ -25,7 +25,7 @@ const creatingMeds=async (req, res)=>{
                 name, posology, datetime, end:duration, description, userId:getUser
               })
             }
-              console.log('creado')        
+              navigate('/meds')      
     } catch (error) {
         console.log(error)
     }

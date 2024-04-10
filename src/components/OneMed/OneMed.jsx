@@ -20,6 +20,7 @@ const OneMed = ({ item }) => {
   const [posology, setPosology] = useState("");
   const [duration, setDuration] = useState("");
   const [description, setDescription] = useState("");
+  const [itemId,setItemId]=useState('')
   const navigate = useNavigate();
   const handleOnEdit = () => {
     setOnEdit(!onEdit);
@@ -27,7 +28,10 @@ const OneMed = ({ item }) => {
 
   const handleModify = async () => {
     try {
-      const response = await updateMedication(item.id, {
+      setItemId(item.id)
+      console.log('itemId ' , itemId)
+      console.log('hola')
+      const response = await updateMedication(itemId, {
         name,
         datetime,
         posology,
