@@ -11,6 +11,7 @@ import Family from "../pages/Family/Family.jsx";
 import MedicationCreate from "../components/Medication/MedicationCreate.jsx";
 import MedicationList from "../pages/MedicationList/MedicationList.jsx";
 
+// TODO[PENDIENTE FORMATEO Y ORDENAR]
 
 export const router = createBrowserRouter([
   {
@@ -97,10 +98,10 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
-           
+          
           },{
             path: 'create',
-           
+          
         }],
       },
       {
