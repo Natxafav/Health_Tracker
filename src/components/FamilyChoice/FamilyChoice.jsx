@@ -1,22 +1,19 @@
-import React from 'react';
-import { Button, Container, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { updateUserRoleId } from '../../services/user';
+import React from "react";
+import { Button, Container, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { updateUserRoleId } from "../../services/user";
 
 function FamilyChoice() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
     const handleCreateFamily = async () => {
         try {
-           
-            let roleId = localStorage.getItem('roleId');
 
-            if (!roleId || roleId ==='null') {                
-                await updateUserRoleId(2);
+            if (!localStorage.getItem('roleId') || localStorage.getItem('roleId') ==='null') {   
+                         
                 localStorage.setItem('roleId', '2');
+                await updateUserRoleId(localStorage.getItem('roleId'));
             }
-           
-    
             navigate('/family/create');
         } catch (error) {
             console.error('Error:', error);
@@ -24,16 +21,16 @@ function FamilyChoice() {
     };
     
 
-    const handleRequestAccess = () => {
-        navigate('/home');
-    };
+  const handleRequestAccess = () => {
+    navigate("/home");
+  };
 
     return (
         <Container maxWidth="sm">
             <Typography variant="h4" align="center" gutterBottom>
                 Elige una opción
             </Typography>
-            <Button variant="contained" color="primary" onClick={handleCreateFamily} fullWidth>
+            <Button variant="contained" color="primary" onClick={() => handleCreateFamily()} fullWidth>
                 Crear una nueva familia
             </Button>
             <Button variant="contained" color="primary" onClick={()=>handleRequestAccess()} fullWidth>

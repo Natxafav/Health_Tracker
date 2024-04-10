@@ -7,9 +7,10 @@ import Landing from "../pages/Landing/Landing";
 import FamilyChoice from "../components/FamilyChoice/FamilyChoice";
 import FamilyData from "../pages/FamilyData/FamilyData.jsx";
 import SignUp from "../pages/SignUp/SignUp";
-import Meds from "../pages/Meds/Meds.jsx";
 import Family from "../pages/Family/Family.jsx";
 import MedicationCreate from "../components/Medication/MedicationCreate.jsx";
+import MedicationList from "../pages/MedicationList/MedicationList.jsx";
+
 
 export const router = createBrowserRouter([
   {
@@ -77,10 +78,46 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <Meds />,
+            element: <MedicationList/>,
           },{
             path: 'create',
             element:<MedicationCreate/>
+        }],
+      },
+      {
+        path: "meet",
+        
+        loader: () => {
+          if (localStorage.getItem("Authorization")) {
+            return null;
+          } else {
+            return redirect("/");
+          }
+        },
+        children: [
+          {
+            path: "",
+           
+          },{
+            path: 'create',
+           
+        }],
+      },
+      {
+        path: "reminder",
+        
+        loader: () => {
+          if (localStorage.getItem("Authorization")) {
+            return null;
+          } else {
+            return redirect("/");
+          }
+        },
+        children: [
+          {
+            path: "",
+          },{
+            path: 'create',
         }],
       },
     ],

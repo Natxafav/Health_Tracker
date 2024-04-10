@@ -25,14 +25,14 @@ const creatingMeds=async (req, res)=>{
                 name, posology, datetime, end:duration, description, userId:getUser.id
               })
             }
-              console.log('creado')        
+              navigate('/meds')      
     } catch (error) {
         console.log(error)
     }
     }
 
 const handleCancel = ()=>{
-    ()=>navigate('/home')
+    navigate('/meds')
 }
 
 
@@ -64,7 +64,7 @@ const handleCancel = ()=>{
                     </TextField>
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
-                        type='text'
+                        type='time'
                         className="field"
                         placeholder="Posology"
                         label='Posology'

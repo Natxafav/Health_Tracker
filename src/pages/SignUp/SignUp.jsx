@@ -40,7 +40,6 @@ const SignUp = () => {
         phone,
       });
       const token = res.data.token;
-      console.log("token ", token);
       localStorage.setItem("Authorization", token);
       localStorage.setItem("email", email);
 
