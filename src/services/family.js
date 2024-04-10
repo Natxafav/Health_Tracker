@@ -20,7 +20,7 @@ export const createFamily = async (familyData) => {
 
 export const getAllFamiliesUser = async () => {
   try {
-    const response = await api.get('/families/user');
+    const response = await api.get('/families/user', {headers:{ 'Authorization': localStorage.getItem('Authorization')}});
     return response.data;
   } catch (error) {
     console.error('Error fetching families:', error);
@@ -30,7 +30,7 @@ export const getAllFamiliesUser = async () => {
 
 export const getAllFamiliesAdmin = async () => {
   try {
-    const response = await api.get('/families/admin');
+    const response = await api.get('/families/admin',{headers:{ 'Authorization': localStorage.getItem('Authorization')}});
     return response.data;
   } catch (error) {
     console.error('Error fetching families:', error);

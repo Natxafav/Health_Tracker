@@ -5,8 +5,9 @@ import { Button, Grid, TextField } from "@mui/material";
 
 function Home() {
   return (
-    <Grid container xs={12} md={11} lg={11} columnSpacing={1} rowSpacing={1}>
-      <Grid container xs={6} md={4} lg={4} columnSpacing={1} rowSpacing={1}>
+    <Grid container >
+      
+      <Grid item xs={12} md={4} lg={4} columnSpacing={1} rowSpacing={1}>
         <Grid item xs={12} md={12} lg={10}>
           <Link to={"/family"}>
             <Button variant="contained" color="primary" fullWidth sx={{height:'40px'}}>
@@ -36,9 +37,9 @@ function Home() {
           </Link>
         </Grid>
       </Grid>
+      
 
-
-      <Grid container xs={6} md={4} lg={6} >
+      <Grid item xs={12} md={6} lg={6} columnSpacing={1} rowSpacing={1}>
         
       </Grid>
     </Grid>
