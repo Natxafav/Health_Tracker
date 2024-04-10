@@ -32,7 +32,7 @@ const creatingMeds=async (req, res)=>{
     }
 
 const handleCancel = ()=>{
-    ()=>navigate('/home')
+    navigate('/meds')
 }
 
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllMedicationsUser } from "../../services/meds";
-import OneMed from "../OneMed/OneMed";
+import OneMed from "../../components/OneMed/OneMed";
 import {
   Card,
   CardContent,
@@ -16,27 +16,27 @@ function MedicationList() {
 
   const retrieveFamilyMeds = async () => {
     const res = await getAllMedicationsUser();
-    console.log(res);
+ 
     setFamilyMeds(res);
   };
 
   // Esta funcion devuelve un div, la idea seria que devolviese el componente tarjeta con las medicaciones
 
   const displayUserMeds = () => {
-    const display = familyMeds.map((elem) => {
-      return (
-        <Card>
-          <CardHeader title={elem.name} />
-          <CardContent style={{ display: "flex", gap: "1em" }}>
+    const display =
+      familyMeds .length>0? ( familyMeds &&
+      familyMeds.map((elem, idx) => {
+        return (
+          <Card key={idx}>
+            <CardHeader title={elem.name} />
             <CardContent>
               {elem.medications.map((elem, idx) => {
                 return <OneMed item={elem} key={idx} />;
               })}
             </CardContent>
-          </CardContent>
-        </Card>
-      );
-    });
+          </Card>
+        );
+      })):(<h1>No hay medicamentos almacenados</h1>)
     return display;
   };
 
@@ -44,7 +44,24 @@ function MedicationList() {
     retrieveFamilyMeds();
   }, []);
 
-  return <div>{displayUserMeds()}</div>;
+  return (
+    <div
+      style={{
+        width: "50%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "space-evenly",
+        justifyContent: "start",
+        flexWrap: "wrap",
+        position: "absolute",
+        top: "100px",
+        zIndex: "-1",
+        paddingBottom: "200px",
+      }}
+    >
+      {displayUserMeds()}
+    </div>
+  );
 }
 
 export default MedicationList;

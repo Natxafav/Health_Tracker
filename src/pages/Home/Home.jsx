@@ -5,30 +5,36 @@ import { Button, Grid, TextField } from "@mui/material";
 
 function Home() {
   return (
-    <Grid container xs={12} md={11} lg={11} columnSpacing={1} rowSpacing={1}>
-      <Grid container xs={6} md={4} lg={4} columnSpacing={1} rowSpacing={1}>
-        <Grid item xs={12} md={12} lg={10}>
+    <Grid container columnSpacing={4} rowSpacing={4}>
+      <Grid item xs={6} md={4} lg={4} >
+      <Grid container columnSpacing={4} rowSpacing={4}>
+        <Grid item xs={12} md={8} lg={8}>
           <Link to={"/family"}>
-            <Button variant="contained" color="primary" fullWidth sx={{height:'40px'}}>
+            <Button
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{ height: "40px" }}
+            >
               Family
             </Button>
           </Link>
         </Grid>
-        <Grid item xs={12} md={12} lg={10}>
+        <Grid item xs={12} md={8} lg={8}>
           <Link to={"/meds"}>
             <Button variant="contained" color="primary" fullWidth>
               Medication
             </Button>
           </Link>
         </Grid>
-        <Grid item xs={12} md={12} lg={10}>
+        <Grid item xs={12} md={8} lg={8}>
           <Link to={"/meet"}>
             <Button variant="contained" color="primary" fullWidth>
               Appointments
             </Button>
           </Link>
         </Grid>
-        <Grid item xs={12} md={12} lg={10}>
+        <Grid item xs={12} md={8} lg={8}>
           <Link to={"/reminder"}>
             <Button variant="contained" color="primary" fullWidth>
               Reminders
@@ -36,10 +42,16 @@ function Home() {
           </Link>
         </Grid>
       </Grid>
+   
 
 
-      <Grid container xs={6} md={4} lg={6} >
-        
+
+
+      </Grid>
+      <Grid item>
+        <Grid item xs={6} md={4} lg={4} columnSpacing={1} rowSpacing={1}></Grid>
+
+        <h1>Content from urgency tasks</h1>
       </Grid>
     </Grid>
   );
