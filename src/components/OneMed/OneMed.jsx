@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   Card,
   CardContent,
@@ -11,16 +11,19 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { deleteMedication, updateMedication } from "../../services/meds";
+import { WindowSharp } from "@mui/icons-material";
 
 
 const OneMed = ({ item }) => {
+  
   const [onEdit, setOnEdit] = useState(false);
-  const [name, setName] = useState("");
-  const [datetime, setDatetime] = useState("");
-  const [posology, setPosology] = useState("");
-  const [duration, setDuration] = useState("");
-  const [description, setDescription] = useState("");
-  const [itemId,setItemId]=useState('')
+  const [name, setName] = useState(item.name);
+  const [datetime, setDatetime] = useState(item.datetime);
+  const [posology, setPosology] = useState(item.posology);
+  const [duration, setDuration] = useState(item.end);
+  const [description, setDescription] = useState(item.description);
+  const [itemId, setItemId] = useState(item.id); 
+
   const navigate = useNavigate();
   const handleOnEdit = () => {
     setOnEdit(!onEdit);
@@ -47,7 +50,8 @@ const OneMed = ({ item }) => {
   const handleDelete = async () => {
     try {
       const response = await deleteMedication(item.id);
-      navigate("/meds");
+     
+      location.reload()
       return response.data;
     } catch (error) {
       throw error;
@@ -58,6 +62,7 @@ const OneMed = ({ item }) => {
     <>
       {!onEdit ? (
         <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
+         
           <CardContent
             className="fields"
             sx={{ backgroundColor: "blue", color: "white" }}
@@ -126,7 +131,7 @@ const OneMed = ({ item }) => {
             </TextField>
             <TextField
               sx={{ margin: "10px", fontFamily: "poppins" }}
-              type="datetime-local"
+              type="datetime"
               className="field"
               defaultValue={item.datetime}
               label="Date/ Hour"
@@ -146,7 +151,7 @@ const OneMed = ({ item }) => {
             </TextField>
             <TextField
               sx={{ margin: "10px", fontFamily: "poppins" }}
-              type="datetime-local"
+              type="datetime"
               className="field"
               defaultValue={item.end}
               label="End Date/ Hour"

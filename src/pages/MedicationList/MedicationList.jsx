@@ -45,7 +45,7 @@ function MedicationList() {
 
   useEffect(() => {
     retrieveFamilyMeds();
-  }, [familyMeds]);
+  }, []);
 
   return (
 
