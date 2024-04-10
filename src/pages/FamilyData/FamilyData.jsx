@@ -13,7 +13,7 @@ const FamilyData = () => {
         e.preventDefault();
         try {                   
              
-            const newFamily = await createFamily(familyName);                      
+         const newFamily = await createFamily(familyName);                      
         if(newFamily){
             navigate('/home');
 
