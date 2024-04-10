@@ -22,7 +22,7 @@ const creatingMeds=async (req, res)=>{
             const getUser = await getUserByEmail()
            if(userRole === "2"){
                 const newMed= await createNewMed ({
-                name, posology, datetime, end:duration, description, userId:getUser
+                name, posology, datetime, end:duration, description, userId:getUser.id
               })
             }
               console.log('creado')        

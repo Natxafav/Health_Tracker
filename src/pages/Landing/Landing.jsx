@@ -4,17 +4,19 @@ import Login from "../Login/Login";
 
 import { Box, Grid, Container, Typography, Button } from "@mui/material";
 import AboutUs from "../../components/AboutUs/AboutUs";
+
 const Landing = () => {
   return (
-    <Grid container xs={12} md={12} lg={12} sx={{ width: "100vw" }} className="landingContainer">   
-     
-      <Grid item xs={12} md={6}  lg={5} className="loginContainer">        
-          <Login />        
+    <Container className="landingContainer">
+    <Grid container className="gridContainerLanding"> 
+      <Grid item xs={12} md={4} lg={5} className="loginContainer">
+        <Login />
       </Grid>
-      <Grid item xs={12} md={6} lg={6}className="textContainer">      
-          <AboutUs />
+      <Grid item xs={12} md={6} lg={7} className="textContainer"sx={{justifyContent:'center'}}>
+        <AboutUs />
       </Grid>
     </Grid>
+  </Container>
   );
 };
 export default Landing;

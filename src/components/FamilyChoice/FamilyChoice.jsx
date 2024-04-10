@@ -8,11 +8,11 @@ function FamilyChoice() {
 
     const handleCreateFamily = async () => {
         try {
-            const email = localStorage.getItem('email');
+           
             let roleId = localStorage.getItem('roleId');
 
             if (!roleId || roleId ==='null') {                
-                await updateUserRoleId(2, email);
+                await updateUserRoleId(2);
                 localStorage.setItem('roleId', '2');
             }
            

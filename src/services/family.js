@@ -8,12 +8,10 @@ export const createFamily = async (familyData) => {
       headers: {
           'Authorization': localStorage.getItem('Authorization')
       }
-  });
-    console.log(response.data)
+  })   
     return response.data;
   } catch (error) {
-    console.error('Error creating family:', error);
-    throw error;
+        throw error;
   }
 };
 
@@ -37,4 +35,22 @@ export const getAllFamiliesAdmin = async () => {
     throw error;
   }
 };
+/* PENDIEENTEE DE MODIFICAR
+export const updateFamily = async (data)=>{
+  try {
+    const user= await getUserByEmail()
+  const res = await api.put(`/mod/${user.id}`, {name:data} )
+  return res
+    
+  } catch (error) {
+    throw error
+  }
+}
+export const deleteFamilyUser = async () =>{
+  const res = await api.delete(`/rm`, {} )
+}
 
+export const deleteFamilyAdmin = async ()=>{
+  const res = await api.delete(`/admrm`, {} )
+}
+*/
