@@ -1,9 +1,18 @@
 import React from "react";
+import {  Card, CardContent, CardActions,CardHeader,Button, TextField, Typography } from '@mui/material';
+
+
+
+
 
 const OneMed = ({item}) => {
+
+
+
+  
   return (
     <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
-      <CardHeader title="data" sx={{ color: "white" }} />
+      <CardHeader title="" sx={{ color: "white" }} />
 
       <CardContent
         className="fields"

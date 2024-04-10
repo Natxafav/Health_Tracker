@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { getAllMedicationsUser } from "../../services/meds";
-import { OneMed } from "../OneMed/OneMed";
+import OneMed from "../OneMed/OneMed";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  CardHeader,
+  Button,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 function MedicationList() {
   const [familyMeds, setFamilyMeds] = useState([]);
@@ -16,38 +25,16 @@ function MedicationList() {
   const displayUserMeds = () => {
     const display = familyMeds.map((elem) => {
       return (
-        <div
-          key={elem.id}
-          style={{
-            width: "200px",
-            height: "200px",
-            backgroundColor: "white",
-            color: "black",
-            borderRadius: "5px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "start",
-            padding: "8px",
-          }}
-        >
-          <h1>{elem.name}</h1>
-          {elem.medications.map((elem, idx) => {
-            return (
-              <div
-                key={elem.id}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <div style={{ display: "flex", gap: "1em" }}>
-                  <OneMed item={elem} key={idx} />
-                </div>
-              </div>
-            );
-          })}
-        </div> 
+        <Card>
+          <CardHeader title={elem.name} />
+          <CardContent style={{ display: "flex", gap: "1em" }}>
+            <CardContent>
+              {elem.medications.map((elem, idx) => {
+                return <OneMed item={elem} key={idx} />;
+              })}
+            </CardContent>
+          </CardContent>
+        </Card>
       );
     });
     return display;

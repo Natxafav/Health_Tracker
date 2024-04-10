@@ -20,7 +20,11 @@ export const createNewMed = async (data) => {
 
 export const getAllMedicationsUser = async () => {
   try {
-    const response = await api.get('/meds/user');
+    const response = await api.get('/meds/get',{
+      headers: {
+        Authorization: localStorage.getItem("Authorization"),
+      },
+    });
     return response.data;
   } catch (error) {
     console.error('Error fetching families:', error);
@@ -30,7 +34,11 @@ export const getAllMedicationsUser = async () => {
 
 export const getAllMedicationsAdmin = async () => {
   try {
-    const response = await api.get('/meds/admin');
+    const response = await api.get('/meds/admin', {
+      headers: {
+        Authorization: localStorage.getItem("Authorization"),
+      },
+    });
     return response.data;
   } catch (error) {
     console.error('Error fetching families:', error);

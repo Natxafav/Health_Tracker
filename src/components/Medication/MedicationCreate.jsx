@@ -64,7 +64,7 @@ const handleCancel = ()=>{
                     </TextField>
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
-                        type='text'
+                        type='time'
                         className="field"
                         placeholder="Posology"
                         label='Posology'
