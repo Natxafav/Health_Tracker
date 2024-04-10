@@ -7,9 +7,10 @@ import Landing from "../pages/Landing/Landing";
 import FamilyChoice from "../components/FamilyChoice/FamilyChoice";
 import FamilyData from "../pages/FamilyData/FamilyData.jsx";
 import SignUp from "../pages/SignUp/SignUp";
-import Meds from "../pages/Meds/Meds.jsx";
 import Family from "../pages/Family/Family.jsx";
 import MedicationCreate from "../components/Medication/MedicationCreate.jsx";
+import MedicationList from "../components/MedicationList/MedicationList.jsx";
+
 
 export const router = createBrowserRouter([
   {
@@ -77,7 +78,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <Meds />,
+            element: <MedicationList/>,
           },{
             path: 'create',
             element:<MedicationCreate/>
@@ -96,10 +97,10 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <Meds />,
+           
           },{
             path: 'create',
-            element:<MedicationCreate/>
+           
         }],
       },
       {
@@ -115,10 +116,8 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <Meds />,
           },{
             path: 'create',
-            element:<MedicationCreate/>
         }],
       },
     ],
