@@ -8,7 +8,6 @@ function Home() {
   return (
     <div>
       <h1>TEST</h1>
-      <MedicationCreate/>
       <Urgency/>
     </div>
   );

@@ -27,7 +27,6 @@ export const getAllMeds = async () => {
         },
       }
     );
-    console.log(meds.data)
     return meds.data;
   } catch (error) {
     console.log(error);

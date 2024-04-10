@@ -8,28 +8,46 @@ const Urgency = () => {
     const [reminderlist, setReminderlist] = useState([])
     const [appointmentlist, setAppointmentlist] = useState([])
 
-    const getAllList = async () => {
+    const handlerAllList = async () => {
         setMedlist(await getAllMeds())
-      /*   setReminderlist(await getAllReminders())
-        setAppointmentlist(await getAllAppointments()) */
+        setReminderlist(await getAllReminders())
+        setAppointmentlist(await getAllAppointments())
     }
+    const getAllList = () => {
 
-    const handlerMedList = () => {
-        console.log(medlist)
+        const list = () => {
+            return (
+                medlist.map((med, index) => {
+                    return med.medications.map((medication, idx) => {
+                        return (
+                            <div key={idx}>
+                                <div className="card">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{medication.name}</h5>
+                                        <p className="card-text">{medication.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                })
+            )
+        }
+
+        return (
+            <>
+                {list()}
+            </>
+        )
     }
 
     useEffect(() => {
-        getAllList()
+        handlerAllList()
     }, [])
-
 
     return (
         <>
-            <div className='Cuadrante'>
-                <ul>
-                    {handlerMedList()}
-                </ul>
-            </div>
+            {getAllList()}
         </>
     )
 }
