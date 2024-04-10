@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getAllMeds } from '../../services/meds'
 import { getAllAppointments } from '../../services/appointments'
 import { getAllReminders } from '../../services/reminder'
@@ -9,17 +9,25 @@ const Urgency = () => {
     const [appointmentlist, setAppointmentlist] = useState([])
 
     const getAllList = async () => {
-
-        setMedlist(await getAllMeds)
-        setReminderlist(await getAllReminders)
-        setAppointmentlist(await getAllAppointments)
-
+        setMedlist(await getAllMeds())
+      /*   setReminderlist(await getAllReminders())
+        setAppointmentlist(await getAllAppointments()) */
     }
+
+    const handlerMedList = () => {
+        console.log(medlist)
+    }
+
+    useEffect(() => {
+        getAllList()
+    }, [])
+
+
     return (
         <>
             <div className='Cuadrante'>
                 <ul>
-                    <li></li>
+                    {handlerMedList()}
                 </ul>
             </div>
         </>

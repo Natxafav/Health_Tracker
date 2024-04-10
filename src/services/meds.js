@@ -11,7 +11,6 @@ export const createNewMed = async (data) => {
         },
       }
     );
-
     return med.data;
   } catch (error) {
     console.log(error);
@@ -21,14 +20,14 @@ export const createNewMed = async (data) => {
 export const getAllMeds = async () => {
   try {
     const meds = await api.get(
-      "/meds/getAll",
+      "/meds/get",
       {
         headers: {
           Authorization: localStorage.getItem("Authorization"),
         },
       }
     );
-
+    console.log(meds.data)
     return meds.data;
   } catch (error) {
     console.log(error);

@@ -28,7 +28,6 @@ export const getAllReminders = async () => {
                 },
             }
         );
-
         return reminders.data;
     } catch (error) {
         console.log(error);
