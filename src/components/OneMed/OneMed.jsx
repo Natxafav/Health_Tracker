@@ -19,9 +19,9 @@ const OneMed = ({ item, handleReload }) => {
 
   const [name, setName] = useState(item.name);
   const [datetime, setDatetime] = useState(
-    `${date.getFullYear(item.datetime)}/${
+    `${date.getFullYear(item.datetime)}-${
       (date.getMonth(item.datetime)+1).toLocaleString().padStart(2, "0")
-    }/${date
+    }-${date
       .getDay(item.datetime)
       .toLocaleString()
       .padStart(2, "0")} ${date.getHours(item.datetime)}:${date
@@ -36,9 +36,9 @@ const OneMed = ({ item, handleReload }) => {
       .padStart(2, "0")}:00`
   );
   const [dateEnd, setDateEnd] = useState(
-    `${endDate.getFullYear(item.end)}/${
+    `${endDate.getFullYear(item.end)}-${
       (endDate.getMonth(item.end)+1).toLocaleString().padStart(2, "0")
-    }/${
+    }-${
       endDate.getDay(item.end).toLocaleString().padStart(2, "0") 
     } ${endDate.getHours(item.end)}:${endDate
       .getMinutes(item.end)
@@ -56,15 +56,7 @@ const OneMed = ({ item, handleReload }) => {
   const handleModify = async () => {
     try {
       setItemId(item.id);
-
-      console.log({
-        name,
-        datetime,
-        posology,
-        end: dateEnd,
-        description,
-      });
-
+console.log(dateEnd)
       const response = await updateMedication(itemId, {
         name,
         datetime,
@@ -90,7 +82,7 @@ const OneMed = ({ item, handleReload }) => {
       throw error;
     }
   };
-  console.log(item);
+;
   return (
     <>
       {!onEdit ? (
