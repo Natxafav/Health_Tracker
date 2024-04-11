@@ -29,7 +29,7 @@ export const getAllMedicationsUser = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching families:', error);
-    throw error;
+
   }
 };
 
