@@ -21,7 +21,7 @@ export const createAppointmentUser = async (data)=>{
 
 export const  getAllAppointmentsUser = async() =>{
     try {
-        const response = await api.get('/meet/get',{
+        const response = await api.get('/meet/get',{  
           headers: {
             'Authorization': localStorage.getItem("Authorization"),
           },

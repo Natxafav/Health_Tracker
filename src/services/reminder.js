@@ -16,7 +16,7 @@ export const getReminderToday = async () => {
         console.log(error);
     }
 };
-import { api } from './config'
+
 export const getAllReminderUser = async () => {
     try {
         const response = await api.get('/reminder/get', {
@@ -43,16 +43,6 @@ export const getAllReminderAdmin = async () => {
         console.error('Error fetching families:', error);
     }
 };
-
-
-
-export const getOneReminderUser = async () => {
-
-}
-
-
-}
-
 
 export const createReminderUser = async (data) => {
     try {
