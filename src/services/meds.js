@@ -73,7 +73,7 @@ export const deleteMedication = async (medId) => {
 export const getMedsToday = async () => {
   try {
       const reminders = await api.get(
-          "/reminder/today",
+          "/meds/today",
           {
               headers: {
                   Authorization: localStorage.getItem("Authorization"),
