@@ -3,6 +3,8 @@ import './medication.css'
 import { useState } from 'react';
 import { getUserByEmail } from '../../services/user';
 import { createNewMed } from '../../services/meds';
+import { useNavigate } from 'react-router-dom'
+
 
 const MedicationCreate = () => {
 const[name, setName]= useState('')
@@ -11,27 +13,27 @@ const [posology, setPosology]=useState('')
 const [duration, setDuration]= useState('')
 const [description, setDescription]= useState('')
 
+const navigate = useNavigate();
 console.log(datetime)
 console.log(duration);
-const creatingMeds=async (req, res)=>{
-   
+const creatingMeds=async (req, res)=>{   
     try {
-            const userRole = localStorage.getItem('roleId')
-            
+            const userRole = localStorage.getItem('roleId')            
             const getUser = await getUserByEmail()
            if(userRole === "2"){
                 const newMed= await createNewMed ({
-                name, posology, datetime, end:duration, description, userId:getUser
+                name, posology, datetime, end:duration, description, userId:getUser.id
               })
             }
-              console.log('creado')
-
-        
+              navigate('/meds')      
     } catch (error) {
         console.log(error)
     }
-
     }
+
+const handleCancel = ()=>{
+    navigate('/meds')
+}
 
 
     
@@ -62,7 +64,7 @@ const creatingMeds=async (req, res)=>{
                     </TextField>
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
-                        type='text'
+                        type='time'
                         className="field"
                         placeholder="Posology"
                         label='Posology'
@@ -111,7 +113,7 @@ const creatingMeds=async (req, res)=>{
                         Save
                     </Button>
                         <Button
-                            onClick={() => {navigate('/Home')}}
+                            onClick={() => {handleCancel()}}
                             className="btn"
                             sx={{
                                 color: "white",
@@ -124,7 +126,7 @@ const creatingMeds=async (req, res)=>{
                                 },
                             }}
                         >
-                            Register
+                            Cancel
                         </Button>
                 </div>
             </Card>

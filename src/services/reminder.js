@@ -21,14 +21,13 @@ export const createReminder = async (data) => {
 export const getAllReminders = async () => {
     try {
         const reminders = await api.get(
-            "/reminder/getAll",
+            "/reminder/get",
             {
                 headers: {
                     Authorization: localStorage.getItem("Authorization"),
                 },
             }
         );
-
         return reminders.data;
     } catch (error) {
         console.log(error);

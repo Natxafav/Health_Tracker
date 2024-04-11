@@ -1,10 +1,12 @@
 .header{
     background-color: rgb(4, 108, 149);
     border: solid 1px black;
-    height: 100px;
+     min-height: fit-content;
+     height: 5%;
     width: 100%;
     display: absolute;
     position: fixed;
     top: 0;
     left: 0;
+
 }

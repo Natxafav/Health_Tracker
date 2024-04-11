@@ -21,7 +21,7 @@ export const createAppointmnet = async (data) => {
 export const getAllAppointments = async () => {
     try {
         const appointments = await api.get(
-            "/meets/getAll",
+            "/meet/get",
             {
                 headers: {
                     Authorization: localStorage.getItem("Authorization"),
