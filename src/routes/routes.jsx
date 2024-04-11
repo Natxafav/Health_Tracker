@@ -12,6 +12,8 @@ import MedicationCreate from "../components/Medication/MedicationCreate.jsx";
 import MedicationList from "../pages/MedicationList/MedicationList.jsx";
 import Meet from "../pages/Meet/Meet.jsx";
 import MeetCreate from "../components/MeetCreate/MeetCreate.jsx";
+import Reminder from "../pages/Reminder/Reminder.jsx";
+import ReminderCreate from "../components/ReminderCreate/ReminderCreate.jsx";
 
 
 export const router = createBrowserRouter([
@@ -120,8 +122,10 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
+            element:<Reminder/>
           },{
             path: 'create',
+            element:<ReminderCreate/>
         }],
       },
     ],
