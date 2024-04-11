@@ -22,18 +22,18 @@ function Login() {
   const userPost = async () => {
     try {
       const res = await login({ email, password });
-    
+
       if (!res.data.token) {
-          alert('User/pass incorrect')
-        } else {
-           
-      localStorage.setItem("Authorization", res.data.token);
-      localStorage.setItem("roleId", res.data.roleId);
-      localStorage.setItem("email", res.data.email);     
-        
-        }
-         if (
-            localStorage.getItem("roleId") === "null" ||
+        alert('User/pass incorrect')
+      } else {
+
+        localStorage.setItem("Authorization", res.data.token);
+        localStorage.setItem("roleId", res.data.roleId);
+        localStorage.setItem("email", res.data.email);
+
+      }
+      if (
+        localStorage.getItem("roleId") === "null" ||
         localStorage.getItem("roleId") === undefined
       ) {
         navigate("/family-choice");
@@ -48,7 +48,7 @@ function Login() {
   return (
     <div className="login">
       <Card className="main" sx={{ borderRadius: "20px" }}>
-      <CardHeader title="Login" sx={{color:'white'}}/>
+        <CardHeader title="Login" sx={{ color: 'white' }} />
         <CardContent className="fields">
           <TextField
             sx={{ margin: "10px", fontFamily: "poppins" }}
@@ -67,7 +67,7 @@ function Login() {
             <Typography sx={{ fontFamily: "poppins" }}>Email</Typography>
           </TextField>
           <TextField
-            sx={{ margin: "10px", fontFamily: "poppins" , color:'black'}}
+            sx={{ margin: "10px", fontFamily: "poppins", color: 'black' }}
             className="field"
             placeholder="Password"
             type="password"

@@ -22,8 +22,7 @@ const GetReminder = () => {
                         <div key={idx}>
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">{rem.title}</h5>
-                                    <p className="card-text">{rem.description}</p>
+                                    <h5 className="card-title">{rem.name}</h5>
                                     <p> {date.getDay(rem.datetime)}/{date.getMonth(rem.datetime)}/{date.getFullYear(rem.datetime)} </p>
                                 </div>
                             </div>

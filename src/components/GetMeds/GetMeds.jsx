@@ -12,22 +12,15 @@ const GetMeds = () => {
         const list = () => {
             return (
                 medlist.map((med, index) => {
-                    return med.medications.map((medication, idx) => {
                         return (
-                            <div key={idx}>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">{medication.name}</h5>
-                                        <p className="card-text">{medication.description}</p>
-                                        <p> {date.getDay(medication.datetime)}/{date.getMonth(medication.datetime)}/{date.getFullYear(medication.datetime)} </p>
-                                    </div>
-                                </div>
+                            <div key={index}>
+                                <div className="card">{med.name}</div>
+                                <div className="card">{date.getDay(med.datetime)} / {date.getMonth(med.datetime)} / {date.getFullYear(med.datetime)}</div>
                             </div>
                         )
                     })
-                })
-            )
-        }
+                )
+            }
 
         return (
             <>

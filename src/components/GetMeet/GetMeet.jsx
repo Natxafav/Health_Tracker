@@ -13,18 +13,17 @@ const GetMeet = () => {
     }, [])
     
     // TODO : traer lista de Recordatorios
-    const getReminder = () => {
+    const getMeet = () => {
         const date = new Date();
         const list = () => {
-            return(MediaList.map((rem, ix) => {
+            return (meetList.map((meet, idxn) => {
                 return (
                     <>
-                        <div key={index}>
+                        <div key={idxn}>
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">{rem.title}</h5>
-                                    <p className="card-text">{rem.description}</p>
-                                    <p> {date.getDay(rem.datetime)}/{date.getMonth(rem.datetime)}/{date.getFullYear(rem.datetime)} </p>
+                                    <h5 className="card-title">{meet.name}</h5>
+                                    <p> {date.getDay(meet.datetime)}/{date.getMonth(meet.datetime)}/{date.getFullYear(meet.datetime)} </p>
                                 </div>
                             </div>
                         </div>
@@ -41,9 +40,9 @@ const GetMeet = () => {
     
         return (
             <>
-                {getReminder()}
+                {getMeet()}
             </>
         )
     }
 
-export default GetReminder
+export default GetMeet
