@@ -24,7 +24,7 @@ const Family = () => {
     try {
     
       const response = await updateFamily(elem.id, {
-        naname: familyName,
+        name: familyName,
       });
 
       setOnEdit((prev) => !prev);
@@ -87,7 +87,7 @@ const Family = () => {
     );
     return display;
   };
- 
+
 
   useEffect(() => {
     retrievefamily();
