@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllFamiliesUser } from "../../services/family";
 import { Card, CardContent, CardHeader, Button, CardActions } from "@mui/material";
-import { Link } from "react-router-dom";
 import OneFam from "../../components/OneFam/OneFam";
 
 const Family = () => {
@@ -12,7 +11,7 @@ const Family = () => {
 
   const retrievefamily = async () => {
     const res = await getAllFamiliesUser();
-    
+ 
     setFamily(res);
   };
 
@@ -24,7 +23,7 @@ const Family = () => {
     try {
     
       const response = await updateFamily(elem.id, {
-        naname: familyName,
+        name: familyName,
       });
 
       setOnEdit((prev) => !prev);
@@ -37,10 +36,11 @@ const Family = () => {
 
   const displayUserFamily = () => { 
     const display = family ? (
-      family.map((elem, idx) => {     
+      family.map((elem, idx) => {  
+        console.log(elem)   
         return (
           <Card key={idx}>
-            <CardHeader title={elem.name} />
+            <CardHeader title={elem.name} /> 
             {/* <CardActions
             className="btncontainer"
             sx={{ display: "flex", justifyContent: "end" }}
@@ -62,7 +62,7 @@ const Family = () => {
               Modify
             </Button>
             </CardActions> */}
-            <CardContent
+          <CardContent
               sx={{
                 width: "90%",
                 display: "flex",
@@ -74,10 +74,10 @@ const Family = () => {
                 paddingBottom: "200px",
               }}
             >
-              {elem.users.map((elem, id) => {
-                return <OneFam item={elem} key={id} handleReload={setReload} />;
+              {elem.users?(elem.users.map((element, id) => {
+                return <OneFam item={element} key={id} handleReload={setReload} />;
 
-              })}
+              })):(<h1>No encontramos coincideencias</h1>)}
             </CardContent>
           </Card>
         );
@@ -86,14 +86,14 @@ const Family = () => {
       <h1>No hay usuarios pertenecientes a esta familia</h1>
     );
     return display;
-  };
+  }; 
  
 
   useEffect(() => {
     retrievefamily();
     console.log(reload);
   }, [reload]);
-
+ 
   return (
     <Card sx={{ width: "90%", height: "80vh" }}>
     
