@@ -1,86 +1,53 @@
-import {api} from './config'
-export const  getAllReminderUser = async() =>{
+import { api } from "./config";
+
+export const createReminder = async (data) => {
     try {
-        const response = await api.get('/reminder/get',{
-          headers: {
-            'Authorization': localStorage.getItem("Authorization"),
-          },
-        });
-     
-        return response.data;
-      } catch (error) {
-        console.error('Error fetching families:', error);
-    
-      }
-}
-export const getAllReminderAdmin = async ()=>{
-    try {
-        const response = await api.get('/reminder/admin', {
-          headers: {
-            'Authorization': localStorage.getItem('Authorization')
-          },
-        });
-        return response.data;
-      } catch (error) {
-        console.error('Error fetching families:', error);
-      }
-    };
-
-
-
-export const getOneReminderUser = async ()=>{
-   
-}
-
-export const getOneReminderAdmin = async ()=>{
-
-}
-
-
-export const createReminderUser = async (data)=>{
-    try {
-        const med = await api.post(
-          "/reminder/create",
-          data,
-          {
-            headers: {
-              'Authorization': localStorage.getItem('Authorization')
-            },
-          }
+        const reminder = await api.post(
+            "/reminder/create",
+            data,
+            {
+                headers: {
+                    Authorization: localStorage.getItem("Authorization"),
+                },
+            }
         );
-    
-        return med.data;
-      } catch (error) {
-        console.log(error);
-      }
-}
-export const createReminderAdmin = async (reminderID, data)=>{
 
-}
-export const updateReminder = async (reminderID, data)=>{
+        return reminder.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getAllReminders = async () => {
     try {
-        const resp = await api.put(`/reminder/mod/${reminderID}`, data
-      , {
-        headers: {
-           'Authorization': localStorage.getItem('Authorization')
-        },
-      })
-      return resp.data
-      } catch (error) {
-        console.log(error)
-      }
-}
-export const deleteReminder = async (reminderID)=>{
+        const reminders = await api.get(
+            "/reminder/get",
+            {
+                headers: {
+                    Authorization: localStorage.getItem("Authorization"),
+                },
+            }
+        );
+        return reminders.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getReminderToday = async () => {
     try {
-        const resp = await api.delete(`/reminder/rm/${reminderID}`,{
-          headers: {
-             'Authorization': localStorage.getItem('Authorization')
-          },
-        } )
-        
-        return resp.data
-      
-      } catch (error) {
-        console.log(error)
-      }
-}
+        const meet = await api.get(
+            "/reminder/today",
+            {
+                headers: {
+                    Authorization: localStorage.getItem("Authorization"),
+                },
+            }
+        );
+        return meet.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+

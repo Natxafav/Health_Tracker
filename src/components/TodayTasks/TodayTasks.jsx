@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getMedsToday } from '../../services/meds'
+import { getReminderToday } from '../../services/reminder'
+import { getMeetToday } from '../../services/meets'
 
 const TodayTask = () => {
     const [medlist, setMedlist] = useState([])
@@ -8,7 +10,7 @@ const TodayTask = () => {
 
     const handlerAllList = async () => {
         setMedlist(await getMedsToday())
-        setRemlist(await getRemToday())
+        setRemlist(await getReminderToday())
         setMeetlist(await getMeetToday())
     }
     const getAllList = () => {

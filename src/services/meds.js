@@ -77,3 +77,19 @@ export const  deleteMedication  = async ( medId)=>{
     console.log(error)
   }
 }
+
+export const getMedsToday = async () => {
+  try {
+      const meds = await api.get(
+          "/meds/today",
+          {
+              headers: {
+                  Authorization: localStorage.getItem("Authorization"),
+              },
+          }
+      );
+      return meds.data;
+  } catch (error) {
+      console.log(error);
+  }
+};
