@@ -9,19 +9,17 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteMedication, updateMedication } from "../../services/meds";
+import { deleteAppointment, updateAppointment } from "../../services/meets";
 
-const OneMed = ({ item, handleReload }) => {
+const OneMeet = ({ item, handleReload }) => {
   const date = new Date(item.datetime);
-  const endDate = new Date(item.end);
 
   const [onEdit, setOnEdit] = useState(false);
 
-  const [name, setName] = useState(item.name);
   const [datetime, setDatetime] = useState(
-    `${date.getFullYear(item.datetime)}/${
-      (date.getMonth(item.datetime)+1).toLocaleString().padStart(2, "0")
-    }/${date
+    `${date.getFullYear(item.datetime)}/${(date.getMonth(item.datetime) + 1)
+      .toLocaleString()
+      .padStart(2, "0")}/${date
       .getDay(item.datetime)
       .toLocaleString()
       .padStart(2, "0")} ${date.getHours(item.datetime)}:${date
@@ -29,26 +27,14 @@ const OneMed = ({ item, handleReload }) => {
       .toLocaleString()
       .padStart(2, "0")}:00`
   );
-  const [posology, setPosology] = useState(
-    `${date.getHours(item.posology)}:${date
-      .getMinutes(item.posology)
-      .toLocaleString()
-      .padStart(2, "0")}:00`
-  );
-  const [dateEnd, setDateEnd] = useState(
-    `${endDate.getFullYear(item.end)}/${
-      (endDate.getMonth(item.end)+1).toLocaleString().padStart(2, "0")
-    }/${
-      endDate.getDay(item.end).toLocaleString().padStart(2, "0") 
-    } ${endDate.getHours(item.end)}:${endDate
-      .getMinutes(item.end)
-      .toLocaleString()
-      .padStart(2, "0")}:00`
-  );
+
+  const [locate, setLocate] = useState(item.locate);
+
+  const [specialist, setSpecialist] = useState(item.specialist);
+
   const [description, setDescription] = useState(item.description);
   const [itemId, setItemId] = useState(item.id);
 
-  const navigate = useNavigate();
   const handleOnEdit = () => {
     setOnEdit(!onEdit);
   };
@@ -57,19 +43,10 @@ const OneMed = ({ item, handleReload }) => {
     try {
       setItemId(item.id);
 
-      console.log({
-        name,
+      const response = await updateAppointment(itemId, {
         datetime,
-        posology,
-        end: dateEnd,
-        description,
-      });
-
-      const response = await updateMedication(itemId, {
-        name,
-        datetime,
-        posology,
-        end: dateEnd,
+        locate,
+        specialist,
         description,
       });
 
@@ -82,7 +59,7 @@ const OneMed = ({ item, handleReload }) => {
   };
   const handleDelete = async () => {
     try {
-      const response = await deleteMedication(item.id);
+      const response = await deleteAppointment(item.id);
 
       location.reload();
       return response.data;
@@ -99,11 +76,12 @@ const OneMed = ({ item, handleReload }) => {
             className="fields"
             sx={{ backgroundColor: "blue", color: "white" }}
           >
-            {<p>Medication: {item.name}</p>}
+          
             {<p> Start date: {datetime}</p>}
-            {<p>Posology: {posology}</p>}
-            {<p>End date: {dateEnd}</p>}
-            {<p>Description: {item.description}</p>}
+            {<p>locate: {locate}</p>}
+            {<p>End date: {specialist}</p>}
+            {<p>Description: {description}</p>}
+
           </CardContent>
           <CardActions
             className="btncontainer"
@@ -151,18 +129,6 @@ const OneMed = ({ item, handleReload }) => {
           >
             <TextField
               sx={{ margin: "10px", fontFamily: "poppins" }}
-              type="text"
-              className="field"
-              defaultValue={item.name}
-              label="Medication Name"
-              onChange={(e) => setName(e.target.value)}
-            >
-              <Typography sx={{ fontFamily: "poppins" }}>
-                Medication Name
-              </Typography>
-            </TextField>
-            <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
               type="datetime"
               className="field"
               defaultValue={datetime}
@@ -173,29 +139,29 @@ const OneMed = ({ item, handleReload }) => {
             </TextField>
             <TextField
               sx={{ margin: "10px", fontFamily: "poppins" }}
-              type="time"
+              type="text"
               className="field"
-              defaultValue={posology && posology}
-              label="Posology"
-              onChange={(e) => setPosology(e.target.value)}
+              defaultValue={ locate}
+              label="locate"
+              onChange={(e) => setLocate(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins" }}>Posology</Typography>
+              <Typography sx={{ fontFamily: "poppins" }}>locate</Typography>
             </TextField>
             <TextField
               sx={{ margin: "10px", fontFamily: "poppins" }}
               type="datetime"
               className="field"
-              defaultValue={dateEnd}
+              defaultValue={specialist}
               label="End Date/ Hour"
-              onChange={(e) => setDateEnd(e.target.value)}
+              onChange={(e) => setSpecialist(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins" }}>dateEnd</Typography>
+              <Typography sx={{ fontFamily: "poppins" }}>specialist</Typography>
             </TextField>
             <TextField
               sx={{ margin: "10px", fontFamily: "poppins" }}
               type="text"
               className="field"
-              defaultValue={item.description}
+              defaultValue={description}
               label="Description"
               onChange={(e) => setDescription(e.target.value)}
             >
@@ -247,4 +213,4 @@ const OneMed = ({ item, handleReload }) => {
   );
 };
 
-export default OneMed;
+export default OneMeet;

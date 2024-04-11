@@ -10,6 +10,8 @@ import SignUp from "../pages/SignUp/SignUp";
 import Family from "../pages/Family/Family.jsx";
 import MedicationCreate from "../components/Medication/MedicationCreate.jsx";
 import MedicationList from "../pages/MedicationList/MedicationList.jsx";
+import Meet from "../pages/Meet/Meet.jsx";
+import MeetCreate from "../components/MeetCreate/MeetCreate.jsx";
 
 
 export const router = createBrowserRouter([
@@ -97,9 +99,11 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
+            element:<Meet/>
            
           },{
             path: 'create',
+            element: <MeetCreate/>
            
         }],
       },

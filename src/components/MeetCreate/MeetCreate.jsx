@@ -1,37 +1,37 @@
 import { Button, Card, CardContent, CardHeader, TextField, Typography } from '@mui/material';
-import './medication.css'
 import { useState } from 'react';
 import { getUserByEmail } from '../../services/user';
-import { createNewMed } from '../../services/meds';
+import { createAppointmentUser } from '../../services/meets';
 import { useNavigate } from 'react-router-dom'
 
-
-const MedicationCreate = () => {
+const MeetCreate = () => {
+  
 const[name, setName]= useState('')
 const [datetime, setDatetime]= useState('')
-const [posology, setPosology]=useState('')
-const [duration, setDuration]= useState('')
+const [locate, setLocate]=useState('')
+const [specialist, setSpecialist]= useState('')
 const [description, setDescription]= useState('')
 
 const navigate = useNavigate();
 
-const creatingMeds=async (req, res)=>{   
+
+const creatingMeets=async (req, res)=>{   
     try {
             const userRole = localStorage.getItem('roleId')            
             const getUser = await getUserByEmail()
            if(userRole === "2"){
-                const newMed= await createNewMed ({
-                name, posology, datetime, end:duration, description, userId:getUser.id
+                const newMeet= await createAppointmentUser ({
+               locate, datetime, specialist, description, userId:getUser.id
               })
             }
-              navigate('/meds')      
+              navigate('/meet')      
     } catch (error) {
         console.log(error)
     }
     }
 
 const handleCancel = ()=>{
-    navigate('/meds')
+    navigate('/meet')
 }
 
 
@@ -39,18 +39,9 @@ const handleCancel = ()=>{
   return (
     <div className='medicationContainer'>
         <Card className="medMain" sx={{ borderRadius: "20px" , }}>
-        <CardHeader title="Medication" sx={{color:'white'}}/>
+        <CardHeader title="Appointment" sx={{color:'white'}}/>
                 <CardContent className="fields" sx={{color: 'white'}}>
-                    <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins" }}
-                        type='text'
-                        className="field"
-                        placeholder="Medication Name"
-                        label='Medication Name'
-                        onChange={(e) => setName(e.target.value)}                        
-                    >
-                        <Typography sx={{ fontFamily: "poppins" }}>Medication Name</Typography>
-                    </TextField>
+                    
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
                         type='datetime-local'
@@ -63,23 +54,23 @@ const handleCancel = ()=>{
                     </TextField>
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
-                        type='time'
+                        type='text'
                         className="field"
-                        placeholder="Posology"
-                        label='Posology'
-                        onChange={(e) => setPosology(e.target.value)}                        
+                        placeholder="locate"
+                        label='locate'
+                        onChange={(e) => setLocate(e.target.value)}                        
                     >
-                        <Typography sx={{ fontFamily: "poppins" }}>Posology</Typography>
+                        <Typography sx={{ fontFamily: "poppins" }}>locate</Typography>
                     </TextField>
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
-                        type='datetime-local'
+                        type='datetime'
                         className="field"
-                        placeholder="Duration"
-                        label='End Date/ Hour'
-                        onChange={(e) => setDuration(e.target.value)}                       
+                        placeholder="specialist"
+                        label='Specialist'
+                        onChange={(e) => setSpecialist(e.target.value)}                       
                     >
-                        <Typography sx={{ fontFamily: "poppins" }}>Duration</Typography>
+                        <Typography sx={{ fontFamily: "poppins" }}>specialist</Typography>
                     </TextField>
                     <TextField
                         sx={{ margin: "10px", fontFamily: "poppins" }}
@@ -96,7 +87,7 @@ const handleCancel = ()=>{
                     <Button
                         className="btn"
                         onClick={() => {
-                            creatingMeds();
+                            creatingMeets();
                         }}
                         sx={{
                             color: "white",
@@ -133,4 +124,4 @@ const handleCancel = ()=>{
   )
 }
 
-export default MedicationCreate
+export default MeetCreate
