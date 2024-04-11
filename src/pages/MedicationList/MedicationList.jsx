@@ -27,7 +27,7 @@ function MedicationList() {
         familyMeds.map((elem, idx) => {
           return (
             <Card key={idx}>
-              <CardHeader title={`Element Name${elem.name}`} />
+              <CardHeader title={`USER: ${elem.name}`} />
               <CardContent
                 sx={{
                   width: "90%",
