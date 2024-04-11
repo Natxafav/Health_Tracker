@@ -1,3 +1,4 @@
+import { api } from "./config";
 /* 
 export const  getAllAppointmentsUser = async() =>{
 
@@ -32,3 +33,19 @@ export const removeUserAppointment = async ()=>{
 
 }
  */
+
+export const getMeetToday = async () => {
+    try {
+        const meet = await api.get(
+            "/meet/today",
+            {
+                headers: {
+                    Authorization: localStorage.getItem("Authorization"),
+                },
+            }
+        );
+        return meet.data;
+    } catch (error) {
+        console.log(error);
+    }
+};

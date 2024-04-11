@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
-import { getAllMedicationsUser } from '../../services/meds/'
+import { getMedsToday } from '../../services/meds'
 
 const GetMeds = () => {
     const [medlist, setMedlist] = useState([])
 
     const handlerAllList = async () => {
-        setMedlist(await getAllMedicationsUser())
-    /*  setReminderlist(await getAllReminders())
-        setAppointmentlist(await getAllAppointments()) */
+        setMedlist(await getMedsToday())
     }
     const getAllList = () => {
         const date = new Date();

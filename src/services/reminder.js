@@ -33,3 +33,21 @@ export const getAllReminders = async () => {
         console.log(error);
     }
 };
+
+export const getReminderToday = async () => {
+    try {
+        const meet = await api.get(
+            "/reminder/today",
+            {
+                headers: {
+                    Authorization: localStorage.getItem("Authorization"),
+                },
+            }
+        );
+        return meet.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
