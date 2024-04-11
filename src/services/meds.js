@@ -45,42 +45,18 @@ export const getAllMedicationsAdmin = async () => {
   }
 };
 
-<<<<<<< HEAD
-export const updateMedication = async (medId, data) => {
-  console.log('medId ', medId)
-  console.log('data ', data)
-  const resp = await api.put(`/meds/mod/${medId}`, data
-    , {
-      headers: {
-        'Authorization': localStorage.getItem('Authorization')
-      },
-    })
-  return resp.data
-}
-
-
-export const deleteMedication = async (medId) => {
-  const resp = await api.delete(`/meds/rm/${medId}`, {
-=======
 export const updateMedication = async (medId, data)=>{
   try {
     const resp = await api.put(`/meds/mod/${medId}`, data
   , {
->>>>>>> ramaProblem
     headers: {
       'Authorization': localStorage.getItem('Authorization')
     },
   })
-<<<<<<< HEAD
-
-  return resp.data
-
-=======
   return resp.data
   } catch (error) {
     console.log(error)
   }
- 
   
 }
 
@@ -89,7 +65,7 @@ export const  deleteMedication  = async ( medId)=>{
   try {
     const resp = await api.delete(`/meds/rm/${medId}`,{
       headers: {
-         'Authorization': localStorage.getItem('Authorization')
+        'Authorization': localStorage.getItem('Authorization')
       },
     } )
     
@@ -98,7 +74,6 @@ export const  deleteMedication  = async ( medId)=>{
   } catch (error) {
     console.log(error)
   }
->>>>>>> ramaProblem
 }
 
 export const getMedsToday = async () => {
