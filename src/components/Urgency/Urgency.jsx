@@ -1,4 +1,4 @@
-import GetMeds from '../getmeds/GetMeds'
+import GetMeds from '../GetMeds/GetMeds'
 
 const Urgency = () => {
     
