@@ -1,0 +1,19 @@
+{
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      ["transform-imports", {
+        "@mui/material": {
+          "transform": "@mui/material/esm/${member}",
+          "preventFullImport": true
+        },
+        "@mui/icons-material": {
+          "transform": "@mui/icons-material/esm/${member}",
+          "preventFullImport": true
+        }
+      }]
+    ]
+  }
+  

@@ -1,9 +1,105 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import { getAllFamiliesUser } from "../../services/family";
+import { Card, CardContent, CardHeader, Button, CardActions } from "@mui/material";
+import OneFam from "../../components/OneFam/OneFam";
 
 const Family = () => {
-  return (
-    <div>Family</div>
-  )
-}
+  const [family, setFamily] = useState([]);
+  const [familyName, setFamilyName] = useState("");
+  const [reload, setReload] = useState(false);
 
-export default Family
+
+  const retrievefamily = async () => {
+    const res = await getAllFamiliesUser();
+ 
+    setFamily(res);
+  };
+
+  useEffect(() => {
+    retrievefamily();
+  }, []);
+
+  const handleModify = async () => {
+    try {
+    
+      const response = await updateFamily(elem.id, {
+        name: familyName,
+      });
+
+      setOnEdit((prev) => !prev);
+      handleReload((prev) => !prev);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const displayUserFamily = () => { 
+    const display = family ? (
+      family.map((elem, idx) => {  
+        console.log(elem)   
+        return (
+          <Card key={idx}>
+            <CardHeader title={elem.name} /> 
+            {/* <CardActions
+            className="btncontainer"
+            sx={{ display: "flex", justifyContent: "end" }}
+          >
+            <Button
+              variant="outlined"
+              onClick={() => handleModify(elem.id)}
+              sx={{
+                color: "white",
+                backgroundColor: "black",
+                fontFamily: "poppins",
+                ":hover": {
+                  backgroundColor: "Aqua",
+                  color: "black",
+                  boxShadow: "15px -5px 10px",
+                },
+              }}
+            >
+              Modify
+            </Button>
+            </CardActions> */}
+          <CardContent
+              sx={{
+                width: "90%",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "space-evenly",
+                justifyContent: "start",
+                flexWrap: "wrap",
+                gap: "20px",
+                paddingBottom: "200px",
+              }}
+            >
+              {elem.users?(elem.users.map((element, id) => {
+                return <OneFam item={element} key={id} handleReload={setReload} />;
+
+              })):(<h1>No encontramos coincideencias</h1>)}
+            </CardContent>
+          </Card>
+        );
+      })
+    ) : (
+      <h1>No hay usuarios pertenecientes a esta familia</h1>
+    );
+    return display;
+  }; 
+ 
+
+  useEffect(() => {
+    retrievefamily();
+    console.log(reload);
+  }, [reload]);
+ 
+  return (
+    <Card sx={{ width: "90%", height: "80vh" }}>
+    
+      {displayUserFamily()}
+    </Card>
+  );
+};
+
+export default Family;
