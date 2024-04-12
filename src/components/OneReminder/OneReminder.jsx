@@ -9,7 +9,7 @@ import {
   } from "@mui/material";
   import { useState } from "react";
   import { useNavigate } from "react-router-dom";
-  import { deleteReminder, updateReminder } from "../../services/reminder";
+  import { deleteReminder,  } from "../../services/reminder";
 
 const OneReminder = ({ item, handleReload }) => {
 
