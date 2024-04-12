@@ -19,7 +19,7 @@ const creatingMeets=async (req, res)=>{
     try {
             const userRole = localStorage.getItem('roleId')            
             const getUser = await getUserByEmail()
-           if(userRole === "2"){
+           if(userRole === "2"|| userRole === "3"){
                 const newMeet= await createAppointmentUser ({
                locate, datetime, specialist, description, userId:getUser
               })

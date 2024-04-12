@@ -26,7 +26,14 @@ function MedicationList() {
         
         familyMeds.map((elem, idx) => {
           return (
-            <Card key={idx}>
+            <Card key={idx} sx={{maxWidth:'fit-content',width: "90%",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "start",
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
+            gap: '20px' ,
+            paddingBottom: "200px",}}>
               <CardHeader title={elem.name} />
               <CardContent
                 sx={{
