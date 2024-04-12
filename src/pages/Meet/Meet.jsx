@@ -15,27 +15,23 @@ const Meet = () => {
 
   const displayUserMeets = () => {
     const display = familyMeets ? (
-      <Card
-        className="mainContain"
-     
-        sx={{
-          width: "90%",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "start",
-          justifyContent: "space-evenly",
-          flexWrap: "wrap",
-          gap: "20px",
-          paddingBottom: "200px",
-         
-        }}
-      >
-        {familyMeets.map((elem, idx) => {       
+      
+        familyMeets.map((elem, idx) => {       
         
           return (
            <Card key={idx} sx={{overflowY:'scroll'}}>
               <CardHeader title={elem.name} />
-              <CardContent className="mainContentCard"> 
+              <CardContent className="mainContentCard" sx={{
+                    width: "90%",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "space-evenly",
+                    justifyContent: "start",
+                    flexWrap: "wrap",
+                    gap: '20px' ,
+                    paddingBottom: "200px",
+                    
+                  }}> 
              
                 {elem.appointments.map((elem, id) => {
                   return <OneMeet item={elem} key={id} handleReload={setReload}/>;
@@ -43,8 +39,8 @@ const Meet = () => {
               </CardContent>
             </Card> 
           );
-        })}
-      </Card>
+        })
+      
     ) : (
       <h1>No hay Citas almacenadas</h1>
     );
@@ -58,7 +54,7 @@ const Meet = () => {
   }, [reload]);
 
   return (
-    <Card className="NewMeet" sx={{ width: "90%", height: "80vh", overflowY:'scroll' }}>
+    <Card className="NewMeet" sx={{ width: "90%",  height:'80vh', overflowY:'scroll'}}>
       <Link to={"/meet/create"}>
         <Button
           variant="contained"

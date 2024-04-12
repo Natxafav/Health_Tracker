@@ -18,7 +18,7 @@ const Reminder = () => {
     const retrievereminders = async () => {
       const res = await getAllReminderUser();  
       setReminders(res);
-      console.log(res)
+    
     };
   
     const displayUserReminders = () => {
