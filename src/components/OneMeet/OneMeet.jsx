@@ -6,15 +6,15 @@ import {
   Button,
   TextField,
   Typography,
-} from "@mui/material";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { deleteAppointment, updateAppointment } from "../../services/meets";
+} from "@mui/material"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { deleteAppointment, updateAppointment } from "../../services/meets"
 
 const OneMeet = ({ item, handleReload }) => {
-  const date = new Date(item.datetime);
+  const date = new Date(item.datetime)
 
-  const [onEdit, setOnEdit] = useState(false);
+  const [onEdit, setOnEdit] = useState(false)
 
   const [datetime, setDatetime] = useState(
     `${date.getFullYear(item.datetime)}/${(date.getMonth(item.datetime) + 1)
@@ -26,48 +26,48 @@ const OneMeet = ({ item, handleReload }) => {
       .getMinutes(item.datetime)
       .toLocaleString()
       .padStart(2, "0")}:00`
-  );
+  )
 
-  const [locate, setLocate] = useState(item.locate);
+  const [locate, setLocate] = useState(item.locate)
 
-  const [specialist, setSpecialist] = useState(item.specialist);
+  const [specialist, setSpecialist] = useState(item.specialist)
 
-  const [description, setDescription] = useState(item.description);
-  const [itemId, setItemId] = useState(item.id);
+  const [description, setDescription] = useState(item.description)
+  const [itemId, setItemId] = useState(item.id)
 
   const handleOnEdit = () => {
-    setOnEdit(!onEdit);
-  };
+    setOnEdit(!onEdit)
+  }
 
   const handleModify = async () => {
     try {
-      setItemId(item.id);
+      setItemId(item.id)
 
       const response = await updateAppointment(itemId, {
         datetime,
         locate,
         specialist,
         description,
-      });
+      })
 
-      setOnEdit((prev) => !prev);
-      handleReload((prev) => !prev);
-      return response.data;
+      setOnEdit((prev) => !prev)
+      handleReload((prev) => !prev)
+      return response.data
     } catch (error) {
-      throw error;
+      throw error
     }
-  };
+  }
   const handleDelete = async () => {
     try {
-      const response = await deleteAppointment(item.id);
+      const response = await deleteAppointment(item.id)
 
-      location.reload();
-      return response.data;
+      location.reload()
+      return response.data
     } catch (error) {
-      throw error;
+      throw error
     }
-  };
-  console.log(item);
+  }
+  console.log(item)
   return (
     <>
       {!onEdit ? (
@@ -77,10 +77,10 @@ const OneMeet = ({ item, handleReload }) => {
             sx={{ backgroundColor: "blue", color: "white" }}
           >
           
-            {<p> Start date: {datetime}</p>}
-            {<p>locate: {locate}</p>}
-            {<p>End date: {specialist}</p>}
-            {<p>Description: {description}</p>}
+            {<h6> Start date: {datetime}</h6>}
+            {<h6>locate: {locate}</h6>}
+            {<h6>Specialist: {specialist}</h6>}
+            {<h6>Description: {description}</h6>}
 
           </CardContent>
           <CardActions
@@ -149,10 +149,10 @@ const OneMeet = ({ item, handleReload }) => {
             </TextField>
             <TextField
               sx={{ margin: "10px", fontFamily: "poppins" }}
-              type="datetime"
+              type="text"
               className="field"
               defaultValue={specialist}
-              label="End Date/ Hour"
+              label="Specialist"
               onChange={(e) => setSpecialist(e.target.value)}
             >
               <Typography sx={{ fontFamily: "poppins" }}>specialist</Typography>
@@ -210,7 +210,7 @@ const OneMeet = ({ item, handleReload }) => {
         </Card>
       )}
     </>
-  );
-};
+  )
+}
 
-export default OneMeet;
+export default OneMeet
