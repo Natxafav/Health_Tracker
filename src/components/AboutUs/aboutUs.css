@@ -1,14 +1,15 @@
 
 .cardContainerMain{
     width: 100%;
-
-    transition: transform 3.3s ease-in-out;
+    height: fit-content;
+/* 
+    transition: transform 3.3s ease-in-out; */
   
 }
-.cardContainerMain:hover{
+/* .cardContainerMain:hover{
     transform: scale3d(1.5,1.5,1)  ; 
     transform-origin: right; 
     
 
     border-radius: 0px;
-}
+} */

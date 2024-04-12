@@ -6,13 +6,14 @@ const AboutUs = () => {
 
 const [text, setText]= useState(false)
 
-const text1= 'dfadfsdfasdfasdfdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf'
-const text2='d88888888888888888888888'
+const text1= 'Heath Tracker.'
+const text2='Here to help.' 
+const text3='Gracias!'
     
   return (
     <Card onMouseOver={()=>{setText(true)}} onMouseOut={()=>{setText(false)}} className='cardContainerMain' >
 
-          {text? <h1>{text2}</h1>: <h1>{text1}</h1>}
+          {text? <h1>{text1}</h1>: <h1>{text2}</h1>}
     </Card>
   )
 }
