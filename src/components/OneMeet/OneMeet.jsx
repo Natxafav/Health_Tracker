@@ -67,7 +67,7 @@ const OneMeet = ({ item, handleReload }) => {
       throw error
     }
   }
-  console.log(item)
+ 
   return (
     <>
       {!onEdit ? (

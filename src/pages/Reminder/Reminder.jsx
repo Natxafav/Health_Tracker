@@ -27,7 +27,7 @@ const Reminder = () => {
           
           reminders.map((elem, idx) => {
             return (
-              <Card key={idx}>
+              <Card key={idx} sx={{overflowY:'scroll'}}>
                 <CardHeader title={elem.name} />
                 <CardContent
                   sx={{
@@ -39,17 +39,18 @@ const Reminder = () => {
                     flexWrap: "wrap",
                     gap: '20px' ,
                     paddingBottom: "200px",
+                    
                   }}
                 >
-                  {elem.Reminders.map((elem, id) => {
+                  {elem.Reminders.length >0? (elem.Reminders.map((elem, id) => {
                     return <OneReminder item={elem} key={id} handleReload={setReload}/>;
-                  })}
+                  })):(<h2>No reminder found</h2>)}
                 </CardContent>
               </Card>
             );
           })
         ) : (
-          <h1>No hay medicamentos almacenados</h1>
+          <h1>No reminder avaliable</h1>
         );
       return display;
     };
@@ -60,7 +61,7 @@ const Reminder = () => {
       console.log(reload)
     }, [reload]);
   
-    return <Card sx={{ width: "90%",  height:'80vh', }}>
+    return <Card sx={{ width: "90%",  height:'80vh', overflowY:'scroll'}}>
        <Link to={"/reminder/create"}>
               <Button variant="contained" color="primary" fullWidth sx={{height:'5vh'}}>
                 New reminder

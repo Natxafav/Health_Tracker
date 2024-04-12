@@ -70,7 +70,12 @@ const OneReminder = ({ item, handleReload }) => {
     return (
       <>
         {!onEdit ? (
-          <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
+          <Card className="cardIndvContainer" sx={{ borderRadius: "20px",display: "flex",
+          flexDirection: "row",
+          alignItems: "space-evenly",
+          justifyContent: "start",
+          flexWrap: "wrap",
+          gap: '20px' , }}>
             <CardContent
               className="fields"
               sx={{ backgroundColor: "blue", color: "white" }}

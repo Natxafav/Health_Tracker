@@ -20,7 +20,7 @@ export const createAppointmentUser = async (data)=>{
 }
 
 export const  getAllAppointmentsUser = async() =>{
-    try {
+
         const response = await api.get('/meet/get',{
           headers: {
             'Authorization': localStorage.getItem("Authorization"),
@@ -28,10 +28,7 @@ export const  getAllAppointmentsUser = async() =>{
         });
      
         return response.data;
-      } catch (error) {
-        console.error('Error fetching families:', error);
     
-      }
 }
 export const getAllAppointmentsAdmin = async ()=>{
     try {

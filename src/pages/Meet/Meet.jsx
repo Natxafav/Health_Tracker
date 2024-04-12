@@ -27,20 +27,21 @@ const Meet = () => {
           flexWrap: "wrap",
           gap: "20px",
           paddingBottom: "200px",
+         
         }}
       >
-        {familyMeets.map((elem, idx) => {
+        {familyMeets.map((elem, idx) => {       
+        
           return (
-            <Card key={idx}>
+           <Card key={idx} sx={{overflowY:'scroll'}}>
               <CardHeader title={elem.name} />
-              <CardContent className="mainContentCard">
-                <OneMeet
-                  className="OneMeet"
-                  item={elem}
-                  handleReload={setReload}
-                />
+              <CardContent className="mainContentCard"> 
+             
+                {elem.appointments.map((elem, id) => {
+                  return <OneMeet item={elem} key={id} handleReload={setReload}/>;
+                })}
               </CardContent>
-            </Card>
+            </Card> 
           );
         })}
       </Card>
@@ -53,11 +54,11 @@ const Meet = () => {
 
   useEffect(() => {
     retrievefamilyMeets();
-    console.log(reload);
+    
   }, [reload]);
 
   return (
-    <Card className="NewMeet" sx={{ width: "90%", height: "80vh" }}>
+    <Card className="NewMeet" sx={{ width: "90%", height: "80vh", overflowY:'scroll' }}>
       <Link to={"/meet/create"}>
         <Button
           variant="contained"
