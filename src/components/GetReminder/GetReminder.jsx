@@ -3,7 +3,7 @@ import { getReminderToday } from '../../services/reminder'
 
 const GetReminder = () => {
     const [remList, setRemlist] = useState([])
-    
+
     const handlerAllList = async () => {
         setRemlist(await getReminderToday())
     }
@@ -11,12 +11,13 @@ const GetReminder = () => {
     useEffect(() => {
         handlerAllList()
     }, [])
-    
+
     // TODO : traer lista de Recordatorios
     const getReminder = () => {
+        
         const date = new Date();
         const list = () => {
-            return(remList.map((rem, idx) => {
+            return (remList.map((rem, idx) => {
                 return (
                     <>
                         <div key={idx}>
@@ -30,19 +31,20 @@ const GetReminder = () => {
                     </>
                 )
             })
-        )}
-        return(
+            )
+        }
+        return (
             <>
                 {list()}
             </>
         )
     }
-    
-        return (
-            <>
-                {getReminder()}
-            </>
-        )
-    }
+
+    return (
+        <>
+            {getReminder()}
+        </>
+    )
+}
 
 export default GetReminder

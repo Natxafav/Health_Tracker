@@ -11,7 +11,7 @@ const GetMeds = () => {
         const date = new Date();
         const list = () => {
             return (
-                medlist.map((med, index) => {
+                medlist && medlist.map((med, index) => {
                         return (
                             <div key={index}>
                                 <div className="card">{med.name}</div>

@@ -16,7 +16,7 @@ const GetMeet = () => {
     const getMeet = () => {
         const date = new Date();
         const list = () => {
-            return (meetList.map((meet, idxn) => {
+            return (meetList && meetList.map((meet, idxn) => {
                 return (
                     <>
                         <div key={idxn}>
