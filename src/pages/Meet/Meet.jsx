@@ -22,7 +22,7 @@ const Meet = () => {
            <Card key={idx} sx={{overflowY:'scroll'}}>
               <CardHeader title={elem.name} />
               <CardContent className="mainContentCard" sx={{
-                    width: "90%",
+                    width: "30%",
                     display: "flex",
                     flexDirection: "row",
                     alignItems: "space-evenly",
@@ -54,7 +54,20 @@ const Meet = () => {
   }, [reload]);
 
   return (
-    <Card className="NewMeet" sx={{ width: "90%",  height:'80vh', overflowY:'scroll'}}>
+    <Card className="NewMeet" sx={{
+      width: "90%",
+      height:'100vh',
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "space-evenly",
+      justifyContent: "start",
+      flexWrap: "wrap",
+      gap: '20px' ,
+      paddingBottom: "200px",
+      paddingTop: "200px",
+      overflowY:'scroll'
+      
+    }}>
       <Link to={"/meet/create"}>
         <Button
           variant="contained"

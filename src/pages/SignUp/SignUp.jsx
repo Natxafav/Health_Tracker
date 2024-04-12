@@ -24,7 +24,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [showAddFamily, setShowAddFamily] = useState(false);
-  console.log(showAddFamily);
+
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
@@ -56,7 +56,7 @@ const SignUp = () => {
   return (
     <div className="signup">
       <Card
-        className="mainContainer"
+        className="mainContainerSignUp"
         sx={{ borderRadius: "20px", gap: "15px" }}
       >
         <CardHeader title="Sign Up" sx={{ color: "white" }} />
@@ -142,7 +142,7 @@ const SignUp = () => {
         </CardContent>
         <CardActions
           className="btncontainer"
-          sx={{ display: "flex", justifyContent: "end" }}
+          sx={{ display: "flex", alignItems:"center" ,justifyContent: "start" }}
         >
           <FormControlLabel
             control={
@@ -151,7 +151,7 @@ const SignUp = () => {
                 onChange={() => setShowAddFamily(!showAddFamily)}
               />
             }
-            label="Agregar familia"
+            label="Agregar familia" 
           />
 
           <Button
@@ -182,9 +182,10 @@ const SignUp = () => {
                 color: "black",
                 boxShadow: "15px -5px 10px",
               },
+             
             }}
           >
-            Cancel
+            Login
           </Button>
         </CardActions>
         

@@ -16,7 +16,6 @@ import {
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const navigate = useNavigate();
 
   const handlelogout = () => {
@@ -37,11 +36,7 @@ function Header() {
 
   return (
     <AppBar position="absolute" className="header">
-      <Link to={"/home"}>
-        <Button variant="contained" color="primary" >
-          <h3>Home</h3>
-        </Button>
-      </Link>
+      
       <Toolbar variant="dense" sx={{ display: "flex", justifyContent: "end" }}>
         <IconButton
           onClick={handleClick}
