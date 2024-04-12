@@ -49,9 +49,12 @@ function Home() {
 
       </Grid>
       <Grid item>
-        <Grid item xs={6} md={4} lg={4} columnSpacing={1} rowSpacing={1}></Grid>
+        <Grid item xs={6} md={4} lg={4} columnSpacing={1} rowSpacing={1}>
 
         <h1>Content from urgency tasks</h1>
+
+        </Grid>
+
       </Grid>
     </Grid>
   );

@@ -12,18 +12,13 @@ import {
   MenuItem,
   Button,
 } from "@mui/material";
+import DrawerComp from "../Drawer/DrawerComp";
 
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handlelogout = () => {
-    localStorage.removeItem("Authorization");
-    localStorage.removeItem("roleId");
-    localStorage.removeItem("email");
-    navigate("/");
-  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,6 +30,8 @@ function Header() {
   };
 
   return (
+    <>
+
     <AppBar position="absolute" className="header">
       
       <Toolbar variant="dense" sx={{ display: "flex", justifyContent: "end" }}>
@@ -44,7 +41,7 @@ function Header() {
           color="inherit"
           aria-label="menu"
           sx={{ mr: 4 }}
-        >
+          >
           <MenuIcon />
         </IconButton>
         <CardMenu open={isMenuOpen} anchorEl={anchorEl} onClose={handleClose}>
@@ -52,9 +49,9 @@ function Header() {
           <MenuItem>ABOUT</MenuItem>
           {localStorage.getItem("Authorization") && (
             <MenuItem
-              onClick={() => {
-                handlelogout();
-              }}
+            onClick={() => {
+              handlelogout();
+            }}
             >
               LOGOUT
             </MenuItem>
@@ -63,6 +60,7 @@ function Header() {
         <Typography variant="h6" color="inherit" component="div"></Typography>
       </Toolbar>
     </AppBar>
+          </>
   );
 }
 
