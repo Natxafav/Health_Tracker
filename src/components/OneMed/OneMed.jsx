@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   CardActions,
-  CardHeader,
   Button,
   TextField,
   Typography,
@@ -18,33 +17,15 @@ const OneMed = ({ item, handleReload }) => {
   const [onEdit, setOnEdit] = useState(false);
 
   const [name, setName] = useState(item.name);
-  const [datetime, setDatetime] = useState(
-    `${date.getFullYear(item.datetime)}-${
-      (date.getMonth(item.datetime)+1).toLocaleString().padStart(2, "0")
-    }-${date
-      .getDay(item.datetime)
-      .toLocaleString()
-      .padStart(2, "0")} ${date.getHours(item.datetime)}:${date
-      .getMinutes(item.datetime)
-      .toLocaleString()
-      .padStart(2, "0")}:00`
-  );
-  const [posology, setPosology] = useState(
-    `${date.getHours(item.posology)}:${date
-      .getMinutes(item.posology)
-      .toLocaleString()
-      .padStart(2, "0")}:00`
-  );
-  const [dateEnd, setDateEnd] = useState(
-    `${endDate.getFullYear(item.end)}-${
-      (endDate.getMonth(item.end)+1).toLocaleString().padStart(2, "0")
-    }-${
-      endDate.getDay(item.end).toLocaleString().padStart(2, "0") 
-    } ${endDate.getHours(item.end)}:${endDate
-      .getMinutes(item.end)
-      .toLocaleString()
-      .padStart(2, "0")}:00`
-  );
+  const [datetime, setDatetime] = useState(`${date.getFullYear(item.datetime)}-${
+      (date.getMonth(item.datetime)+1).toLocaleString().padStart(2, "0")}-${date.getDay(item.datetime)
+      .toLocaleString().padStart(2, "0")} ${date.getHours(item.datetime)}:${date.getMinutes(item.datetime)
+      .toLocaleString().padStart(2, "0")}:00`);
+  const [posology, setPosology] = useState(`${date.getHours(item.posology)}:${date
+      .getMinutes(item.posology).toLocaleString().padStart(2, "0")}:00`);
+  const [dateEnd, setDateEnd] = useState(`${endDate.getFullYear(item.end)}-${(endDate.getMonth(item.end)+1)
+    .toLocaleString().padStart(2, "0")}-${endDate.getDay(item.end).toLocaleString().padStart(2, "0")} 
+    ${endDate.getHours(item.end)}:${endDate.getMinutes(item.end).toLocaleString().padStart(2, "0")}:00`);
   const [description, setDescription] = useState(item.description);
   const [itemId, setItemId] = useState(item.id);
 
@@ -54,95 +35,43 @@ const OneMed = ({ item, handleReload }) => {
   };
 
   const handleModify = async () => {
-    try {
+  
       setItemId(item.id);
-console.log(dateEnd)
-      const response = await updateMedication(itemId, {
-        name,
-        datetime,
-        posology,
-        end: dateEnd,
-        description,
-      });
-
+      const response = await updateMedication(itemId, {name,datetime,posology,end: dateEnd,description,});
       setOnEdit((prev) => !prev);
       handleReload((prev) => !prev);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+      return response.data;   
   };
-  const handleDelete = async () => {
-    try {
+  const handleDelete = async () => {    
       const response = await deleteMedication(item.id);
-
       location.reload();
       return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
+     };
 ;
   return (
     <>
       {!onEdit ? (
         <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
-          <CardContent
-            className="fields"
-            sx={{ backgroundColor: "blue", color: "white" }}
-          >
+          <CardContent className="fields"  sx={{ backgroundColor: "blue", color: "white" }}>
             {<p>Medication: {item.name}</p>}
             {<p> Start date: {datetime}</p>}
             {<p>Posology: {posology}</p>}
             {<p>End date: {dateEnd}</p>}
             {<p>Description: {item.description}</p>}
           </CardContent>
-          <CardActions
-            className="btncontainer"
-            sx={{ display: "flex", justifyContent: "end" }}
-          >
-            <Button
-              variant="outlined"
-              onClick={() => handleOnEdit()}
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                fontFamily: "poppins",
-                ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
-                },
-              }}
-            >
-              Modify
-            </Button>
-            <Button
-              onClick={() => handleDelete()}
-              variant="outlined"
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                fontFamily: "poppins",
-                ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
-                },
-              }}
-            >
-              Delete
-            </Button>
+          <CardActions className="btncontainer" sx={{ display: "flex", justifyContent: "end" }} >
+            <Button variant="outlined" onClick={() => handleOnEdit()} sx={{ color: "white",
+                backgroundColor: "black", fontFamily: "poppins", ":hover": { backgroundColor: "Aqua",
+                  color: "black", boxShadow: "15px -5px 10px", },  }}> Modify </Button>
+            <Button onClick={() => handleDelete()} variant="outlined" sx={{ color: "white",
+                backgroundColor: "black", fontFamily: "poppins", ":hover": {backgroundColor: "Aqua",
+                  color: "black", boxShadow: "15px -5px 10px", }, }}  > Delete  </Button>
           </CardActions>
         </Card>
       ) : (
         <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
-          <CardContent
-            className="fields"
-            sx={{ backgroundColor: "blue", color: "white" }}
-          >
-            <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+          <CardContent className="fields" sx={{ backgroundColor: "blue", color: "white" }}  >
+            <TextField sx={{ margin: "10px", fontFamily: "poppins" }} 
               type="text"
               className="field"
               defaultValue={item.name}

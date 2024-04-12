@@ -1,7 +1,7 @@
 import { api } from "./config";
 
 export const createNewMed = async (data) => {
-  try {
+  
     const med = await api.post(
       "/meds/create",
       data,
@@ -13,58 +13,46 @@ export const createNewMed = async (data) => {
     );
 
     return med.data;
-  } catch (error) {
-    console.log(error);
-  }
+
 };
 
 export const getAllMedicationsUser = async () => {
-  try {
+ 
     const response = await api.get('/meds/get',{
       headers: {
         'Authorization': localStorage.getItem("Authorization"),
       },
     });
- console.log(response.data)
     return response.data;
-  } catch (error) {
-    console.error('Error fetching families:', error);
 
-  }
 };
 
 export const getAllMedicationsAdmin = async () => {
-  try {
+  
     const response = await api.get('/meds/admin', {
       headers: {
         'Authorization': localStorage.getItem('Authorization')
       },
     });
     return response.data;
-  } catch (error) {
-    console.error('Error fetching families:', error);
-  }
+
 };
 
 export const updateMedication = async (medId, data)=>{
-  try {
+ 
     const resp = await api.put(`/meds/mod/${medId}`, data
   , {
     headers: {
        'Authorization': localStorage.getItem('Authorization')
     },
   })
-  return resp.data
-  } catch (error) {
-    console.log(error)
-  }
- 
+  return resp.data 
   
 }
 
 
 export const  deleteMedication  = async ( medId)=>{
-  try {
+ 
     const resp = await api.delete(`/meds/rm/${medId}`,{
       headers: {
          'Authorization': localStorage.getItem('Authorization')
@@ -73,7 +61,5 @@ export const  deleteMedication  = async ( medId)=>{
     
     return resp.data
   
-  } catch (error) {
-    console.log(error)
-  }
+
 }

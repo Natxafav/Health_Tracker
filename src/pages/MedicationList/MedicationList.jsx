@@ -26,7 +26,7 @@ function MedicationList() {
         
         familyMeds.map((elem, idx) => {
           return (
-            <Card key={idx} sx={{maxWidth:'fit-content',width: "90%",
+            <Card className="CardMedicationList" key={idx} sx={{maxWidth:'fit-content',width: "90%",
             display: "flex",
             flexDirection: "row",
             alignItems: "start",
@@ -66,7 +66,16 @@ function MedicationList() {
     console.log(reload)
   }, [reload]);
 
-  return <Card sx={{ width: "90%",  height:'80vh', }}>
+  return <Card className="CardReturnMedicationList" sx={{height:'80vh', width: "90%",
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "space-evenly",
+  justifyContent: "start",
+  flexWrap: "wrap",
+  gap: '20px' ,
+  paddingBottom: "200px",
+  paddingTop:'200px',
+  overflowY:'scroll'}}>
      <Link to={"/meds/create"}>
             <Button variant="contained" color="primary" fullWidth sx={{height:'5vh'}}>
               New meed
