@@ -3,7 +3,7 @@ import { api } from "./config";
 
 export const createAppointmentUser = async (data)=>{
     try {
-        const med = await api.post(
+        const meet = await api.post(
           "/meet/create",
           data,
           {
@@ -13,7 +13,7 @@ export const createAppointmentUser = async (data)=>{
           }
         );
     
-        return med.data;
+        return meet.data;
       } catch (error) {
         console.log(error);
       }

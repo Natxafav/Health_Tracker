@@ -21,8 +21,9 @@ const creatingMeets=async (req, res)=>{
             const getUser = await getUserByEmail()
            if(userRole === "2"){
                 const newMeet= await createAppointmentUser ({
-               locate, datetime, specialist, description, userId:getUser.id
+               locate, datetime, specialist, description, userId:getUser
               })
+              console.log(newMeet)
             }
               navigate('/meet')      
     } catch (error) {
