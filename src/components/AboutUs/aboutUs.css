@@ -1,7 +1,10 @@
 
 .cardContainerMain{
     width: 100%;
-    height: fit-content;
+    height: 80%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 /* 
     transition: transform 3.3s ease-in-out; */
   

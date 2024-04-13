@@ -10,7 +10,7 @@ export const theme = createTheme({
             primary:'#032261'
         },
         background:{
-            default:'#020e0f ',
+            primary:'#020e0f',
         }
     },  
     typography:{

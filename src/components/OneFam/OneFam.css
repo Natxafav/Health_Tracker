@@ -1,13 +1,13 @@
-.NATI{   
-    background-image: url('../../src/assets/img/mayor.jpg'); 
-  }
-  .LARA{
-    background-image: url('../../src/assets/img/arcoiris.jpg'); 
-  }
-  .CHLOE{
-    background-image: url('../../src/assets/img/peque.jpg'); 
-  }
-  .NATI,.LARA,.CHLOE{
+.NATI{
+    background-image: url('../../assets/img/mayor.jpg'); 
+}
+.LARA{
+    background-image: url('../../assets/img/arcoiris.jpg'); 
+}
+.CHLOE{
+    background-image: url('../../assets/img/peque.jpg'); 
+}
+.NATI,.LARA,.CHLOE{
     width: 140px;
     height: 140px;
     background-position: center;
@@ -17,6 +17,4 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-  }
- 
- 
+}

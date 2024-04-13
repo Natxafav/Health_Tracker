@@ -39,9 +39,9 @@ function DrawerComp() {
       {" "}
       <div className="home">
         <Link to="/home">
-          <Button>
+          <Button sx={{paddingRight:'100px', ":hover":{backgroundColor:'lightblue', color:'white'}}}>
             <AddHomeTwoToneIcon />
-            <Typography variant="h6" component="h6" sx={{ color: "black" }}>
+            <Typography variant="h6" component="h6" >
               HOME
             </Typography>
           </Button>
@@ -49,33 +49,33 @@ function DrawerComp() {
       </div>
       <div className="components">
         <Link to="/family">
-          <Button>
+          <Button sx={{paddingRight:'100px',":hover":{background:'lightblue', color:'white'}}}>
             <FamilyRestroomIcon />
-            <Typography variant="h6" component="h6" sx={{ color: "black" }}>
+            <Typography variant="h6" component="h6" >
               FAMILY
             </Typography>
           </Button>
         </Link>
         <Link to="/meet">
-          <Button>
+          <Button sx={{ ":hover":{background:'lightblue', color:'white'}}}>
             <EventAvailableIcon />
-            <Typography variant="h6" component="h6" sx={{ color: "black" }}>
+            <Typography variant="h6" component="h6" >
               APPOINTMENTS
             </Typography>
-          </Button>
+          </Button >
         </Link>
         <Link to="/meds">
-          <Button>
+          <Button sx={{paddingRight:'60px',":hover":{background:'lightblue', color:'white'}}}>
             <MedicationIcon />
-            <Typography variant="h6" component="h6" sx={{ color: "black" }}>
+            <Typography variant="h6" component="h6" >
               MEDICINES
             </Typography>
           </Button>
         </Link>
         <Link to="/reminder">
-          <Button>
+          <Button sx={{paddingRight:'50px', ":hover":{background:'lightblue', color:'white'}}}>
             <TaskIcon />
-            <Typography variant="h6" component="h6" sx={{ color: "black" }}>
+            <Typography variant="h6" component="h6" >
               REMINDERS
             </Typography>
           </Button>
@@ -85,14 +85,14 @@ function DrawerComp() {
         {localStorage.getItem('Authorization')?(
 
 <Link to="/">
-          <Button
+          <Button sx={{paddingRight:'100px',":hover":{background:'lightblue', color:'white'}}}
             onClick={() => {
               handlelogout();
             }}
           >
             <LogoutIcon />
 
-            <Typography variant="h6" component="h6" sx={{ color: "black" }}>
+            <Typography variant="h6" component="h6" >
               LOGOUT
             </Typography>
 
@@ -107,7 +107,7 @@ function DrawerComp() {
           >
             <LoginIcon />
 
-            <Typography variant="h6" component="h6" sx={{ color: "black" }}>
+            <Typography variant="h6" component="h6">
               LOGIN
             </Typography>
 

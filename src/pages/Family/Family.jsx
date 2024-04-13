@@ -21,7 +21,7 @@ const Family = () => {
     retrievefamily();
   }, []);
 
-  const handleModify = async () => {
+/*  const handleModify = async () => {
     try {
     
       const response = await updateFamily(elem.id, {
@@ -34,7 +34,7 @@ const Family = () => {
     } catch (error) {
       throw error;
     }
-  };
+  }; */
 
   const displayUserFamily = () => { 
     const display = family ? (
