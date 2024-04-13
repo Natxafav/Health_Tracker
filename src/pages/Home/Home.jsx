@@ -5,6 +5,8 @@ import { Button, Grid, TextField } from "@mui/material";
 
 function Home() {
   return (
+    <>
+    
     <Grid container columnSpacing={4} rowSpacing={4}>
       <Grid item xs={6} md={4} lg={4} >
       <Grid container columnSpacing={4} rowSpacing={4}>
@@ -14,7 +16,7 @@ function Home() {
               variant="contained"
               color="primary"
               fullWidth
-              sx={{ height: "40px" }}
+              sx={{ height: "80px", ":hover": {background: "Aqua", color: 'black', transition:'0.5s', height: "90px"}}}
             >
               Family
             </Button>
@@ -22,41 +24,34 @@ function Home() {
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
           <Link to={"/meds"}>
-            <Button variant="contained" color="primary" fullWidth>
+            <Button variant="contained" color="primary" fullWidth sx={{ height: "80px", ":hover": {background: "Aqua", color: 'black', transition:'0.5s', height: "90px"}}} > 
               Medication
             </Button>
           </Link>
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
           <Link to={"/meet"}>
-            <Button variant="contained" color="primary" fullWidth>
+            <Button variant="contained" color="primary" fullWidth sx={{ height: "80px", ":hover": {background: "Aqua", color: 'black', transition:'0.5s', height: "90px"} }}>
               Appointments
             </Button>
           </Link>
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
           <Link to={"/reminder"}>
-            <Button variant="contained" color="primary" fullWidth>
+            <Button variant="contained" color="primary" fullWidth sx={{ height: "80px", ":hover": {background: "Aqua", color: 'black', transition:'0.5s', height: "90px"} }}>
               Reminders
             </Button>
           </Link>
         </Grid>
       </Grid>
-   
-
-
-
-
       </Grid>
       <Grid item>
         <Grid item xs={6} md={4} lg={4} columnSpacing={1} rowSpacing={1}>
-
         <h1>Content from urgency tasks</h1>
-
         </Grid>
-
       </Grid>
     </Grid>
+    </>
   );
 }
 

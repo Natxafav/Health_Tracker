@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./header.css";
 
 import {
@@ -7,14 +6,13 @@ import {
 
 
 function Header() {
- 
+
 
   return (
     <>
 
     <Box position="absolute" className="header">
       <div className="logo"></div>
-      
     </Box>
           </>
   );

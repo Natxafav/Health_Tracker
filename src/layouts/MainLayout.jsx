@@ -17,7 +17,7 @@ function MainLayout() {
           height: "80vh",
         }}
       >
-        <DrawerComp/>
+        {localStorage.getItem('Authorization') && <DrawerComp/>}
         <Outlet />
       </Box>
       <Footer />

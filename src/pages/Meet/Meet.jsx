@@ -58,8 +58,7 @@ const Meet = () => {
         </Button>        
       </Link>
      </div>
-      <div className="displayUserMeets" sx={{overflowY:"scroll"}}>
-      
+      <div className="displayUserMeets">
       {displayUserMeets()}
       </div>
     </Card>

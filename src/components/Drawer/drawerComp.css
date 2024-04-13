@@ -10,10 +10,9 @@
     top: 10vh;
     left: 0px;
     color: #046C95;
-  
 }
 
-.coponents, .home, .logout{
+.components, .home, .logout{
     display: flex;
     align-items: start;
     justify-content: start;

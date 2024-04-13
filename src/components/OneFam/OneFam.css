@@ -1,0 +1,20 @@
+.NATI{
+    background-image: url('../../assets/img/mayor.jpg'); 
+}
+.LARA{
+    background-image: url('../../assets/img/arcoiris.jpg'); 
+}
+.CHLOE{
+    background-image: url('../../assets/img/peque.jpg'); 
+}
+.NATI,.LARA,.CHLOE{
+    width: 140px;
+    height: 140px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
