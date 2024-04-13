@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllAppointmentsUser } from "../../services/meets";
-import { Card, CardContent, Grid, CardHeader, Button } from "@mui/material";
+import { Card, CardContent, CardHeader, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import OneMeet from "../../components/OneMeet/OneMeet";
 import './meet.css'

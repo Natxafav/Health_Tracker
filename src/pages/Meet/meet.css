@@ -21,17 +21,12 @@
     display: flex;
     align-items: start;
     justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
     gap:10px;
     overflow-y: scroll;
-
-    
 }
 .newMeet{
     margin:0px auto;
-    margin-top:125px;
-    padding-top: 200px;
+    margin-top:700px;
     min-height: 100vh;
     height: fit-content;
     width: 100%;
