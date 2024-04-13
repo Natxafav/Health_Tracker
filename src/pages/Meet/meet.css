@@ -1,0 +1,43 @@
+.displayUserMeets{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.meetCard{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 98%;
+    gap:10px;
+    font-weight: 800;
+
+}
+.meetContentCard{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:10px;
+    overflow-y: scroll;
+  
+  
+    
+}
+.newMeet{
+    margin:0px auto;
+    margin-top:125px;
+    padding-top: 200px;
+    min-height: 100vh;
+    height: fit-content;
+    width: 100%;
+
+}
+
+.meetCardHeader span{
+   font-weight: 600;
+   font-size: 25px;
+}

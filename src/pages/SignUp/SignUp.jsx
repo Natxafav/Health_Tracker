@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { signup } from "../../services/auth";
+import "./signUp.css";
 import {
   Button,
   Card,
@@ -11,7 +12,6 @@ import {
   FormControlLabel,
 } from "@mui/material";
 
-import "./signUp.css";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -57,7 +57,7 @@ const SignUp = () => {
     <div className="signup">
       <Card
         className="mainContainerSignUp"
-        sx={{ borderRadius: "20px", gap: "15px" }}
+        sx={{}}
       >
         <CardHeader title="Sign Up" sx={{ color: "white" }} />
         <CardContent

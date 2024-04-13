@@ -3,6 +3,7 @@ import { getAllFamiliesUser } from "../../services/family";
 import { Card, CardContent, CardHeader, Button, CardActions } from "@mui/material";
 import { Link } from "react-router-dom";
 import OneFam from "../../components/OneFam/OneFam";
+import './family.css'
 
 const Family = () => {
   const [family, setFamily] = useState([]);
@@ -39,8 +40,8 @@ const Family = () => {
     const display = family ? (
       family.map((elem, idx) => {     
         return (
-          <Card key={idx}>
-            <CardHeader title={elem.name} />
+          <Card key={idx} className="CardDisplayFamily" sx={{height:"80vh", textAlign:"center" }}>
+            <CardHeader title={elem.name} className="CardHeaderDisplayFamily"/>
             {/* <CardActions
             className="btncontainer"
             sx={{ display: "flex", justifyContent: "end" }}
@@ -62,13 +63,14 @@ const Family = () => {
               Modify
             </Button>
             </CardActions> */}
-            <CardContent
+            <CardContent className="FamiliCardContent"
               sx={{
                 width: "90%",
+                height:"90%",
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "space-evenly",
-                justifyContent: "start",
+                justifyContent: "center",
                 flexWrap: "wrap",
                 gap: "20px",
                 paddingBottom: "200px",
@@ -91,7 +93,7 @@ const Family = () => {
 
   useEffect(() => {
     retrievefamily();
-    console.log(reload);
+   
   }, [reload]);
 
   return (
