@@ -23,6 +23,7 @@ function DrawerComp() {
     localStorage.removeItem("roleId");
     localStorage.removeItem("email");
     navigate("/");
+    location.reload()
   };
 
   const DrawerList = (
@@ -122,6 +123,10 @@ function DrawerComp() {
     </Box>
   );
 
+  React.useEffect(()=>{
+
+  },[localStorage["Authorization"]])
+
   return (
     <Card
       className="CardDrawerComp"
@@ -136,10 +141,8 @@ function DrawerComp() {
         paddingBottom: "50px",
       }}
     >
-      {/*  <Button onClick={toggleDrawer(true)}>Open drawer</Button>
-      <Drawer open={open} onClose={toggleDrawer(false)}> */}
+     
       {DrawerList}
-      {/*  </Drawer> */}
     </Card>
   );
 }

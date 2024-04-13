@@ -1,13 +1,28 @@
+
 import { Outlet } from "react-router-dom"
-import NavBar from "../components/NavBar/NavBar"
+import DrawerComp from '../components/Drawer/DrawerComp'
+import { Box } from "@mui/material"
+import Header from "../components/Header/Header"
 
 
 function SecondLayaout() {
     return (
-        <div>
-            <NavBar></NavBar>
-            <Outlet />            
-        </div>
+        <>
+          {/*  <Header /> */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100vw",
+          height: "80vh",
+        }}
+        >
+     <DrawerComp/>
+        
+        <Outlet />
+      </Box>    
+        </>
     )
 }
 

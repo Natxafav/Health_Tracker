@@ -36,9 +36,12 @@ function Login() {
         localStorage.getItem("roleId") === undefined
       ) {
         navigate("/family-choice");
+       
       } else {
         navigate("/home");
+       
       }
+      //location.reload();
     } catch (error) {
       console.log(error);
     }
