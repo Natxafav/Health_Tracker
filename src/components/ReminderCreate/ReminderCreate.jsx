@@ -18,10 +18,10 @@ const ReminderCreate = () => {
         try {
             const userRole = localStorage.getItem('roleId')
             const getUser = await getUserByEmail()
-            if (userRole === "2" || userRole === "3" || userRole === "4") {
-                const newReminder = await createReminderUser({
-                    name, Date: datetime, description, userId: getUser.id
-                })
+           if(userRole === "2"||userRole === "3"||userRole === "4"){
+                const newReminder= await createReminderUser ({
+                name, datetime,  description, userId:getUser.id
+              })
             }
             navigate('/reminder')
         } catch (error) {
