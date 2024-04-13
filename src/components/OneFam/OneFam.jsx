@@ -39,7 +39,7 @@ const OneFam = ({ item, handleReload }) => {
       <CardContent className="cardIndvContainer" sx={{ borderRadius: "20px" , border: 'none'}}>
         <CardContent
           className="fields"
-          sx={{ backgroundColor: "lightblue", color: "white", borderRadius: '20px', fontWeight:"800"}}
+          sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white", borderRadius: '20px', fontWeight:"800"}}
         > 
         <div className={item.name}></div>
         {

@@ -26,7 +26,6 @@ export const  getAllAppointmentsUser = async() =>{
             'Authorization': localStorage.getItem("Authorization"),
           },
         });
-     
         return response.data;
     
 }

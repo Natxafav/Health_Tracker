@@ -1,13 +1,13 @@
 .header{
-    background-color: rgb(4, 108, 149);
+    background-color:rgb(7, 150, 151);
     border: solid 1px black;
-     min-height: fit-content;
-     height: 50px;
+    min-height: fit-content;
+    height: 50px;
     width: 100%;
-    display: absolute;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
+    
 
 }
 .logo{

@@ -62,8 +62,8 @@ const Reminder = () => {
     }, [reload]);
   
     return <Card sx={{ width: "90%",  height:'80vh', overflowY:'scroll'}}>
-       <Link to={"/reminder/create"}>
-              <Button variant="contained" color="primary" fullWidth sx={{height:'5vh'}}>
+      <Link to={"/reminder/create"}>
+              <Button variant="contained" fullWidth sx={{height:'50px',fontSize: "20px",fontWeight: "800",width: "200px",margin: "10px 0px 0px 1300px", fontWeight:"800", color:"white", backgroundColor:"rgb(7, 150, 151)", ":hover":{backgroundColor: "black", fontSize: "15px", transition: "0.5s"}}}>
                 New reminder
               </Button>
               </Link>
