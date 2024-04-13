@@ -46,32 +46,65 @@ const OneMed = ({ item, handleReload }) => {
       const response = await deleteMedication(item.id);
       location.reload();
       return response.data;
-     };
+    };
 ;
   return (
     <>
       {!onEdit ? (
         <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
-          <CardContent className="fields"  sx={{ backgroundColor: "blue", color: "white" }}>
-            {<p>Medication: {item.name}</p>}
-            {<p> Start date: {datetime}</p>}
-            {<p>Posology: {posology}</p>}
-            {<p>End date: {dateEnd}</p>}
-            {<p>Description: {item.description}</p>}
+          <CardContent className="fields"  sx={{fontSize: '20px', backgroundColor:"rgb(7, 150, 151)", color: "white" }}>
+            
+            {<p>Medication </p>}
+            <div style={{padding: "10px 10px 10px 10px", background: "white", color:"black", borderRadius: "20px"}}>
+            {item.name}
+            </div>
+            {<p>Start date </p>}
+            <div style={{padding: "10px 10px 10px 10px", background: "white", color:"black", borderRadius: "20px"}}>
+            {datetime}
+            </div>
+            {<p>Posology </p>}
+            <div style={{padding: "10px 10px 10px 10px", background: "white", color:"black", borderRadius: "20px"}}>
+            {posology}
+            </div>
+            {<p>End date</p>}
+            <div style={{padding: "10px 10px 10px 10px", background: "white", color:"black", borderRadius: "20px"}}>
+            {dateEnd}
+            </div>
+            {<p >Description </p>}
+            <div style={{ background: "white", color:"black", textAlign:"left", height:"100px", borderRadius: "20px", padding:"10px 10px 10px 10px"}}>
+              {item.description}
+            </div>
           </CardContent>
           <CardActions className="btncontainer" sx={{ display: "flex", justifyContent: "end" }} >
-            <Button variant="outlined" onClick={() => handleOnEdit()} sx={{ color: "white",
-                backgroundColor: "black", fontFamily: "poppins", ":hover": { backgroundColor: "Aqua",
-                  color: "black", boxShadow: "15px -5px 10px", },  }}> Modify </Button>
-            <Button onClick={() => handleDelete()} variant="outlined" sx={{ color: "white",
-                backgroundColor: "black", fontFamily: "poppins", ":hover": {backgroundColor: "Aqua",
-                  color: "black", boxShadow: "15px -5px 10px", }, }}  > Delete  </Button>
+            <Button variant="outlined" onClick={() => handleOnEdit()} sx={{
+                color: "white",
+                backgroundColor: "rgb(7, 150, 151)",
+                fontFamily: "poppins",
+                ":hover": {
+                  transition: "0.3s",
+                  backgroundColor: "rgb(7, 150, 151)",
+                  color: "yellow",
+                  fontSize: "18px",
+                },
+              }}> Modify </Button>
+            <Button onClick={() => handleDelete()} variant="outlined" sx={{
+                color: "white",
+                backgroundColor: "red",
+                fontFamily: "poppins",
+                ":hover": {
+                  transition: "0.3s",
+                  backgroundColor: "red",
+                  color: "yellow",
+                  fontSize: "18px",
+                },
+              }}  > Delete  </Button>
           </CardActions>
         </Card>
       ) : (
-        <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
-          <CardContent className="fields" sx={{ backgroundColor: "blue", color: "white" }}  >
-            <TextField sx={{ margin: "10px", fontFamily: "poppins" }} 
+        <Card className="cardIndvContainer" sx={{ borderRadius: "20px", position: "absolute", height:'500px' , marginLeft: "600px"}}>
+          <CardContent className="fields" sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white"
+          , display: "flex", flexDirection: "column" }}  >
+            <TextField sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }} 
               type="text"
               className="field"
               defaultValue={item.name}
@@ -83,7 +116,7 @@ const OneMed = ({ item, handleReload }) => {
               </Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }}
               type="datetime"
               className="field"
               defaultValue={datetime}
@@ -93,17 +126,17 @@ const OneMed = ({ item, handleReload }) => {
               <Typography sx={{ fontFamily: "poppins" }}>Date/Hour</Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white"}}
               type="time"
               className="field"
               defaultValue={posology && posology}
-              label="Posology"
+              label="posology"
               onChange={(e) => setPosology(e.target.value)}
             >
               <Typography sx={{ fontFamily: "poppins" }}>Posology</Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }}
               type="datetime"
               className="field"
               defaultValue={dateEnd}
@@ -113,7 +146,7 @@ const OneMed = ({ item, handleReload }) => {
               <Typography sx={{ fontFamily: "poppins" }}>dateEnd</Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins",backgroundColor: "white" }}
               type="text"
               className="field"
               defaultValue={item.description}
@@ -134,12 +167,13 @@ const OneMed = ({ item, handleReload }) => {
               onClick={() => handleModify()}
               sx={{
                 color: "white",
-                backgroundColor: "black",
+                backgroundColor: "rgb(7, 150, 151)",
                 fontFamily: "poppins",
                 ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
+                  transition: "0.3s",
+                  backgroundColor: "rgb(7, 150, 151)",
+                  color: "yellow",
+                  fontSize: "18px",
                 },
               }}
             >
@@ -150,12 +184,13 @@ const OneMed = ({ item, handleReload }) => {
               variant="outlined"
               sx={{
                 color: "white",
-                backgroundColor: "black",
+                backgroundColor: "red",
                 fontFamily: "poppins",
                 ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
+                  transition: "0.3s",
+                  backgroundColor: "red",
+                  color: "yellow",
+                  fontSize: "18px",
                 },
               }}
             >

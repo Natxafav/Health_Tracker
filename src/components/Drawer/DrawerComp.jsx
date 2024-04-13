@@ -30,6 +30,7 @@ function DrawerComp() {
     <Box
       className="boxDrawerList"
       sx={{
+        background: "black",
         paddingBottom: "100px",
         height:"50%"
       }}
@@ -39,7 +40,7 @@ function DrawerComp() {
       {" "}
       <div className="home">
         <Link to="/home">
-          <Button sx={{paddingRight:'100px', ":hover":{backgroundColor:'lightblue', color:'white'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)" ,paddingRight:'100px', ":hover":{backgroundColor:'rgb(7, 150, 151)', color:'yellow'}}}>
             <AddHomeTwoToneIcon />
             <Typography variant="h6" component="h6" >
               HOME
@@ -49,7 +50,7 @@ function DrawerComp() {
       </div>
       <div className="components">
         <Link to="/family">
-          <Button sx={{paddingRight:'100px',":hover":{background:'lightblue', color:'white'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'100px',":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
             <FamilyRestroomIcon />
             <Typography variant="h6" component="h6" >
               FAMILY
@@ -57,7 +58,7 @@ function DrawerComp() {
           </Button>
         </Link>
         <Link to="/meet">
-          <Button sx={{ ":hover":{background:'lightblue', color:'white'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)",paddingRight: '10px', ":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
             <EventAvailableIcon />
             <Typography variant="h6" component="h6" >
               APPOINTMENTS
@@ -65,7 +66,7 @@ function DrawerComp() {
           </Button >
         </Link>
         <Link to="/meds">
-          <Button sx={{paddingRight:'60px',":hover":{background:'lightblue', color:'white'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'55px',":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
             <MedicationIcon />
             <Typography variant="h6" component="h6" >
               MEDICINES
@@ -73,7 +74,7 @@ function DrawerComp() {
           </Button>
         </Link>
         <Link to="/reminder">
-          <Button sx={{paddingRight:'50px', ":hover":{background:'lightblue', color:'white'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'50px', ":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
             <TaskIcon />
             <Typography variant="h6" component="h6" >
               REMINDERS
@@ -85,7 +86,7 @@ function DrawerComp() {
         {localStorage.getItem('Authorization')?(
 
 <Link to="/">
-          <Button sx={{paddingRight:'100px',":hover":{background:'lightblue', color:'white'}}}
+          <Button sx={{color:"Red",paddingRight:'80px',":hover":{background:'red', color:'white'}}}
             onClick={() => {
               handlelogout();
             }}
@@ -96,7 +97,6 @@ function DrawerComp() {
               LOGOUT
             </Typography>
 
-           
           </Button>
         </Link>
 
@@ -111,7 +111,6 @@ function DrawerComp() {
               LOGIN
             </Typography>
 
-           
           </Button>
         </Link>
         )
@@ -131,7 +130,7 @@ function DrawerComp() {
     <Card
       className="CardDrawerComp"
       sx={{
-        width: "250px",
+        width: "220px",
         height: "100vh",
         display: "flex",
         flexDirection: "column",
@@ -139,9 +138,9 @@ function DrawerComp() {
         justifyContent: "space-evenly",
         marginRight: "20px",
         paddingBottom: "50px",
+        backgroundColor: "black",
       }}
     >
-     
       {DrawerList}
     </Card>
   );

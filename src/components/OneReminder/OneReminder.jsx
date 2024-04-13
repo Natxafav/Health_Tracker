@@ -70,19 +70,23 @@ const OneReminder = ({ item, handleReload }) => {
     return (
       <>
         {!onEdit ? (
-          <Card className="cardIndvContainer" sx={{ borderRadius: "20px",display: "flex",
-          flexDirection: "row",
-          alignItems: "space-evenly",
-          justifyContent: "start",
-          flexWrap: "wrap",
+          <Card className="cardIndvContainer" sx={{ borderRadius: "20px",
           gap: '20px' , }}>
             <CardContent
               className="fields"
-              sx={{ backgroundColor: "blue", color: "white" }}
-            >
-              {<p>Reminder: {name}</p>}
-              {<p> Start date: {datetime}</p>}
-                    {<p>Description: {description}</p>}
+              sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white" }}> 
+            {<p>Reminder</p>}
+            <div style={{ background: "white", color:"black", textAlign:"left", height:"50px", borderRadius: "20px", padding:"10px 10px 10px 10px"}}>
+            {name}
+            </div>
+            {<p> Start date</p>}
+            <div style={{ background: "white", color:"black", textAlign:"left", height:"50px", borderRadius: "20px", padding:"10px 10px 10px 10px"}}>
+            {datetime}
+            </div>       
+            {<p>Description</p>}
+            <div style={{ background: "white", color:"black", textAlign:"left",width:"300px", height:"150px", borderRadius: "20px", padding:"10px 10px 10px 10px"}}>
+            {description}
+            </div>
             </CardContent>
             <CardActions
               className="btncontainer"
@@ -93,12 +97,13 @@ const OneReminder = ({ item, handleReload }) => {
                 onClick={() => handleOnEdit()}
                 sx={{
                   color: "white",
-                  backgroundColor: "black",
+                  backgroundColor: "rgb(7, 150, 151)",
                   fontFamily: "poppins",
                   ":hover": {
-                    backgroundColor: "Aqua",
-                    color: "black",
-                    boxShadow: "15px -5px 10px",
+                    transition: "0.3s",
+                    backgroundColor: "rgb(7, 150, 151)",
+                    color: "yellow",
+                    fontSize: "18px",
                   },
                 }}
               >
@@ -109,12 +114,13 @@ const OneReminder = ({ item, handleReload }) => {
                 variant="outlined"
                 sx={{
                   color: "white",
-                  backgroundColor: "black",
+                  backgroundColor: "red",
                   fontFamily: "poppins",
                   ":hover": {
-                    backgroundColor: "Aqua",
-                    color: "black",
-                    boxShadow: "15px -5px 10px",
+                    fontSize: "18px",
+                    transition: "0.3s",
+                    backgroundColor: "red",
+                    color: "yellow",
                   },
                 }}
               >
@@ -123,13 +129,13 @@ const OneReminder = ({ item, handleReload }) => {
             </CardActions>
           </Card>
         ) : (
-          <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
+          <Card className="cardIndvContainer" sx={{ borderRadius: "20px"}}>
             <CardContent
               className="fields"
-              sx={{ backgroundColor: "blue", color: "white" }}
+              sx={{ backgroundColor:"rgb(7, 150, 151)", color: "white" }}
             >
               <TextField
-                sx={{ margin: "10px", fontFamily: "poppins" }}
+                sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }}
                 type="text"
                 className="field"
                 defaultValue={item.name}
@@ -141,7 +147,7 @@ const OneReminder = ({ item, handleReload }) => {
                 </Typography>
               </TextField>
               <TextField
-                sx={{ margin: "10px", fontFamily: "poppins" }}
+                sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white"}}
                 type="datetime"
                 className="field"
                 defaultValue={datetime}
@@ -153,7 +159,7 @@ const OneReminder = ({ item, handleReload }) => {
              
             
               <TextField
-                sx={{ margin: "10px", fontFamily: "poppins" }}
+                sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }}
                 type="text"
                 className="field"
                 defaultValue={item.description}
@@ -174,12 +180,14 @@ const OneReminder = ({ item, handleReload }) => {
                 onClick={() => handleModify()}
                 sx={{
                   color: "white",
-                  backgroundColor: "black",
+                  backgroundColor: "Green",
                   fontFamily: "poppins",
+                  fontWeight: "800",
                   ":hover": {
-                    backgroundColor: "Aqua",
-                    color: "black",
-                    boxShadow: "15px -5px 10px",
+                    transition: "0.2s",
+                    backgroundColor: "green",
+                    color: "yellow",
+                    fontSize: "18px"
                   },
                 }}
               >
@@ -190,12 +198,13 @@ const OneReminder = ({ item, handleReload }) => {
                 variant="outlined"
                 sx={{
                   color: "white",
-                  backgroundColor: "black",
+                  backgroundColor: "Red",
                   fontFamily: "poppins",
                   ":hover": {
-                    backgroundColor: "Aqua",
-                    color: "black",
-                    boxShadow: "15px -5px 10px",
+                    transition: "0.2s",
+                    backgroundColor: "red",
+                    color: "yellow",
+                    fontSize: "16px"
                   },
                 }}
               >

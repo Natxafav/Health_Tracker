@@ -6,13 +6,10 @@ import { Link } from "react-router-dom";
 
 function MedicationList() {
   const [familyMeds, setFamilyMeds] = useState([]);
-
   const retrieveFamilyMeds = async () => {
     const res = await getAllMedicationsUser();
-
     setFamilyMeds(res);
   };
-
   const displayUserMeds = () => {
     const display = familyMeds ? (
       familyMeds.map((elem, idx) => {
@@ -30,8 +27,9 @@ function MedicationList() {
               flexWrap: "wrap",
               gap: "20px",
               paddingBottom: "200px",
+              height: '100%'
             }}
-          >
+>
             <CardHeader title={elem.name} />
             <CardContent
               sx={{
@@ -68,7 +66,7 @@ function MedicationList() {
     <Card
       className="CardReturnMedicationList"
       sx={{
-        height: "80vh",
+        height: "90vh",
         width: "90%",
         display: "flex",
         flexDirection: "row",
@@ -84,9 +82,8 @@ function MedicationList() {
       <Link to={"/meds/create"}>
         <Button
           variant="contained"
-          color="primary"
           fullWidth
-          sx={{ height: "5vh" }}
+          sx={{ height: "50px",fontSize: "20px",width: "200px", position: "absolute",margin: "38px 0px 0px 1400px", fontWeight: '800', backgroundColor:"rgb(7, 150, 151)", ":hover":{backgroundColor: "black", fontSize: "15px", transition: "0.5s"}}}
         >
           New meed
         </Button>

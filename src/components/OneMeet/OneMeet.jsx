@@ -20,12 +20,12 @@ const OneMeet = ({ item, handleReload }) => {
     `${date.getFullYear(item.datetime)}/${(date.getMonth(item.datetime) + 1)
       .toLocaleString()
       .padStart(2, "0")}/${date
-      .getDay(item.datetime)
-      .toLocaleString()
-      .padStart(2, "0")} ${date.getHours(item.datetime)}:${date
-      .getMinutes(item.datetime)
-      .toLocaleString()
-      .padStart(2, "0")}:00`
+        .getDay(item.datetime)
+        .toLocaleString()
+        .padStart(2, "0")} ${date.getHours(item.datetime)}:${date
+          .getMinutes(item.datetime)
+          .toLocaleString()
+          .padStart(2, "0")}:00`
   )
 
   const [locate, setLocate] = useState(item.locate)
@@ -67,25 +67,39 @@ const OneMeet = ({ item, handleReload }) => {
       throw error
     }
   }
- 
+
   return (
     <>
       {!onEdit ? (
-        <Card className="cardIndvContainer" sx={{ borderRadius: "20px",display: "flex",
-        flexDirection: "row",
-        alignItems: "space-evenly",
-        justifyContent: "start",
-        flexWrap: "wrap",
-        gap: '20px' , }}>
+        <Card className="cardIndvContainer" sx={{
+        }}>
           <CardContent
             className="fields"
-            sx={{ backgroundColor: "blue", color: "white" }}
+            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white",
+            borderRadius: "20px", display: "flex",
+            fontSize: "18px",
+            flexDirection: "column",
+            alignItems: "space-evenly",
+            justifyContent: "start",
+            flexWrap: "wrap",
+            gap: '10px'}}
           >
-          
-            {<h6> Start date: {datetime}</h6>}
-            {<h6>locate: {locate}</h6>}
-            {<h6>Specialist: {specialist}</h6>}
-            {<h6>Description: {description}</h6>}
+            {<h6> Start date</h6>}
+            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
+              {datetime}
+            </div>
+            {<h6>locate </h6>}
+            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
+              {locate}
+            </div>
+            {<h6>Specialist </h6>}
+            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
+              {specialist}
+            </div>
+            {<h6>Description</h6>}
+            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
+              {description}
+            </div>
 
           </CardContent>
           <CardActions
@@ -97,12 +111,13 @@ const OneMeet = ({ item, handleReload }) => {
               onClick={() => handleOnEdit()}
               sx={{
                 color: "white",
-                backgroundColor: "black",
+                backgroundColor: "rgb(7, 150, 151)",
                 fontFamily: "poppins",
                 ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
+                  transition: "0.3s",
+                  backgroundColor: "rgb(7, 150, 151)",
+                  color: "yellow",
+                  fontSize: "18px",
                 },
               }}
             >
@@ -113,12 +128,13 @@ const OneMeet = ({ item, handleReload }) => {
               variant="outlined"
               sx={{
                 color: "white",
-                backgroundColor: "black",
+                backgroundColor: "red",
                 fontFamily: "poppins",
                 ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
+                  fontSize: "18px",
+                  transition: "0.3s",
+                  backgroundColor: "red",
+                  color: "yellow",
                 },
               }}
             >
@@ -127,50 +143,50 @@ const OneMeet = ({ item, handleReload }) => {
           </CardActions>
         </Card>
       ) : (
-        <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
+        <Card className="cardIndvContainer" sx={{ borderRadius: "20px", color: "white" }}>
           <CardContent
             className="fields"
-            sx={{ backgroundColor: "blue", color: "white" }}
+            sx={{ backgroundColor: "lightblue", color: "white" }}
           >
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
               type="datetime"
               className="field"
               defaultValue={datetime}
               label="Date/ Hour"
               onChange={(e) => setDatetime(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins" }}>Date/Hour</Typography>
+              <Typography sx={{ fontFamily: "poppins", color: "white" }}>Date/Hour</Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
               type="text"
               className="field"
-              defaultValue={ locate}
+              defaultValue={locate}
               label="locate"
               onChange={(e) => setLocate(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins" }}>locate</Typography>
+              <Typography sx={{ fontFamily: "poppins", color: "white" }}>locate</Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
               type="text"
               className="field"
               defaultValue={specialist}
               label="Specialist"
               onChange={(e) => setSpecialist(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins" }}>specialist</Typography>
+              <Typography sx={{ fontFamily: "poppins", color: "white" }}>specialist</Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins" }}
+              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
               type="text"
               className="field"
               defaultValue={description}
               label="Description"
               onChange={(e) => setDescription(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins" }}>
+              <Typography sx={{ fontFamily: "poppins", color: "white" }}>
                 Description
               </Typography>
             </TextField>
