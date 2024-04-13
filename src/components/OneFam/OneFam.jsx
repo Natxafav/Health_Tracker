@@ -8,9 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { deleteFamilyUser, updateFamily } from "../../services/family";
-
+import "../../pages/FamilyData/familyData.css"
 const OneFam = ({ item, handleReload }) => {
   const [onEdit, setOnEdit] = useState(false);
   const [name, setName] = useState(item.name);
@@ -40,9 +38,11 @@ const OneFam = ({ item, handleReload }) => {
           className="fields"
           sx={{ backgroundColor: "blue", color: "white" }}
         >
-          {<p>User: {item.name}</p>}
+          <div className={item.name}></div>
+          {
+            <p>{item.name}</p>}
 
-          {<p>User lastname: {item.lastname}</p>}
+
           {<p>Phone: {phone}</p>}
         </CardContent>
         <CardActions

@@ -13,7 +13,7 @@
   
 }
 
-.coponents, .home, .logout{
+.components, .home, .logout{
     display: flex;
     align-items: start;
     justify-content: start;

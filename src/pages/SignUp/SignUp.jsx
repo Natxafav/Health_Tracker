@@ -42,7 +42,7 @@ const SignUp = () => {
       const token = res.data.token;
       localStorage.setItem("Authorization", token);
       localStorage.setItem("email", email);
-
+location.reload()
       if (showAddFamily) {
         navigate("/family-choice");
       } else {

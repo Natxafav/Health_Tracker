@@ -13,7 +13,7 @@ const text3='Gracias!'
   return (
     <Card onMouseOver={()=>{setText(true)}} onMouseOut={()=>{setText(false)}} className='cardContainerMain' >
 
-          {text? <h1>{text1}</h1>: <h1>{text2}</h1>}
+          {text? <h1>{text2}</h1>: <h1>{text1}</h1>}
     </Card>
   )
 }
