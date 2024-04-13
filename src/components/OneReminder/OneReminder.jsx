@@ -13,7 +13,7 @@ import {
 
 const OneReminder = ({ item, handleReload }) => {
 
-    const date = new Date(item.Date);
+    const date = new Date(item.datetime);
       
     const [onEdit, setOnEdit] = useState(false);
   
@@ -45,7 +45,7 @@ const OneReminder = ({ item, handleReload }) => {
      
         const response = await updateReminder(itemId, {
           name,
-          Date:datetime,
+          datetime,
           description,
         });
   
