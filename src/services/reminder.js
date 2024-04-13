@@ -68,33 +68,14 @@ export const updateReminder = async () => {
 
 export const deleteReminder = async () => {
     try {
-        const reminders = await api.get(
-            "/reminder/get",
-            {
-                headers: {
-                    Authorization: localStorage.getItem("Authorization"),
-                },
-            }
-        );
-        return reminders.data;
+        const response = await api.get('/reminder/admin', {
+            headers: {
+                'Authorization': localStorage.getItem('Authorization')
+            },
+        });
+        return response.data;
     } catch (error) {
-        console.log(error);
-    }
-};
-
-export const getReminderToday = async () => {
-    try {
-        const meet = await api.get(
-            "/reminder/today",
-            {
-                headers: {
-                    Authorization: localStorage.getItem("Authorization"),
-                },
-            }
-        );
-        return meet.data;
-    } catch (error) {
-        console.log(error);
+        console.error('Error fetching families:', error);
     }
 };
 
