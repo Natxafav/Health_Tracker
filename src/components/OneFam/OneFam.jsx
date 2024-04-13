@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import "../../pages/FamilyData/familyData.css"
+import "./OneFam.css"
 const OneFam = ({ item, handleReload }) => {
   const [onEdit, setOnEdit] = useState(false);
   const [name, setName] = useState(item.name);
