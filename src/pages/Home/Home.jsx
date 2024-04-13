@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MedicationCreate from "../../components/Medication/MedicationCreate";
 import { Button, Grid, TextField } from "@mui/material";
+import Urgency from "../../components/Urgency/Urgency";
 
 function Home() {
   return (
@@ -50,8 +51,7 @@ function Home() {
       </Grid>
       <Grid item>
         <Grid item xs={6} md={4} lg={4} columnSpacing={1} rowSpacing={1}></Grid>
-
-        <h1>Content from urgency tasks</h1>
+        <Urgency/>
       </Grid>
     </Grid>
   );

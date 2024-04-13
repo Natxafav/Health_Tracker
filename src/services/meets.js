@@ -47,6 +47,22 @@ export const getAllAppointmentsAdmin = async ()=>{
       }
 }
 
+export const getMeetToday = async ()=>{
+    try {
+        const response = await api.get('/meet/today', {
+          headers: {
+            'Authorization': localStorage.getItem('Authorization')
+          },
+        });
+        return response.data;
+      } catch (error) {
+        console.error('Error fetching families:', error);
+       
+      }
+}
+
+
+
 
 
 export const getOneAppointmentUser = async ()=>{
