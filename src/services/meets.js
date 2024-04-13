@@ -26,7 +26,6 @@ export const  getAllAppointmentsUser = async() =>{
             'Authorization': localStorage.getItem("Authorization"),
           },
         });
-     
         return response.data;
       } catch (error) {
         console.error('Error fetching families:', error);
@@ -43,62 +42,29 @@ export const getAllAppointmentsAdmin = async ()=>{
         return response.data;
       } catch (error) {
         console.error('Error fetching families:', error);
-       
+      
       }
 }
 
 export const getMeetToday = async ()=>{
-    try {
-        const response = await api.get('/meet/today', {
-          headers: {
-            'Authorization': localStorage.getItem('Authorization')
-          },
-        });
-        return response.data;
-      } catch (error) {
-        console.error('Error fetching families:', error);
-       
-      }
+  try {
+      const response = await api.get('/meet/today', {
+        headers: {
+          'Authorization': localStorage.getItem('Authorization')
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching families:', error);
+    }
 }
 
-
-
-
-
-export const getOneAppointmentUser = async ()=>{
-
-}
-
-export const getOneAppointmentAdmin = async ()=>{
-
-}
-
-
-
-
-export const createAppointmentAdmin = async ()=>{
-    try {
-        const med = await api.post(
-          "/meet/admcreate",
-          data,
-          {
-            headers: {
-              'Authorization': localStorage.getItem('Authorization')
-            },
-          }
-        );
-    
-        return med.data;
-      } catch (error) {
-        console.log(error);
-      }
-}
 export const updateAppointment = async (meetId, data)=>{
     try {
         const resp = await api.put(`/meet/mod/${meetId}`, data
       , {
         headers: {
-           'Authorization': localStorage.getItem('Authorization')
+          'Authorization': localStorage.getItem('Authorization')
         },
       })
       return resp.data
@@ -110,7 +76,7 @@ export const deleteAppointment = async (meetId)=>{
     try {
         const resp = await api.delete(`/meet/rm/${meetId}`,{
           headers: {
-             'Authorization': localStorage.getItem('Authorization')
+            'Authorization': localStorage.getItem('Authorization')
           },
         } )
         
@@ -120,10 +86,4 @@ export const deleteAppointment = async (meetId)=>{
         console.log(error)
       }
 }
-export const addUserAppointment = async ()=>{
 
-}
-
-export const removeUserAppointment = async ()=>{
-
-}

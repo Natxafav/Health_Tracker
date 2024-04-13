@@ -15,22 +15,54 @@ const TodayTask = () => {
     }
     const getAllList = () => {
         const date = new Date();
-        const list = () => {
+        const mlist = () => {
             return (
-                medlist.map((med, index) => {
+                
+                medlist.sort((a,b) => (a.datetime - b.datetime)).map((med, index) => {
                         return (
                             <div key={index}>
                                 <div className="card">{med.name}</div>
                                 <div className="card">{date.getDay(med.datetime)} / {date.getMonth(med.datetime)} / {date.getFullYear(med.datetime)}</div>
                             </div>
                         )
-                    })
+                    })   
                 )
             }
+        const rlist = () => {
+            return (
+                remlist.map((rem, index) => {
+                        return (
+                            <div key={index}>
+                                <div className="card">{rem.name}</div>
+                                <div className="card">{date.getDay(rem.date)} / {date.getMonth(rem.date)} / {date.getFullYear(rem.date)}</div>
+                            </div>
+                        )
+                    })   
+                )
+            }
+        const alist = () => {
+            return (
 
+                    meetlist.map((meet, index) => {
+                        return (
+                            <div key={index}>
+                                <div className="card">{meet.name}</div>
+                                <div className="card">{date.getDay(meet.datetime)} / {date.getMonth(meet.datetime)} / {date.getFullYear(meet.datetime)}</div>
+                            </div>
+                        )
+                    })   
+                )
+            }
         return (
-            <>
-                {list()}
+            <><div className="Medicationlist">
+                {mlist()}
+            </div>
+            <div className="MeetList">
+                {alist()}
+            </div>
+            <div className="Reminderlist">
+                {rlist()}
+            </div>
             </>
         )
     }

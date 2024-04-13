@@ -7,8 +7,7 @@ import AboutUs from "../../components/AboutUs/AboutUs";
 
 const Landing = () => {
   return (
-    <Grid container xs={{12} md={12}  sx={{ width: "100vw" }} className="landingContainer">   
-     
+    <Grid container sx={{ width: "100vw" }} className="landingContainer">   
       <Grid item xs={12} md={6}  lg={5} className="loginContainer">        
           <Login />        
       </Grid>
