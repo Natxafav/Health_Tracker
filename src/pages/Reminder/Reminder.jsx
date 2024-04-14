@@ -28,6 +28,8 @@ const Reminder = () => {
                 flexWrap: "wrap",
                 gap: "20px",
                 paddingBottom: "200px",
+              
+                margin:"0 auto"
               }}
             >
               {elem.Reminders && elem.Reminders.length > 0 ? (
@@ -72,7 +74,7 @@ const Reminder = () => {
             fontSize: "20px",
             fontWeight: "800",
             width: "200px",
-            margin: "10px 0px 0px 1300px",
+            margin: "10px 0px 0px 1250px",
             color: "white",
             backgroundColor: "rgb(7, 150, 151)",
             ":hover": {
@@ -80,9 +82,12 @@ const Reminder = () => {
               fontSize: "15px",
               transition: "0.5s",
             },
+            position: "fixed", 
+            top:"100px", 
+            right:"50px"
           }}
         >
-          New reminder
+          New
         </Button>
       </Link>
       {displayUserReminders()}

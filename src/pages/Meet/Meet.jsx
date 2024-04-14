@@ -30,8 +30,7 @@ const Meet = () => {
                 flexWrap: "wrap",
                 gap: "20px",
                 paddingBottom: "200px",
-                paddingLeft:"auto",
-                paddingRight:"auto",
+               
                 margin:"0 auto"
               }}
             >
@@ -70,7 +69,7 @@ const Meet = () => {
             fontSize: "20px",
             fontWeight: "800",
             width: "200px",
-            /* margin: "50px 0px 0px 1250px", */
+       margin: "50px 0px 0px 1250px", 
             color: "white",
             backgroundColor: "rgb(7, 150, 151)",
             ":hover": {
@@ -79,7 +78,7 @@ const Meet = () => {
               transition: "0.5s",
             },
             position: "fixed", 
-            top:"50px", 
+            top:"100px", 
             right:"50px"
           }}
         >
