@@ -21,7 +21,7 @@ const OneMeet = ({ item, handleReload }) => {
     `${date.getFullYear(item.datetime)}/${(date.getMonth(item.datetime) + 1)
       .toLocaleString()
       .padStart(2, "0")}/${date
-      .getDay(item.datetime)
+      .getDate(item.datetime)
       .toLocaleString()
       .padStart(2, "0")} ${date.getHours(item.datetime)}:${date
       .getMinutes(item.datetime)
@@ -87,7 +87,6 @@ const OneMeet = ({ item, handleReload }) => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 400,
             bgcolor: "background.paper",
             border: "2px solid #000",
             boxShadow: 24,
@@ -194,7 +193,7 @@ const OneMeet = ({ item, handleReload }) => {
           className="fields"
           sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white" }}
         >
-          {<h6> Start date</h6>}
+          {<p> Start date</p>}
           <div
             style={{
               background: "white",
@@ -207,7 +206,7 @@ const OneMeet = ({ item, handleReload }) => {
           >
             {datetime}
           </div>
-          {<h6>locate </h6>}
+          {<p>locate </p>}
           <div
             style={{
               background: "white",
@@ -220,7 +219,7 @@ const OneMeet = ({ item, handleReload }) => {
           >
             {locate}
           </div>
-          {<h6>Specialist </h6>}
+          {<p>Specialist </p>}
           <div
             style={{
               background: "white",
@@ -233,7 +232,7 @@ const OneMeet = ({ item, handleReload }) => {
           >
             {specialist}
           </div>
-          {<h6>Description</h6>}
+          {<p>Description</p>}
           <div
              style={{
               background: "white",
@@ -289,166 +288,7 @@ const OneMeet = ({ item, handleReload }) => {
         </CardActions>
       </Card>
 
-      {/*   {!onEdit ? (
-        <Card className="cardIndvContainer" sx={{
-        }}>
-          <CardContent
-            className="fields"
-            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white",
-            borderRadius: "20px", display: "flex",
-            fontSize: "18px",
-            flexDirection: "column",
-            alignItems: "space-evenly",
-            justifyContent: "start",
-            flexWrap: "wrap",
-            gap: '10px'}}
-          >
-            {<h6> Start date</h6>}
-            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
-              {datetime}
-            </div>
-            {<h6>locate </h6>}
-            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
-              {locate}
-            </div>
-            {<h6>Specialist </h6>}
-            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
-              {specialist}
-            </div>
-            {<h6>Description</h6>}
-            <div style={{ background: "white", color: "black", textAlign: "left", height: "50px", borderRadius: "20px", padding: "10px 10px 10px 10px" }}>
-              {description}
-            </div>
-
-          </CardContent>
-          <CardActions
-            className="btncontainer"
-            sx={{ display: "flex", justifyContent: "end" }}
-          >
-            <Button
-              variant="outlined"
-              onClick={() => handleOnEdit()}
-              sx={{
-                color: "white",
-                backgroundColor: "rgb(7, 150, 151)",
-                fontFamily: "poppins",
-                ":hover": {
-                  transition: "0.3s",
-                  backgroundColor: "rgb(7, 150, 151)",
-                  color: "yellow",
-                  fontSize: "18px",
-                },
-              }}
-            >
-              Modify
-            </Button>
-            <Button
-              onClick={() => handleDelete()}
-              variant="outlined"
-              sx={{
-                color: "white",
-                backgroundColor: "red",
-                fontFamily: "poppins",
-                ":hover": {
-                  fontSize: "18px",
-                  transition: "0.3s",
-                  backgroundColor: "red",
-                  color: "yellow",
-                },
-              }}
-            >
-              Delete
-            </Button>
-          </CardActions>
-        </Card>
-      ) : (
-        <Card className="cardIndvContainer" sx={{ borderRadius: "20px", color: "white" }}>
-          <CardContent
-            className="fields"
-            sx={{ backgroundColor: "lightblue", color: "white" }}
-          >
-            <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
-              type="datetime"
-              className="field"
-              defaultValue={datetime}
-              label="Date/ Hour"
-              onChange={(e) => setDatetime(e.target.value)}
-            >
-              <Typography sx={{ fontFamily: "poppins", color: "white" }}>Date/Hour</Typography>
-            </TextField>
-            <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
-              type="text"
-              className="field"
-              defaultValue={locate}
-              label="locate"
-              onChange={(e) => setLocate(e.target.value)}
-            >
-              <Typography sx={{ fontFamily: "poppins", color: "white" }}>locate</Typography>
-            </TextField>
-            <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
-              type="text"
-              className="field"
-              defaultValue={specialist}
-              label="Specialist"
-              onChange={(e) => setSpecialist(e.target.value)}
-            >
-              <Typography sx={{ fontFamily: "poppins", color: "white" }}>specialist</Typography>
-            </TextField>
-            <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
-              type="text"
-              className="field"
-              defaultValue={description}
-              label="Description"
-              onChange={(e) => setDescription(e.target.value)}
-            >
-              <Typography sx={{ fontFamily: "poppins", color: "white" }}>
-                Description
-              </Typography>
-            </TextField>
-          </CardContent>
-          <CardActions
-            className="btncontainer"
-            sx={{ display: "flex", justifyContent: "end" }}
-          >
-            <Button
-              variant="outlined"
-              onClick={() => handleModify()}
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                fontFamily: "poppins",
-                ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
-                },
-              }}
-            >
-              Save
-            </Button>
-            <Button
-              onClick={() => handleOnEdit()}
-              variant="outlined"
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                fontFamily: "poppins",
-                ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
-                },
-              }}
-            >
-              Cancel
-            </Button>
-          </CardActions>
-        </Card>
-      )} */}
+    
     </>
   );
 };
