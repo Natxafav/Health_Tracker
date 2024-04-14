@@ -43,7 +43,8 @@ export const updateMedication = async (medId, data)=>{
     const resp = await api.put(`/meds/mod/${medId}`, data
   , {
     headers: {
-       'Authorization': localStorage.getItem('Authorization')
+       'Authorization': localStorage.getItem('Authorization'), 
+       'roleId':localStorage.getItem('roleId')
     },
   })
   return resp.data 
@@ -55,7 +56,8 @@ export const  deleteMedication  = async ( medId)=>{
  
     const resp = await api.delete(`/meds/rm/${medId}`,{
       headers: {
-         'Authorization': localStorage.getItem('Authorization')
+         'Authorization': localStorage.getItem('Authorization'),
+         'roleId':localStorage.getItem('roleId')
       },
     } )
     

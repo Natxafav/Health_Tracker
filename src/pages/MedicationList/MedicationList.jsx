@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 
 function MedicationList() {
   const [familyMeds, setFamilyMeds] = useState([]);
+
   const retrieveFamilyMeds = async () => {
     const res = await getAllMedicationsUser();
     setFamilyMeds(res);
   };
+
   const displayUserMeds = () => {
     const display = familyMeds ? (
       familyMeds.map((elem, idx) => {
@@ -17,19 +19,8 @@ function MedicationList() {
           <Card
             className="CardMedicationList"
             key={idx}
-            sx={{
-              maxWidth: "fit-content",
-              width: "90%",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "start",
-              justifyContent: "space-evenly",
-              flexWrap: "wrap",
-              gap: "20px",
-              paddingBottom: "200px",
-              height: '100%'
-            }}
->
+            sx={{ overflowY: "scroll" }}
+          >
             <CardHeader title={elem.name} />
             <CardContent
               sx={{
@@ -43,15 +34,21 @@ function MedicationList() {
                 paddingBottom: "200px",
               }}
             >
-              {elem.medications.map((elem, id) => {
-                return <OneMed item={elem} key={id} handleReload={setReload} />;
-              })}
+              {elem.medications && elem.medications.length > 0 ? (
+                elem.medications.map((elem, id) => {
+                  return (
+                    <OneMed item={elem} key={id} handleReload={setReload} />
+                  );
+                })
+              ) : (
+                <h5>No medications found for this user</h5>
+              )}
             </CardContent>
           </Card>
         );
       })
     ) : (
-      <h1>No hay medicamentos almacenados</h1>
+      <h1>No medications found</h1>
     );
     return display;
   };
@@ -59,31 +56,31 @@ function MedicationList() {
 
   useEffect(() => {
     retrieveFamilyMeds();
-    console.log(reload);
   }, [reload]);
 
   return (
     <Card
       className="CardReturnMedicationList"
-      sx={{
-        height: "90vh",
-        width: "90%",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "space-evenly",
-        justifyContent: "start",
-        flexWrap: "wrap",
-        gap: "20px",
-        paddingBottom: "200px",
-        paddingTop: "200px",
-        overflowY: "scroll",
-      }}
+      sx={{ width: "90%", height: "80vh", overflowY: "scroll" }}
     >
       <Link to={"/meds/create"}>
         <Button
           variant="contained"
           fullWidth
-          sx={{ height: "50px",fontSize: "20px",width: "200px", position: "absolute",margin: "38px 0px 0px 1400px", fontWeight: '800', backgroundColor:"rgb(7, 150, 151)", ":hover":{backgroundColor: "black", fontSize: "15px", transition: "0.5s"}}}
+          sx={{
+            height: "50px",
+            fontSize: "20px",
+            fontWeight: "800",
+            width: "200px",
+            margin: "10px 0px 0px 1300px",
+            color: "white",
+            backgroundColor: "rgb(7, 150, 151)",
+            ":hover": {
+              backgroundColor: "black",
+              fontSize: "15px",
+              transition: "0.5s",
+            },
+          }}
         >
           New meed
         </Button>
