@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllMedicationsUser } from "../../services/meds";
 import OneMed from "../../components/OneMed/OneMed";
-import { Card, CardContent, CardHeader, Button } from "@mui/material";
+import { Card, CardContent, CardHeader, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function MedicationList() {
@@ -21,7 +21,9 @@ function MedicationList() {
             key={idx}
             sx={{ overflowY: "scroll" }}
           >
-            <CardHeader title={elem.name} />
+            <CardHeader title={<Typography variant="h5" color="rgb(7, 150, 151)"sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)' }}>
+          {elem.name}
+        </Typography>} />
             <CardContent
               sx={{
                 width: "90%",

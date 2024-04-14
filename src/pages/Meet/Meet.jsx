@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllAppointmentsUser } from "../../services/meets";
-import { Card, CardContent, CardHeader, Button } from "@mui/material";
+import { Card, CardContent, CardHeader, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import OneMeet from "../../components/OneMeet/OneMeet";
 import "./meet.css";
@@ -18,7 +18,9 @@ const Meet = () => {
       familyMeets.map((elem, idx) => {
         return (
           <Card key={idx} className="meetCard" sx={{ overflowY: "scroll" }}>
-            <CardHeader className="meetCardHeader" title={elem.name} />
+            <CardHeader className="meetCardHeader" title={<Typography variant="h5" color="rgb(7, 150, 151)"sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)' }}>
+          {elem.name}
+        </Typography>} />
             <CardContent
               className="meetContentCard"
               sx={{

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllReminderUser } from "../../services/reminder";
-import { Card, CardContent, CardHeader, Button } from "@mui/material";
+import { Card, CardContent, CardHeader, Button,Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import OneReminder from "../../components/OneReminder/OneReminder";
 
@@ -17,7 +17,9 @@ const Reminder = () => {
       reminders.map((elem, idx) => {
         return (
           <Card key={idx} sx={{ overflowY: "scroll" }}>
-            <CardHeader title={elem.name} />
+            <CardHeader title={<Typography variant="h5" color="rgb(7, 150, 151)"sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)' }}>
+          {elem.name}
+        </Typography>} />
             <CardContent
               sx={{
                 width: "90%",

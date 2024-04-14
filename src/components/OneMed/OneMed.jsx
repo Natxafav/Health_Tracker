@@ -198,7 +198,7 @@ const OneMed = ({ item, handleReload }) => {
           </CardActions>
         </Card>
       </Modal>
-      <Card className="cardIndvContainer" sx={{ borderRadius: "20px",  }}>
+      <Card className="cardIndvContainer" sx={{borderRadius: "20px", gap: "5px", width:"35%", }}>
           <CardContent className="fields"  sx={{fontSize: '20px', backgroundColor:"rgb(7, 150, 151)", color: "white",alignContent:'center' }}>
             
             {<p>Medication </p>}
@@ -218,7 +218,7 @@ const OneMed = ({ item, handleReload }) => {
             {dateEnd}
             </div>
             {<p >Description </p>}
-            <div style={{ background: "white", color:"black", textAlign:"left", height:"100px", borderRadius: "20px", padding:"10px 10px 10px 10px",width: "300px",}}>
+            <div style={{ background: "white", color:"black", textAlign:"left", height:"100px", borderRadius: "20px", padding:"10px 10px 10px 10px",width: "auto",}}>
               {item.description}
             </div>
           </CardContent>

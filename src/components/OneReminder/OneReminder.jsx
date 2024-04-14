@@ -85,6 +85,7 @@ const OneReminder = ({ item, handleReload }) => {
             border: "2px solid #000",
             boxShadow: 24,
             p: 4,
+           
           }}>
           <CardContent
             className="fields"
@@ -172,11 +173,12 @@ const OneReminder = ({ item, handleReload }) => {
       </Modal>
       <Card
         className="cardIndvContainer"
-        sx={{ borderRadius: "20px", gap: "20px" }}
+        sx={{ borderRadius: "20px", gap: "10px", width:"35%",
+        }}
       >
         <CardContent
           className="fields"
-          sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white" }}
+          sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white",}}
         >
           {<p>Reminder</p>}
           <div
@@ -210,7 +212,7 @@ const OneReminder = ({ item, handleReload }) => {
               background: "white",
               color: "black",
               textAlign: "left",
-              width: "300px",
+              width: "auto",
               height: "150px",
               borderRadius: "20px",
               padding: "10px 10px 10px 10px",

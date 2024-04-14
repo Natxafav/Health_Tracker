@@ -17,3 +17,6 @@
   justify-content: space-evenly;
   overflow-y: scroll;
 } */
+* {
+  text-decoration: none;
+}

@@ -188,7 +188,7 @@ const OneMeet = ({ item, handleReload }) => {
         </Card>
       </Modal>
 
-      <Card className="cardIndvContainer" sx={{ borderRadius: "20px", gap: "20px" }}>
+      <Card className="cardIndvContainer" sx={{ borderRadius: "20px", gap: "10px", width:"35%", }}>
         <CardContent
           className="fields"
           sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white" }}
@@ -238,7 +238,7 @@ const OneMeet = ({ item, handleReload }) => {
               background: "white",
               color: "black",
               textAlign: "left",
-              width: "300px",
+              width: "auto",
               height: "150px",
               borderRadius: "20px",
               padding: "10px 10px 10px 10px",
