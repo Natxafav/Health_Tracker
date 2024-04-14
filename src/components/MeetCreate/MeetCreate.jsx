@@ -23,7 +23,7 @@ const MeetCreate = () => {
                 const newMeet = await createAppointmentUser({
                     locate, datetime, specialist, description, userId: getUser
                 })
-               
+
             }
             navigate('/meet')
         } catch (error) {
@@ -38,23 +38,24 @@ const MeetCreate = () => {
 
 
     return (
-        <div className='medicationContainer' style={{display:"flex", alignItems:"center", margin:"0 auto", padding:"10px"}}>
+        <div className='medicationContainer' style={{ display: "flex", alignItems: "center", margin: "0 auto", padding: "10px" }}>
             <Card className="medMain" sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            bgcolor: "background.paper",
-            border: "2px solid #000",
-            boxShadow: 24,
-            p: 4,
-           borderRadius: "20px" }}>
-                <CardHeader title="Appointment"  />
-                <CardContent className="fields"sx={{ color: 'white',backgroundColor: "rgb(7, 150, 151)", textAlign:"center" }}>
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                bgcolor: "background.paper",
+                border: "2px solid #000",
+                boxShadow: 24,
+                p: 4,
+                borderRadius: "20px"
+            }}>
+                <CardHeader title="Appointment" />
+                <CardContent className="fields" sx={{ color: 'white', backgroundColor: "rgb(7, 150, 151)", textAlign: "center", borderRadius: "20px" }}>
 
                     <TextField
-                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
-                          inputProps={{ style: { textAlign: "end" } }}
+                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width: "300px", backgroundColor: "white"}}
+                        inputProps={{ style: { textAlign: "end" } }}
                         type='datetime-local'
                         className="field"
                         onChange={(e) => setDatetime(e.target.value)}
@@ -62,7 +63,7 @@ const MeetCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>Date/Hour</Typography>
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width: "300px",backgroundColor: "white"}}
                         type='text'
                         className="field"
                         placeholder="locate"
@@ -72,8 +73,8 @@ const MeetCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>locate</Typography>
                     </TextField>
                     <TextField
-                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
-                          inputProps={{ style: { textAlign: "end" } }}
+                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width: "300px" ,backgroundColor: "white"}}
+                        inputProps={{ style: { textAlign: "end" } }}
                         type='datetime'
                         className="field"
                         placeholder="specialist"
@@ -83,8 +84,8 @@ const MeetCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>specialist</Typography>
                     </TextField>
                     <TextField
-                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
-                         inputProps={{ style: { textAlign: "end" } }}
+                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width: "300px" ,backgroundColor: "white"}}
+                        inputProps={{ style: { textAlign: "end" } }}
                         type='text'
                         className="field"
                         placeholder="Description"
@@ -105,9 +106,10 @@ const MeetCreate = () => {
                             background: "green",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "black",
-                                color: "white",
-                                boxShadow: "15px -5px 10px",
+                                backgroundColor: "green",
+                                color: "yellow",
+                                transition: "0.5s",
+                                fontSize: "18px",
                             },
                         }}
                     >
@@ -121,9 +123,10 @@ const MeetCreate = () => {
                             background: "red",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "black",
-                                color: "white",
-                                boxShadow: "15px -5px 10px",
+                                backgroundColor: "red",
+                                color: "yellow",
+                                transition: "0.5s",
+                                fontSize: "18px",
                             },
                         }}
                     >

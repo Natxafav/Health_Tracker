@@ -94,34 +94,34 @@ const OneMeet = ({ item, handleReload }) => {
           }}>
           <CardContent
             className="fields"
-            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white" }}
+            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white", borderRadius: "20px" , display:"flex"}}
           >
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+              sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white"  }}
               type="datetime"
               className="field"
               defaultValue={datetime}
               label="Date/ Hour"
               onChange={(e) => setDatetime(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins", color: "white" }}>
+              <Typography sx={{ fontFamily: "poppins"}}>
                 Date/Hour
               </Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+              sx={{ margin: "10px", fontFamily: "poppins",  backgroundColor: "white"}}
               type="text"
               className="field"
               defaultValue={locate}
               label="locate"
               onChange={(e) => setLocate(e.target.value)}
             >
-              <Typography sx={{ fontFamily: "poppins", color: "white" }}>
+              <Typography sx={{ fontFamily: "poppins"}}>
                 locate
               </Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+              sx={{ margin: "10px", fontFamily: "poppins",  backgroundColor: "white"}}
               type="text"
               className="field"
               defaultValue={specialist}
@@ -133,7 +133,7 @@ const OneMeet = ({ item, handleReload }) => {
               </Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+              sx={{ margin: "10px", fontFamily: "poppins", color: "white" ,  backgroundColor: "white"}}
               type="text"
               className="field"
               defaultValue={description}

@@ -100,10 +100,10 @@ const OneMed = ({ item, handleReload }) => {
         >
           <CardContent
             className="fields"
-            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white" }}
+            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white", borderRadius: "20px", display:"flex"}}
           >
             <TextField
-            sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+            sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white"}}
               type="text"
               className="field"
               defaultValue={item.name}
@@ -115,7 +115,7 @@ const OneMed = ({ item, handleReload }) => {
               </Typography>
             </TextField>
             <TextField
-             sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+             sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }}
               type="datetime"
               className="field"
               defaultValue={datetime}
@@ -125,7 +125,7 @@ const OneMed = ({ item, handleReload }) => {
               <Typography sx={{ fontFamily: "poppins" }}>Date/Hour</Typography>
             </TextField>
             <TextField
-             sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+            sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }}
               type="time"
               className="field"
               defaultValue={posology && posology}
@@ -135,7 +135,7 @@ const OneMed = ({ item, handleReload }) => {
               <Typography sx={{ fontFamily: "poppins" }}>Posology</Typography>
             </TextField>
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+              sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white"}}
               type="datetime"
               className="field"
               defaultValue={dateEnd}
@@ -145,7 +145,7 @@ const OneMed = ({ item, handleReload }) => {
               <Typography sx={{ fontFamily: "poppins" }}>dateEnd</Typography>
             </TextField>
             <TextField
-             sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+            sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white" }}
               type="text"
               className="field"
               defaultValue={item.description}

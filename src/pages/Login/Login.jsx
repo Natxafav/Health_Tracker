@@ -48,11 +48,12 @@ function Login() {
   };
 
   return (
-    <Card className="main" sx={{margin: "-150px", borderRadius: "20px", padding:'20px', width: "80%", marginLeft:'1.5rem'}}>
+    <Card className="main" sx={{borderRadius: "20px", width: "100%", display:"flex", flexDirection:"column",
+    justifyContent: "center", alignItems: "center" , padding: '20px'}}>
       <CardHeader title="Login" />
-      <CardContent className="fields">
+      <CardContent className="fields" sx={{display: "flex", flexDirection:"column", alignItems: "center", justifyContent:"center" , width:"100%"}}>
         <TextField
-          sx={{ fontFamily: "poppins" }}
+          sx={{ fontFamily: "poppins", width: "400px" }}
           className="field"
           margin="dense"
           placeholder="Email"
@@ -69,7 +70,7 @@ function Login() {
           <Typography sx={{ fontFamily: "poppins" }}>Email</Typography>
         </TextField>
         <TextField
-          sx={{ fontFamily: "poppins", color: 'black' }}
+          sx={{ fontFamily: "poppins", color: 'black' ,width: '400px'}}
           className="field"
           margin="dense"
           placeholder="Password"
@@ -94,12 +95,16 @@ function Login() {
           }}
           sx={{
             color: "white",
-            backgroundColor: "black",
+            background: "rgb(7, 150, 151)",
             fontFamily: "poppins",
+            height: "50px",
+            width:"120px",
             ":hover": {
-              backgroundColor: "Aqua",
-              color: "black",
-              boxShadow: "15px -5px 10px",
+              backgroundColor: "rgb(7, 150, 151)",
+              color: "yellow",
+              fontWeight: "bold",
+              transition: "0.3s",
+              fontSize: "18px",
             },
           }}
         >
@@ -112,12 +117,16 @@ function Login() {
           className="btn"
           sx={{
             color: "white",
-            backgroundColor: "black",
+            background: "rgb(7, 150, 151)",
             fontFamily: "poppins",
+            height: "50px",
+            width:"120px",
             ":hover": {
-              backgroundColor: "Aqua",
-              color: "black",
-              boxShadow: "15px -5px 10px",
+              backgroundColor: "rgb(7, 150, 151)",
+              color: "yellow",
+              fontWeight: "bold",
+              transition: "0.3s",
+              fontSize: "18px",
             },
           }}
         >

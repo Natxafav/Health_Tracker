@@ -88,13 +88,13 @@ const OneReminder = ({ item, handleReload }) => {
           }}>
           <CardContent
             className="fields"
-            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white" }}
+            sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white", borderRadius: "20px", display:"flex"}}
           >
             <TextField
               sx={{
                 margin: "10px",
                 fontFamily: "poppins",
-                color: "white",
+                backgroundColor: "white"
               }}
               type="text"
               className="field"
@@ -105,7 +105,7 @@ const OneReminder = ({ item, handleReload }) => {
               <Typography sx={{ fontFamily: "poppins" }}>Reminder</Typography>
             </TextField>
             <TextField
-             sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+            sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white"}}
               type="datetime"
               className="field"
               defaultValue={datetime}
@@ -116,7 +116,7 @@ const OneReminder = ({ item, handleReload }) => {
             </TextField>
 
             <TextField
-              sx={{ margin: "10px", fontFamily: "poppins", color: "white" }}
+              sx={{ margin: "10px", fontFamily: "poppins",  backgroundColor: "white" }}
               type="text"
               className="field"
               defaultValue={item.description}

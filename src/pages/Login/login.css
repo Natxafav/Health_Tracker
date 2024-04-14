@@ -12,3 +12,6 @@ nav ul li{
     
 }
 
+.btncontainer{
+    gap: 10px;
+}

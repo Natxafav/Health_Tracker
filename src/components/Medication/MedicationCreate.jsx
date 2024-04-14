@@ -38,68 +38,69 @@ const MedicationCreate = () => {
 
 
     return (
-        <div className='medicationContainer' style={{display:"flex", alignItems:"center", margin:"0 auto", padding:"10px"}}>
+        <div className='medicationContainer' style={{ display: "flex", alignItems: "center", margin: "0 auto", padding: "10px" }}>
             <Card className="medMain" sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            bgcolor: "background.paper",
-            border: "2px solid #000",
-            boxShadow: 24,
-            p: 4,
-           borderRadius: "20px" }}>
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                bgcolor: "background.paper",
+                border: "2px solid #000",
+                boxShadow: 24,
+                p: 4,
+                borderRadius: "20px"
+            }}>
                 <CardHeader title="Medication" />
-                <CardContent className="fields" sx={{ color: 'white',backgroundColor: "rgb(7, 150, 151)", textAlign:"center" }}>
+                <CardContent className="fields" sx={{ color: 'white', backgroundColor: "rgb(7, 150, 151)", textAlign: "center", borderRadius: "20px" }}>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
                         type='text'
                         className="field"
-                         inputProps={{ style: { textAlign: "end" } }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         label='Medication Name'
                         onChange={(e) => setName(e.target.value)}
                     >
-                       
+
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
                         type="datetime-local"
                         className="field"
-                         inputProps={{ style: { textAlign: "end" } }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         label='Date/ Hour'
                         onChange={(e) => setDatetime(e.target.value)}
                     >
-                      
+
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
                         type='time'
-                         inputProps={{ style: { textAlign: "end" } }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         className="field"
                         label='Posology'
                         onChange={(e) => setPosology(e.target.value)}
                     >
-                       
+
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
                         type='datetime-local'
-                         inputProps={{ style: { textAlign: "end" } }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         className="field"
                         label='End Date'
                         onChange={(e) => setDuration(e.target.value)}
                     >
-                       
+
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
                         type='text'
-                         inputProps={{ style: { textAlign: "end" } }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         className="field"
                         label='Description'
                         onChange={(e) => setDescription(e.target.value)}
                     >
-                       
+
                     </TextField>
                 </CardContent>
                 <div className="btncontainer" style={{ height: "100px", width: "100%", display: "flex", gap: "10px", alignItems: "center", justifyContent: "center" }}>
@@ -113,9 +114,10 @@ const MedicationCreate = () => {
                             background: "green",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "black",
-                                color: "white",
-                                boxShadow: "15px -5px 10px",
+                                backgroundColor: "green",
+                                color: "yellow",
+                                transition: "0.5s",
+                                fontSize: "18px",
                             },
                         }}
                     >
@@ -129,9 +131,10 @@ const MedicationCreate = () => {
                             background: "red",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "black",
-                                color: "white",
-                                boxShadow: "15px -5px 10px",
+                                backgroundColor: "red",
+                                color: "yellow",
+                                transition: "0.5s",
+                                fontSize: "18px",
                             },
                         }}
                     >

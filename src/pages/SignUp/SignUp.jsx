@@ -57,7 +57,7 @@ location.reload()
     <div className="signup">
       <Card
         className="mainContainerSignUp"
-        sx={{}}
+        sx={{background: "rgb(7 ,150, 151)"}}
       >
         <CardHeader title="Sign Up" sx={{ color: "white" }} />
         <CardContent
@@ -66,7 +66,7 @@ location.reload()
         >
           <TextField
             className="field"
-            sx={{ textAlign: "center", fontFamily: "poppins" }}
+            sx={{ textAlign: "center", fontFamily: "poppins", backgroundColor: "white" , borderRadius: "20px" }}
             type="text"
             variant="outlined"
             label="Name"
@@ -75,7 +75,7 @@ location.reload()
           ></TextField>
           <TextField
             className="field"
-            sx={{ fontFamily: "poppins" }}
+            sx={{ fontFamily: "poppins", backgroundColor: "white" , borderRadius: "20px"}}
             type="text"
             variant="outlined"
             label="Lastname"
@@ -84,7 +84,7 @@ location.reload()
           ></TextField>
           <TextField
             className="field"
-            sx={{ fontFamily: "poppins" }}
+            sx={{ fontFamily: "poppins" , backgroundColor: "white" , borderRadius: "20px"}}
             type="text"
             variant="outlined"
             label="NSS"
@@ -93,7 +93,7 @@ location.reload()
           ></TextField>
           <TextField
             className="field"
-            sx={{ fontFamily: "poppins", align: "center" }}
+            sx={{ fontFamily: "poppins", align: "center", backgroundColor: "white" , borderRadius: "20px" }}
             type="date"
             variant="outlined"
             label="Birthday"
@@ -102,7 +102,7 @@ location.reload()
           ></TextField>
           <TextField
             className="field"
-            sx={{ fontFamily: "poppins" }}
+            sx={{ fontFamily: "poppins" , backgroundColor: "white", borderRadius: "20px"}}
             type="text"
             variant="outlined"
             label="DNI"
@@ -111,7 +111,7 @@ location.reload()
           ></TextField>
           <TextField
             className="field"
-            sx={{ fontFamily: "poppins" }}
+            sx={{ fontFamily: "poppins", backgroundColor: "white" , borderRadius: "20px" }}
             type="email"
             variant="outlined"
             label="Email"
@@ -121,7 +121,7 @@ location.reload()
 
           <TextField
             className="field"
-            sx={{ fontFamily: "poppins" }}
+            sx={{ fontFamily: "poppins", backgroundColor: "white" , borderRadius: "20px" }}
             type="password"
             variant="outlined"
             label="Password"
@@ -130,7 +130,7 @@ location.reload()
           ></TextField>
           <TextField
             className="field"
-            sx={{ fontFamily: "poppins" }}
+            sx={{ fontFamily: "poppins", backgroundColor: "white" , borderRadius: "20px" }}
             type="text"
             variant="outlined"
             label="Phone"
@@ -145,8 +145,9 @@ location.reload()
           sx={{ display: "flex", alignItems:"center" ,justifyContent: "start" }}
         >
           <FormControlLabel
+          sx={{ color:"white"}}
             control={
-              <Checkbox
+              <Checkbox sx={{color: "white"}}
                 checked={showAddFamily}
                 onChange={() => setShowAddFamily(!showAddFamily)}
               />
@@ -159,12 +160,13 @@ location.reload()
             onClick={() => handleSignUp()}
             sx={{
               color: "white",
-              backgroundColor: "black",
+              backgroundColor: "green",
               fontFamily: "poppins",
               ":hover": {
-                backgroundColor: "Aqua",
-                color: "black",
-                boxShadow: "15px -5px 10px",
+                backgroundColor: "green",
+                color: "yellow",
+                transition: "0.3s",
+                fontWeight: "bold",
               },
             }}
           >
@@ -175,14 +177,14 @@ location.reload()
             variant="outlined"
             sx={{
               color: "white",
-              backgroundColor: "black",
+              backgroundColor: "green",
               fontFamily: "poppins",
               ":hover": {
-                backgroundColor: "Aqua",
-                color: "black",
-                boxShadow: "15px -5px 10px",
+                backgroundColor: "green",
+                color: "yellow",
+                transition: "0.3s",
+                fontWeight: "bold",
               },
-             
             }}
           >
             Login

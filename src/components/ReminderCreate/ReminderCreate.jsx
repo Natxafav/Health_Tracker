@@ -18,10 +18,10 @@ const ReminderCreate = () => {
         try {
             const userRole = localStorage.getItem('roleId')
             const getUser = await getUserByEmail()
-           if(userRole === "2"||userRole === "3"||userRole === "4"){
-                const newReminder= await createReminderUser ({
-                name, datetime,  description, userId:getUser.id
-              })
+            if (userRole === "2" || userRole === "3" || userRole === "4") {
+                const newReminder = await createReminderUser({
+                    name, datetime, description, userId: getUser.id
+                })
             }
             navigate('/reminder')
         } catch (error) {
@@ -36,22 +36,23 @@ const ReminderCreate = () => {
 
 
     return (
-        <div className='reminderContainer' style={{display:"flex", alignItems:"center", margin:"0 auto", padding:"10px"}}>
+        <div className='reminderContainer' style={{ display: "flex", alignItems: "center", margin: "0 auto", padding: "10px" }}>
             <Card className="medMain" sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            bgcolor: "background.paper",
-            border: "2px solid #000",
-            boxShadow: 24,
-            p: 4,
-           borderRadius: "20px" }}>
-                <CardHeader title="Reminder"  />
-                <CardContent className="fields" sx={{ color: 'white',backgroundColor: "rgb(7, 150, 151)", textAlign:"center" }}>
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                bgcolor: "background.paper",
+                border: "2px solid #000",
+                boxShadow: 24,
+                p: 4,
+                borderRadius: "20px"
+            }}>
+                <CardHeader title="Reminder" />
+                <CardContent className="fields" sx={{ color: 'white', backgroundColor: "rgb(7, 150, 151)", textAlign: "center", borderRadius: "20px" }}>
                     <TextField
-                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
-                          inputProps={{ style: { textAlign: "end" } }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         type='text'
                         className="field"
                         placeholder="Reminder Name"
@@ -61,8 +62,8 @@ const ReminderCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>Reminder Name</Typography>
                     </TextField>
                     <TextField
-                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
-                          inputProps={{ style: { textAlign: "end" } }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         type='datetime-local'
                         className="field"
                         placeholder="Date"
@@ -72,8 +73,8 @@ const ReminderCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>Date/Hour</Typography>
                     </TextField>
                     <TextField
-                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
-                          inputProps={{ style: { textAlign: "end" } }}
+                        sx={{ margin: "10px", fontFamily: "poppins", backgroundColor: "white", width: "300px" }}
+                        inputProps={{ style: { textAlign: "end" } }}
                         type='text'
                         className="field"
                         placeholder="Description"
@@ -94,9 +95,10 @@ const ReminderCreate = () => {
                             background: "green",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "black",
-                                color: "white",
-                                boxShadow: "15px -5px 10px",
+                                backgroundColor: "green",
+                                color: "yellow",
+                                transition: "0.5s",
+                                fontSize: "18px",
                             },
                         }}
                     >
@@ -110,9 +112,10 @@ const ReminderCreate = () => {
                             background: "red",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "black",
-                                color: "white",
-                                boxShadow: "15px -5px 10px",
+                                backgroundColor: "red",
+                                color: "yellow",
+                                transition: "0.5s",
+                                fontSize: "18px",
                             },
                         }}
                     >
