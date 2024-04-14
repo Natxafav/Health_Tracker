@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <>
-      <Box position="absolute" className="header">
+      <Box /* position="absolute" */ className="header">
         <div className="logo"></div>
       </Box>
 

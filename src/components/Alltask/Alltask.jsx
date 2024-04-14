@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { getTaskToday } from '../../services/Tasktoday'
-import { Box } from '@mui/material'
+import { Card, CardContent, CardHeader } from '@mui/material'
+import CardIndv from '../CardIndv/CardIndv'
+
+
 
 
 const Alltask = () => {
@@ -17,29 +20,27 @@ const Alltask = () => {
     const listtask = () => {
         const date = new Date()
         return (user && user.map((task, index) => {
-            return(
-            <>
-                <Box sx={{fontSize:"13px",height: "700px",width: "1000px", boxSizing:"content-box" ,position:"absolute", display:"flex",flexWrap:"wrap" ,backgroundColor:"green" }}>
-                    {task.Reminders && task.Reminders.map((reminder, ind) => {
-                        return (
-                                <p key={reminder.id}> {reminder.name}  {date.getDate(reminder.datetime)}/{date.getMonth(reminder.datetime)}/{date.getFullYear(reminder.datetime)}</p>
-                        )
-                    })}         
-                    {task.medications && task.medications.map((medication, idx) => {
-                        return ( 
-                                <p key={medication.id}>
-                                    {medication.name} {date.getDate(medication.datetime)}/{date.getMonth(medication.datetime)}/{date.getFullYear(medication.datetime)}
-                                -tomar cada: {medication.posology} horas
-                                </p>
-                        )
-                    })}
-                    {task.appointments && task.appointments.map((appointment, idex) => {
-                        return (
-                            <p key={appointment.id}>{appointment.name} {date.getDate(appointment.datetime)}/{date.getMonth(appointment.datetime)}/{date.getFullYear(appointment.datetime)}</p>
-                        )
-                    })}
-                </Box>
-            </>    
+            return (
+                <div key={index}>
+                        {task.Reminders && task.Reminders.map((reminder, ind) => {
+                            return (
+                                <CardIndv item={reminder} key={reminder.id}></CardIndv>
+                            )
+                        })}
+                        {task.medications && task.medications.map((medication, idx) => {
+                            return (
+
+                                   <CardIndv item={medication} key={idx}> {medication.name}</CardIndv>
+
+                            )
+                        })}
+                        {task.appointments && task.appointments.map((appointment, idex) => {
+                            return (
+                                <CardIndv item={appointment} key={idex}>{appointment.name} {date.getDate(appointment.datetime)}/{date.getMonth(appointment.datetime)}/{date.getFullYear(appointment.datetime)}</CardIndv>
+                            )
+                        })}
+
+                </div>
             )
         })
     

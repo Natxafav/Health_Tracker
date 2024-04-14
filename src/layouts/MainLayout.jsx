@@ -29,11 +29,11 @@ const  pathLocation= useLocation()
       <Box
         sx={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          /* alignItems: "center",
+          overflowY: "scroll"
+          justifyContent: "center", */
           width: "100vw",
           height: "80vh",
-          overflowY: "scroll"
         }}
         >
         {!localStorage.getItem("Authorization") ? null : <DrawerComp/>}
