@@ -1,13 +1,11 @@
-import React from "react";
 import "./landing.css"
 import Login from "../Login/Login";
-import { Box, Grid, Container, Typography, Button } from "@mui/material";
 
 import AboutUs from "../../components/AboutUs/AboutUs";
 
 const Landing = () => {
   return (
-    <div  className="landingContainer"   >  
+    <div  className="landingContainer">  
     
       <div  className="landingLogin">        
           <Login />        

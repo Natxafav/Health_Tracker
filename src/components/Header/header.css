@@ -4,11 +4,8 @@
     min-height: fit-content;
     height: 50px;
     width: 100%;
-    position: relative;
     top: 0;
     left: 0;
-    
-
 }
 .logo{
     background-image:url('../../assets/img/logoheaader.jpg') ;

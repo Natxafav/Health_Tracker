@@ -17,15 +17,11 @@ const Alltask = () => {
 
     }, [reload])
 
-
-
-
-
     const listtask = () => {
         const date = new Date()
         return (user && user.map((task, index) => {
             return (
-                <div key={index} style={{ display:"flex", flexWrap: "wrap" }}>
+                <div key={index}>
                         {task.Reminders && task.Reminders.map((reminder, ind) => {
                             return (
                                 <CardIndv item={reminder} key={reminder.id}> {/* {date.getDate(reminder.datetime)}/{date.getMonth(reminder.datetime)}/{date.getFullYear(reminder.datetime)} */}</CardIndv>
