@@ -173,7 +173,7 @@ location.reload()
             Sign Up
           </Button>
           <Button
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/")}
             variant="outlined"
             sx={{
               color: "white",
