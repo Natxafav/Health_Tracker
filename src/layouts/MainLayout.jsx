@@ -15,6 +15,7 @@ useEffect(()=>{
 
 const  pathLocation= useLocation()
 
+
   const checkRoute =()=>{
       if (actual !== pathLocation.pathname){
         setActual(pathLocation.pathname)
@@ -30,11 +31,12 @@ const  pathLocation= useLocation()
           alignItems: "center",
           justifyContent: "center",
           width: "100vw",
-          height: "100vh",
+          height: "80vh",
           overflowY: "scroll"
         }}
         >
         {!localStorage.getItem("Authorization")?null:<DrawerComp/>}
+        
         <Outlet />
       </Box>
       <Footer />

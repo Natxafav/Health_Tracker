@@ -9,8 +9,7 @@
     position: absolute;
     top: 10vh;
     left: 0px;
-    color: #046C95;
-}
+    color: #046C95;}
 
 .components, .home, .logout{
     display: flex;
