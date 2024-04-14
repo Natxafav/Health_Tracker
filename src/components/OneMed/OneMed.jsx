@@ -51,8 +51,8 @@ const OneMed = ({ item, handleReload }) => {
   return (
     <>
       {!onEdit ? (
-        <Card className="cardIndvContainer" sx={{ borderRadius: "20px" }}>
-          <CardContent className="fields"  sx={{fontSize: '20px', backgroundColor:"rgb(7, 150, 151)", color: "white" }}>
+        <Card className="cardIndvContainer" sx={{ borderRadius: "20px", maxWidth:'450px', }}>
+          <CardContent className="fields"  sx={{fontSize: '20px', backgroundColor:"rgb(7, 150, 151)", color: "white",alignContent:'center' }}>
             
             {<p>Medication </p>}
             <div style={{padding: "10px 10px 10px 10px", background: "white", color:"black", borderRadius: "20px"}}>
@@ -67,11 +67,11 @@ const OneMed = ({ item, handleReload }) => {
             {posology}
             </div>
             {<p>End date</p>}
-            <div style={{padding: "10px 10px 10px 10px", background: "white", color:"black", borderRadius: "20px"}}>
+            <div style={{padding: "10px 10px 10px 10px", background: "white", color:"black", borderRadius: "20px",maxWidth:'400px'}}>
             {dateEnd}
             </div>
             {<p >Description </p>}
-            <div style={{ background: "white", color:"black", textAlign:"left", height:"100px", borderRadius: "20px", padding:"10px 10px 10px 10px"}}>
+            <div style={{ background: "white", color:"black", textAlign:"left", height:"100px", borderRadius: "20px", padding:"10px 10px 10px 10px",width:"95%"}}>
               {item.description}
             </div>
           </CardContent>

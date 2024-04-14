@@ -20,6 +20,7 @@ function MedicationList() {
             sx={{
               maxWidth: "fit-content",
               width: "90%",
+              maxWidth:'450px',
               display: "flex",
               flexDirection: "row",
               alignItems: "start",
@@ -27,7 +28,8 @@ function MedicationList() {
               flexWrap: "wrap",
               gap: "20px",
               paddingBottom: "200px",
-              height: '100%'
+              height: '100%',
+              flexGrow:'1'
             }}
 >
             <CardHeader title={elem.name} />
@@ -59,14 +61,14 @@ function MedicationList() {
 
   useEffect(() => {
     retrieveFamilyMeds();
-    console.log(reload);
+    
   }, [reload]);
 
   return (
     <Card
       className="CardReturnMedicationList"
       sx={{
-        height: "90vh",
+        height: "95vh",
         width: "90%",
         display: "flex",
         flexDirection: "row",
@@ -74,8 +76,9 @@ function MedicationList() {
         justifyContent: "start",
         flexWrap: "wrap",
         gap: "20px",
-        paddingBottom: "200px",
-        paddingTop: "200px",
+       marginTop: "150px",
+       marginBottom:"100px",
+     
         overflowY: "scroll",
       }}
     >
