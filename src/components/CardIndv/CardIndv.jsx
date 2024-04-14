@@ -13,7 +13,6 @@ const CardIndv = ({ item }) => {
           {item.locate && <p>{item.locate}</p>}
           {item.name && <p>{item.name}</p>}
           {item.datetime && <p> {item.datetime}</p>}
-          {item.date && <p>{item.date}</p>}
           {item.specialist && <p>{item.specialist}</p>}
           {item.posology && <p>{item.posology}</p>}
           {item.end && <p>{item.end}</p>}

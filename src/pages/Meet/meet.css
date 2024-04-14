@@ -1,4 +1,4 @@
-
+/* 
 .meetCard{
     display: flex;
     align-items: center;
@@ -17,11 +17,11 @@
     overflow-y: scroll;
 }
 .newMeet{
-    position:relative;
-    top: 400px;
+  
+   
 }
 
 .meetCardHeader span{
 font-weight: 600;
 font-size: 25px;
-}
+} */

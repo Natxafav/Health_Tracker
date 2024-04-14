@@ -24,23 +24,15 @@ function DrawerComp() {
     localStorage.removeItem("email");
     navigate("/");
     location.reload()
+
   };
 
   const DrawerList = (
-    <Box
-      className="boxDrawerList"
-      sx={{
-        background: "black",
-        paddingBottom: "100px",
-        height:"50%"
-      }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-    >
+    <>
       {" "}
       <div className="home">
         <Link to="/home">
-          <Button sx={{color:"rgb(7, 150, 151)" ,paddingRight:'110px', ":hover":{backgroundColor:'rgb(7, 150, 151)', color:'yellow'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)" ,paddingRight:'110px', ":hover":{backgroundColor:'rgb(7, 150, 151)', color:'yellow'} , display:"flex", alignContent:"baseline", gap:1}}>
             <AddHomeTwoToneIcon />
             <Typography variant="h6" component="h6" >
               HOME
@@ -50,7 +42,7 @@ function DrawerComp() {
       </div>
       <div className="components">
         <Link to="/family">
-          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'100px',":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'100px',":hover":{background:'rgb(7, 150, 151)', color:'yellow'}, display:"flex", alignContent:"baseline", gap:1}}>
             <FamilyRestroomIcon />
             <Typography variant="h6" component="h6" >
               FAMILY
@@ -58,7 +50,7 @@ function DrawerComp() {
           </Button>
         </Link>
         <Link to="/meet">
-          <Button sx={{color:"rgb(7, 150, 151)",paddingRight: '10px', ":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)",paddingRight: '10px', ":hover":{background:'rgb(7, 150, 151)', color:'yellow'}, display:"flex", alignContent:"baseline", gap:1}}>
             <EventAvailableIcon />
             <Typography variant="h6" component="h6" >
               APPOINTMENTS
@@ -66,7 +58,7 @@ function DrawerComp() {
           </Button >
         </Link>
         <Link to="/meds">
-          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'55px',":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'55px',":hover":{background:'rgb(7, 150, 151)', color:'yellow'}, display:"flex", alignContent:"baseline", gap:1}}>
             <MedicationIcon />
             <Typography variant="h6" component="h6" >
               MEDICINES
@@ -74,7 +66,7 @@ function DrawerComp() {
           </Button>
         </Link>
         <Link to="/reminder">
-          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'50px', ":hover":{background:'rgb(7, 150, 151)', color:'yellow'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)", paddingRight:'50px', ":hover":{background:'rgb(7, 150, 151)', color:'yellow'}, display:"flex", alignContent:"baseline", gap:1}}>
             <TaskIcon />
             <Typography variant="h6" component="h6" >
               REMINDERS
@@ -86,7 +78,7 @@ function DrawerComp() {
         {localStorage.getItem('Authorization')?(
 
 <Link to="/">
-          <Button sx={{color:"Red",paddingRight:'80px',":hover":{background:'red', color:'white'}}}
+          <Button sx={{color:"Red",paddingRight:'80px',":hover":{background:'red', color:'white'}, display:"flex", alignContent:"baseline", gap:1}}
             onClick={() => {
               handlelogout();
             }}
@@ -119,7 +111,7 @@ function DrawerComp() {
         }
         
       </div>
-    </Box>
+    </>
   );
 
   React.useEffect(()=>{
@@ -130,14 +122,14 @@ function DrawerComp() {
     <Card
       className="CardDrawerComp"
       sx={{
-        width: "220px",
+        width: "300px",
         height: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "start",
         justifyContent: "space-evenly",
         marginRight: "20px",
-        paddingBottom: "50px",
+        padding: "0 0 50px 20px",
         backgroundColor: "black",
       }}
     >

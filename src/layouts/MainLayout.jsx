@@ -22,6 +22,7 @@ const  pathLocation= useLocation()
         location.reload()
       }
   }
+  
   return (
     <>
       <Header />
@@ -35,7 +36,7 @@ const  pathLocation= useLocation()
           overflowY: "scroll"
         }}
         >
-        {!localStorage.getItem("Authorization")?null:<DrawerComp/>}
+        {!localStorage.getItem("Authorization") ? null : <DrawerComp/>}
         
         <Outlet />
       </Box>

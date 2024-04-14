@@ -3,7 +3,7 @@ import { getAllAppointmentsUser } from "../../services/meets";
 import { Card, CardContent, CardHeader, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import OneMeet from "../../components/OneMeet/OneMeet";
-import './meet.css'
+import "./meet.css";
 
 const Meet = () => {
   const [familyMeets, setFamilyMeets] = useState([]);
@@ -16,20 +16,38 @@ const Meet = () => {
   const displayUserMeets = () => {
     const display = familyMeets ? (
       familyMeets.map((elem, idx) => {
-
         return (
-          <Card key={idx} className="meetCard">
+          <Card key={idx} className="meetCard" sx={{ overflowY: "scroll" }}>
             <CardHeader className="meetCardHeader" title={elem.name} />
-            <CardContent className="meetContentCard">
-
-              {elem.appointments && elem.appointments.length > 0 ? (elem.appointments.map((elem, id) => {
-                return <OneMeet item={elem} key={id} handleReload={setReload} />;
-              })) : (<h5>No appointments found for this user</h5>)}
+            <CardContent
+              className="meetContentCard"
+              sx={{
+                width: "90%",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "space-evenly",
+                justifyContent: "start",
+                flexWrap: "wrap",
+                gap: "20px",
+                paddingBottom: "200px",
+                paddingLeft:"auto",
+                paddingRight:"auto",
+                margin:"0 auto"
+              }}
+            >
+              {elem.appointments && elem.appointments.length > 0 ? (
+                elem.appointments.map((elem, id) => {
+                  return (
+                    <OneMeet item={elem} key={id} handleReload={setReload} />
+                  );
+                })
+              ) : (
+                <h5>No appointments found for this user</h5>
+              )}
             </CardContent>
           </Card>
         );
       })
-
     ) : (
       <h1>No appointments found</h1>
     );
@@ -39,25 +57,37 @@ const Meet = () => {
 
   useEffect(() => {
     retrievefamilyMeets();
-
   }, [reload]);
 
   return (
-    <Card className="newMeet" sx={{ paddingTop: "350px", paddingBottom: "50px" }} >
+    <Card sx={{ width: "90%", height: "80vh", overflowY: "scroll" }}>
+      <Link to={"/meet/create"}>
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{
+            height: "50px",
+            fontSize: "20px",
+            fontWeight: "800",
+            width: "200px",
+            /* margin: "50px 0px 0px 1250px", */
+            color: "white",
+            backgroundColor: "rgb(7, 150, 151)",
+            ":hover": {
+              backgroundColor: "black",
+              fontSize: "15px",
+              transition: "0.5s",
+            },
+            position: "fixed", 
+            top:"50px", 
+            right:"50px"
+          }}
+        >
+          New
+        </Button>
+      </Link>
 
-      <div className="displayUserButton">
-        <Link to={"/meet/create"}>
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{ fontSize: "20px", width: '200px', top: '3px', position: 'absolute', margin: "60px 0px 0px 600px", background: "rgb(7,150,151)", fontWeight: 'bold', ":hover": { backgroundColor: "black", fontSize: "15px", transition: "0.5s"} }}>
-            New meet
-          </Button>
-        </Link>
-      </div>
-      <div className="displayUserMeets">
-        {displayUserMeets()}
-      </div>
+     {displayUserMeets()}
     </Card>
   );
 };
