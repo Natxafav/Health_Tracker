@@ -8,8 +8,8 @@
     background-image: url('../../assets/img/peque.jpg'); 
 }
 .NATI,.LARA,.CHLOE{
-    width: 140px;
-    height: 140px;
+    width: 210px;
+    height: 210px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,4 +17,5 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    color:rgba(193, 245, 245, 0.575)
 }

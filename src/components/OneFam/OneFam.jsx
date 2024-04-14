@@ -35,57 +35,18 @@ const OneFam = ({ item, handleReload }) => {
   }; */
 
   return (
-    <Card>
-      <CardContent className="cardIndvContainer" sx={{ borderRadius: "20px" , border: 'none'}}>
+    <Card  className="cardIndvContainer" sx={{ borderRadius: '20px',width:"24%", height:"40%", 
+    }}>
         <CardContent
           className="fields"
-          sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white", borderRadius: '20px', fontWeight:"800"}}
+          sx={{ backgroundColor: "rgb(7, 150, 151)", color: "white", borderRadius: '20px', fontWeight:"800", height:"100%", width:"90%",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}
         > 
         <div className={item.name}></div>
         {
           <p>{item.name}</p>}
         {<p>Phone: {phone}</p>}
         </CardContent>
-        <CardActions
-          className="btncontainer"
-          sx={{ display: "flex", justifyContent: "end" }}
-        >
-        {/* {<Button
-            onClick={() => handleDelete()}
-            variant="outlined"
-            sx={{
-              color: "white",
-              backgroundColor: "lightblue",
-              fontFamily: "poppins",
-              ":hover": {
-                backgroundColor: "skyblue",   
-                color: "black",
-                fontWeight:"800",
-                boxShadow: "5px -2px 15px",
-              },
-            }}
-          >
-            Delete
-          </Button> }
-          {<Button
-            onClick={() => handlUpdate()}
-            variant="outlined"
-            sx={{
-              color: "white",
-              backgroundColor: "lightblue",
-              fontFamily: "poppins",
-              ":hover": {
-                backgroundColor: "skyblue",   
-                color: "black",
-                fontWeight:"800",
-                boxShadow: "5px -2px 15px",
-              },
-            }}
-          >
-            Update
-          </Button> } */}
-        </CardActions>
-      </CardContent>
+            
     </Card>
   );
 };

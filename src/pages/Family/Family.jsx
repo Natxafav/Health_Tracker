@@ -40,40 +40,20 @@ const Family = () => {
     const display = family ? (
       family.map((elem, idx) => {     
         return (
-          <Card key={idx} className="CardDisplayFamily" sx={{height:"80vh", textAlign:"center" }}>
+          <Card key={idx} className="CardDisplayFamily" sx={{height:"100%", width:"98%", }}>
             <CardHeader title={elem.name} className="CardHeaderDisplayFamily"/>
-            {/* <CardActions
-            className="btncontainer"
-            sx={{ display: "flex", justifyContent: "end" }}
-          >
-            <Button
-              variant="outlined"
-              onClick={() => handleModify(elem.id)}
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                fontFamily: "poppins",
-                ":hover": {
-                  backgroundColor: "Aqua",
-                  color: "black",
-                  boxShadow: "15px -5px 10px",
-                },
-              }}
-            >
-              Modify
-            </Button>
-            </CardActions> */}
+           
             <CardContent className="FamiliCardContent"
               sx={{
-                width: "90%",
-                height:"90%",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "space-evenly",
-                justifyContent: "center",
-                flexWrap: "wrap",
+                width: "100%",
+                height:"80%",
+                display: "flex",                
+                flexWrap: "wrap", 
                 gap: "20px",
-                paddingBottom: "200px",
+                margin:"0 auto",
+                backgroundColor:" rgba(193, 245, 245, 0.575)", 
+                borderRadius:"20px",
+             
               }}
             >
               {elem.users.map((elem, id) => {
@@ -97,7 +77,7 @@ const Family = () => {
   }, [reload]);
 
   return (
-    <Card sx={{ width: "90%", height: "80vh" }}>
+    <Card className="subFamilyCardContent" sx={{ width: "90vw", height: "90vh", textAlign:"center" }}>
     
       {displayUserFamily()}
     </Card>

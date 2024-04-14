@@ -32,8 +32,9 @@ const  pathLocation= useLocation()
           /* alignItems: "center",
           overflowY: "scroll"
           justifyContent: "center", */
+          overflow:"hidden",
           width: "100vw",
-          height: "80vh",
+          height: "90vh",
         }}
         >
         {!localStorage.getItem("Authorization") ? null : <DrawerComp/>}

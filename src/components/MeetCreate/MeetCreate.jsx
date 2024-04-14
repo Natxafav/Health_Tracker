@@ -23,7 +23,7 @@ const MeetCreate = () => {
                 const newMeet = await createAppointmentUser({
                     locate, datetime, specialist, description, userId: getUser
                 })
-                console.log(newMeet)
+               
             }
             navigate('/meet')
         } catch (error) {
