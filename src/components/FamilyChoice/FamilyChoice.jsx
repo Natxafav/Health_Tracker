@@ -33,9 +33,9 @@ function FamilyChoice() {
             <Button variant="contained" color="primary" onClick={() => handleCreateFamily()} fullWidth>
                 Crear una nueva familia
             </Button>
-            <Button variant="contained" color="primary" onClick={()=>handleRequestAccess()} fullWidth>
+           {/*  <Button variant="contained" color="primary" onClick={()=>handleRequestAccess()} fullWidth>
                 Solicitar acceso a una familia existente
-            </Button>
+            </Button> */}
         </Container>
     );
 }

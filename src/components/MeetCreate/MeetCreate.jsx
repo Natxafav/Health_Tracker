@@ -38,13 +38,23 @@ const MeetCreate = () => {
 
 
     return (
-        <div className='medicationContainer'>
-            <Card className="medMain" sx={{ borderRadius: "20px", width: '800px', height: '550px' }}>
-                <CardHeader title="Appointment" sx={{ color: 'white' }} />
-                <CardContent className="fields" sx={{ color: 'white', display: 'flex' , flexDirection: 'column' }}>
+        <div className='medicationContainer' style={{display:"flex", alignItems:"center", margin:"0 auto", padding:"10px"}}>
+            <Card className="medMain" sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            border: "2px solid #000",
+            boxShadow: 24,
+            p: 4,
+           borderRadius: "20px" }}>
+                <CardHeader title="Appointment"  />
+                <CardContent className="fields"sx={{ color: 'white',backgroundColor: "rgb(7, 150, 151)", textAlign:"center" }}>
 
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", background: "white"}}
+                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                          inputProps={{ style: { textAlign: "end" } }}
                         type='datetime-local'
                         className="field"
                         onChange={(e) => setDatetime(e.target.value)}
@@ -52,7 +62,7 @@ const MeetCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>Date/Hour</Typography>
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", background: "white" }}
+                        sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
                         type='text'
                         className="field"
                         placeholder="locate"
@@ -62,7 +72,8 @@ const MeetCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>locate</Typography>
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", background: "white"}}
+                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                          inputProps={{ style: { textAlign: "end" } }}
                         type='datetime'
                         className="field"
                         placeholder="specialist"
@@ -72,7 +83,8 @@ const MeetCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>specialist</Typography>
                     </TextField>
                     <TextField
-                        sx={{ margin: "10px", fontFamily: "poppins", background: "white" }}
+                         sx={{ margin: "10px", fontFamily: "poppins", color: "white", width:"300px" }}
+                         inputProps={{ style: { textAlign: "end" } }}
                         type='text'
                         className="field"
                         placeholder="Description"
@@ -82,7 +94,7 @@ const MeetCreate = () => {
                         <Typography sx={{ fontFamily: "poppins" }}>Description</Typography>
                     </TextField>
                 </CardContent>
-                <div className="btncontainer">
+                <div className="btncontainer" style={{ height: "100px", width: "100%", display: "flex", gap: "10px", alignItems: "center", justifyContent: "center" }}>
                     <Button
                         className="btn"
                         onClick={() => {
@@ -90,11 +102,11 @@ const MeetCreate = () => {
                         }}
                         sx={{
                             color: "white",
-                            backgroundColor: "black",
+                            background: "green",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "Aqua",
-                                color: "black",
+                                backgroundColor: "black",
+                                color: "white",
                                 boxShadow: "15px -5px 10px",
                             },
                         }}
@@ -106,11 +118,11 @@ const MeetCreate = () => {
                         className="btn"
                         sx={{
                             color: "white",
-                            backgroundColor: "black",
+                            background: "red",
                             fontFamily: "poppins",
                             ":hover": {
-                                backgroundColor: "Aqua",
-                                color: "black",
+                                backgroundColor: "black",
+                                color: "white",
                                 boxShadow: "15px -5px 10px",
                             },
                         }}
