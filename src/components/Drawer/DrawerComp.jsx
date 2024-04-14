@@ -40,7 +40,7 @@ function DrawerComp() {
       {" "}
       <div className="home">
         <Link to="/home">
-          <Button sx={{color:"rgb(7, 150, 151)" ,paddingRight:'100px', ":hover":{backgroundColor:'rgb(7, 150, 151)', color:'yellow'}}}>
+          <Button sx={{color:"rgb(7, 150, 151)" ,paddingRight:'110px', ":hover":{backgroundColor:'rgb(7, 150, 151)', color:'yellow'}}}>
             <AddHomeTwoToneIcon />
             <Typography variant="h6" component="h6" >
               HOME

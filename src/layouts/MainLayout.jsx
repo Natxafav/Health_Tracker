@@ -21,10 +21,7 @@ const  pathLocation= useLocation()
         setActual(pathLocation.pathname)
         location.reload()
       }
-
   }
-
-
   return (
     <>
       <Header />
@@ -35,6 +32,7 @@ const  pathLocation= useLocation()
           justifyContent: "center",
           width: "100vw",
           height: "80vh",
+          overflowY: "scroll"
         }}
         >
         {!localStorage.getItem("Authorization")?null:<DrawerComp/>}

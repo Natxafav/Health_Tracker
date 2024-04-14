@@ -10,11 +10,11 @@ function Header() {
 
   return (
     <>
+      <Box position="absolute" className="header">
+        <div className="logo"></div>
+      </Box>
 
-    <Box position="absolute" className="header">
-      <div className="logo"></div>
-    </Box>
-          </>
+    </>
   );
 }
 
