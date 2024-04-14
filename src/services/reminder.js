@@ -62,7 +62,8 @@ export const updateReminder = async (reminderID, data)=>{
         const resp = await api.put(`/reminder/mod/${reminderID}`, data
       , {
         headers: {
-           'Authorization': localStorage.getItem('Authorization')
+           'Authorization': localStorage.getItem('Authorization'),
+           'roleId':localStorage.getItem('roleId')
         },
       })
       return resp.data
@@ -74,7 +75,8 @@ export const deleteReminder = async (reminderID)=>{
     try {
         const resp = await api.delete(`/reminder/rm/${reminderID}`,{
           headers: {
-             'Authorization': localStorage.getItem('Authorization')
+             'Authorization': localStorage.getItem('Authorization'),
+             'roleId':localStorage.getItem('roleId')
           },
         } )
         

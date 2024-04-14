@@ -18,7 +18,7 @@ function MedicationList() {
             className="CardMedicationList"
             key={idx}
             sx={{
-              maxWidth: "fit-content",
+             
               width: "90%",
               maxWidth:'450px',
               display: "flex",
