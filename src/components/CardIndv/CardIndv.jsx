@@ -9,7 +9,8 @@ const CardIndv = ({ item }) => {
     .toLocaleString()
     .padStart(2, "0");
   const day = date.getDate(item.datetime).toLocaleString().padStart(2, "0");
-  const time = `${date.getHours(item.datetime)}:${date
+  const time = `${date.getHours(item.datetime).toLocaleString()
+    .padStart(2, "0")}:${date
     .getMinutes(item.datetime)
     .toLocaleString()
     .padStart(2, "0")}:00`;
@@ -20,7 +21,8 @@ const CardIndv = ({ item }) => {
     .toLocaleString()
     .padStart(2, "0");
   const daynd = dateEnd.getDate(item.end).toLocaleString().padStart(2, "0");
-  const timend = `${dateEnd.getHours(item.end)}:${dateEnd
+  const timend = `${dateEnd.getHours(item.end).toLocaleString()
+  .padStart(2, "0")}:00:${dateEnd
     .getMinutes(item.end)
     .toLocaleString()
     .padStart(2, "0")}:00`;
@@ -39,7 +41,8 @@ const CardIndv = ({ item }) => {
       const formattedDate = `${date.getDate()}/${
         date.getMonth() + 1
       }/${date.getFullYear()}`;
-      const formattedTime = `${date.getHours()}:${date
+      const formattedTime = `${date.getHours().toLocaleString()
+        .padStart(2, "0")}:${date
         .getMinutes()
         .toLocaleString()
         .padStart(2, "0")}`;

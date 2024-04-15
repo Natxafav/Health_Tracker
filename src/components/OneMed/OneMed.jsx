@@ -43,7 +43,8 @@ const OneMed = ({ item, handleReload }) => {
     .getDay(item.end)
     .toLocaleString()
     .padStart(2, "0")} 
-    ${endDate.getHours(item.end)}:${endDate
+    ${endDate.getHours(item.end).toLocaleString()
+      .padStart(2, "0")}:${endDate
     .getMinutes(item.end)
     .toLocaleString()
     .padStart(2, "0")}:00`);

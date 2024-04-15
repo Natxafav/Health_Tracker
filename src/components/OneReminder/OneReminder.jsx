@@ -24,7 +24,8 @@ const OneReminder = ({ item, handleReload }) => {
       .padStart(2, "0")}/${date
       .getDay(item.datetime)
       .toLocaleString()
-      .padStart(2, "0")} ${date.getHours(item.datetime)}:${date
+      .padStart(2, "0")} ${date.getHours(item.datetime).toLocaleString()
+        .padStart(2, "0")}:${date
       .getMinutes(item.datetime)
       .toLocaleString()
       .padStart(2, "0")}:00`

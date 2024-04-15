@@ -81,7 +81,7 @@ const Meet = () => {
               transition: "0.5s",
             },
             position: "fixed", 
-            top:"100px", 
+            top:"30px", 
             right:"50px"
           }}
         >
